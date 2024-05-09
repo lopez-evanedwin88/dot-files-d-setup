@@ -6,14 +6,15 @@ require('bufferline-config')
 require('nvim-web-devicons')
 require('nvim-tree-config')
 require('keymaps')
--- https://github.com/nvim-telescope/telescope.nvim
-require('telescope-config')
+require('telescope-config') -- https://github.com/nvim-telescope/telescope.nvim
 require('whichkey')
 require('lsp')
 require('undo-tree-config')
 require('gitsigns-config')
 require('toggle-term-config')
-vim.cmd("colorscheme nord")
+require('kanagawa-config')
+
+vim.cmd("colorscheme kanagawa")
 --vim.cmd("set fileformats=mac,unix,dos")
 --vim.opt.termguicolors = true
 --vim.cmd.colorscheme("nord")
