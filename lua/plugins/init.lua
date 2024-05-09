@@ -1,13 +1,13 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -53,46 +53,46 @@ require("lazy").setup({
             { 'williamboman/mason.nvim' },
             { 'williamboman/mason-lspconfig.nvim' },
 
-			-- Autocompletion
-			{ 'hrsh7th/nvim-cmp' },
-			{ 'hrsh7th/cmp-nvim-lsp' },
-			{ 'hrsh7th/cmp-buffer' },
-			{ 'hrsh7th/cmp-path' },
-			{ 'saadparwaiz1/cmp_luasnip' },
+            -- Autocompletion
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/cmp-buffer' },
+            { 'hrsh7th/cmp-path' },
+            { 'saadparwaiz1/cmp_luasnip' },
 
-			-- Snippets
-			{ 'L3MON4D3/LuaSnip' },
-			{ 'rafamadriz/friendly-snippets' },
-		}
-	},
-	{
-		"benfowler/telescope-luasnip.nvim",
-	},
-	{
-		"jiaoshijie/undotree",
-		requires = {
-			"nvim-lua/plenary.nvim",
-		},
-	},
-	{
-		"lewis6991/gitsigns.nvim",
-		requires = {
-			"nvim-lua/plenary.nvim",
-		},
-	},
-	{
-		"akinsho/toggleterm.nvim",
-		version = '*',
-		config = true
-	},
-	({
-		"kdheepak/lazygit.nvim",
-		-- optional for floating window border decoration
-		requires = {
-			"nvim-lua/plenary.nvim",
-		},
-	}),
-	-- Themes
-	{ "rebelot/kanagawa.nvim" },
-	{ 'shaunsingh/nord.nvim' }
+            -- Snippets
+            { 'L3MON4D3/LuaSnip' },
+            { 'rafamadriz/friendly-snippets' },
+        }
+    },
+    {
+        "benfowler/telescope-luasnip.nvim",
+    },
+    {
+        "jiaoshijie/undotree",
+        requires = {
+            "nvim-lua/plenary.nvim",
+        },
+    },
+    {
+        "lewis6991/gitsigns.nvim",
+        requires = {
+            "nvim-lua/plenary.nvim",
+        },
+    },
+    {
+        "akinsho/toggleterm.nvim",
+        version = '*',
+        config = true
+    },
+    ({
+        "kdheepak/lazygit.nvim",
+        -- optional for floating window border decoration
+        requires = {
+            "nvim-lua/plenary.nvim",
+        },
+    }),
+    -- Themes
+    { "rebelot/kanagawa.nvim" },
+    { 'shaunsingh/nord.nvim' }
 })
