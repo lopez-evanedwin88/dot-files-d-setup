@@ -81,7 +81,7 @@ local opts = {
 local mappings = {
 
     ["k"] = { "<cmd>bdelete<CR>", "Kill Buffer" }, -- Close current file
-    ["p"] = { "<cmd>Lazy<CR>", "Plugin Manager" }, -- Invoking plugin manager
+    --["p"] = { "<cmd>Lazy<CR>", "Plugin Manager" }, -- Invoking plugin manager
     ["q"] = { "<cmd>wqall!<CR>", "Quit" },         -- Quit Neovim after saving the file
     ["w"] = { "<cmd>w!<CR>", "Save" },             -- Save current file
 
@@ -96,15 +96,15 @@ local mappings = {
     --Toggle Term
     t = {
         name = "Terminal",
-        n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" }, -- Node Terminal
-        t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" }, -- (Optional) Htop, If you have htop in linux
-        p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" }, -- Python Terminal
-        g = { "<cmd>lua _LAZYGIT_TOGGLE()<cr>", "LazyGit" }, -- LazyGit UI 
+        n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },          -- Node Terminal
+        t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },          -- (Optional) Htop, If you have htop in linux
+        p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },      -- Python Terminal
+        g = { "<cmd>lua _LAZYGIT_TOGGLE()<cr>", "LazyGit" },    -- LazyGit UI
         f = { "<cmd>ToggleTerm direction=float<cr>", "Float" }, -- Floating Terminal
 
         -- Play with size according to your needs.
         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" }, -- Horizontal Terminal,
-        v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" }, -- Vertical Terminal
+        v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },     -- Vertical Terminal
     },
 
     --Git
@@ -159,6 +159,16 @@ local mappings = {
         r = { "<cmd>Telescope registers<cr>", "Registers" },
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
         c = { "<cmd>Telescope commands<cr>", "Commands" },
+    },
+
+    -- Packer
+    p = {
+        name = "Packer",
+        c = { "<cmd>PackerCompile<cr>", "Compile" },
+        i = { "<cmd>PackerInstall<cr>", "Install" },
+        s = { "<cmd>PackerSync<cr>", "Sync" },
+        S = { "<cmd>PackerStatus<cr>", "Status" },
+        u = { "<cmd>PackerUpdate<cr>", "Update" },
     },
 }
 
