@@ -81,7 +81,7 @@ local opts = {
 local mappings = {
 
     ["k"] = { "<cmd>bdelete<CR>", "Kill Buffer" }, -- Close current file
-    --["p"] = { "<cmd>Lazy<CR>", "Plugin Manager" }, -- Invoking plugin manager
+    ["p"] = { "<cmd>Lazy<CR>", "Plugin Manager" }, -- Invoking plugin manager
     ["q"] = { "<cmd>wqall!<CR>", "Quit" },         -- Quit Neovim after saving the file
     ["w"] = { "<cmd>w!<CR>", "Save" },             -- Save current file
 
@@ -159,16 +159,6 @@ local mappings = {
         r = { "<cmd>Telescope registers<cr>", "Registers" },
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
         c = { "<cmd>Telescope commands<cr>", "Commands" },
-    },
-
-    -- Packer
-    p = {
-        name = "Packer",
-        c = { "<cmd>PackerCompile<cr>", "Compile" },
-        i = { "<cmd>PackerInstall<cr>", "Install" },
-        s = { "<cmd>PackerSync<cr>", "Sync" },
-        S = { "<cmd>PackerStatus<cr>", "Status" },
-        u = { "<cmd>PackerUpdate<cr>", "Update" },
     },
 }
 
