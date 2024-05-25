@@ -19,7 +19,7 @@ require("lazy").setup({
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   },
-  { 'akinsho/bufferline.nvim', version = "*", requires = 'nvim-tree/nvim-web-devicons' },
+  { 'akinsho/bufferline.nvim', version = "v4.5.3", requires = 'nvim-tree/nvim-web-devicons' },
   {
     'nvim-tree/nvim-tree.lua',
     requires = {
