@@ -110,4 +110,5 @@ require("lazy").setup({
       "rcarriga/nvim-notify",
     }
   },
+  { 'nvimdev/lspsaga.nvim' },
 })

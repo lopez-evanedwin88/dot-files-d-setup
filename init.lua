@@ -13,7 +13,12 @@ require('undo-tree-config')
 require('gitsigns-config')
 require('toggle-term-config')
 require('kanagawa-config')
+require('lspsaga-config')
 
+
+vim.diagnostic.config({
+    virtual_text = false
+})
 vim.cmd("colorscheme kanagawa")
 --vim.cmd("set fileformats=mac,unix,dos")
 --vim.opt.termguicolors = true
