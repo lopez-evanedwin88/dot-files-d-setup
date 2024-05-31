@@ -30,13 +30,32 @@
 
 
 require('nvim-tree').setup({
-    update_focused_file = {
+  update_focused_file = {
     enable = true,
     update_cwd = true,
   },
   renderer = {
     root_folder_modifier = ":t",
- -- These icons are visible when you install web-devicons
+    add_trailing = false,
+    group_empty = false,
+    highlight_git = false,
+    full_name = false,
+    highlight_opened_files = "all",
+    highlight_modified = "none",
+    root_folder_label = ":~:s?$?/..?",
+    indent_width = 2,
+    indent_markers = {
+      enable = true,
+      inline_arrows = true,
+      icons = {
+        corner = "└",
+        edge = "│",
+        item = "│",
+        bottom = "─",
+        none = " ",
+      },
+    },
+    -- These icons are visible when you install web-devicons
     icons = {
       glyphs = {
         default = "",
