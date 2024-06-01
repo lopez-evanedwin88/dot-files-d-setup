@@ -153,6 +153,7 @@ local mappings = {
       p = { "<cmd>Lspsaga preview_definition<cr>", "Preview Definition" },
       s = { "<cmd>Lspsaga signature_help<cr>", "Signature Help" },
       w = { "<cmd>Lspsaga show_workspace_diagnostics<cr>", "Show Workspace Diagnostics" },
+      K = { "<cmd>Lspsaga hover_doc<cr>", "Go to / Display definition"}
     }
   },
   -- Telescope
