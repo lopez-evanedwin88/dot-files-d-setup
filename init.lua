@@ -14,6 +14,7 @@ require('gitsigns-config')
 require('toggle-term-config')
 require('kanagawa-config')
 require('lspsaga-config')
+require('harpoon-config')
 
 
 vim.diagnostic.config({
