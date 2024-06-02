@@ -15,6 +15,7 @@ require('toggle-term-config')
 require('kanagawa-config')
 require('lspsaga-config')
 require('harpoon-config')
+require('none-ls-config')
 
 vim.cmd("colorscheme kanagawa")
 --vim.cmd("set fileformats=mac,unix,dos")
