@@ -16,10 +16,6 @@ require('kanagawa-config')
 require('lspsaga-config')
 require('harpoon-config')
 
-
-vim.diagnostic.config({
-    virtual_text = false
-})
 vim.cmd("colorscheme kanagawa")
 --vim.cmd("set fileformats=mac,unix,dos")
 --vim.opt.termguicolors = true
