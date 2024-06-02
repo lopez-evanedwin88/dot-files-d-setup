@@ -4,10 +4,10 @@ local formatting = null_ls.builtins.formatting
 local completion = null_ls.builtins.completion
 
 null_ls.setup({
-	sources = {
-		formatting.stylua,
-		formatting.prettier,
-		require("none-ls.diagnostics.eslint_d"),
-		completion.spell,
-	},
+  sources = {
+    formatting.stylua,
+    formatting.prettier,
+    require("none-ls.diagnostics.eslint_d"),
+    completion.spell,
+  },
 })
