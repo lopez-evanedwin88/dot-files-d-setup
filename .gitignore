@@ -1,0 +1,6 @@
+# Ignore all files...
+/*
+# ...except the ones we want
+!.gitignore
+!.config/nvim/*
+!.tmux.conf
