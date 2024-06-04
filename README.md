@@ -1,1 +1,0 @@
-# neo-vim-d-ide
