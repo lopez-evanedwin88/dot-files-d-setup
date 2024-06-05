@@ -18,6 +18,8 @@ require('harpoon-config')
 require('none-ls-config')
 
 vim.cmd("colorscheme kanagawa")
+vim.cmd("hi! Normal ctermbg=NONE guibg=NONE")
+vim.cmd("hi! NonText ctermbg=NONE guibg=NONE")
 --vim.cmd("set fileformats=mac,unix,dos")
 --vim.opt.termguicolors = true
 --vim.cmd.colorscheme("nord")
