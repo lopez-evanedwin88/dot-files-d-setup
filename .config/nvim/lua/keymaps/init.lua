@@ -18,7 +18,7 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
-    -- Normal --
+-- Normal --
 -- Better window navigation
 --keymap("n", "<C-h>", "<C-w>h", opts) -- left window
 --keymap("n", "<C-k>", "<C-w>k", opts) -- up window
@@ -31,18 +31,17 @@ vim.g.maplocalleader = " "
 --keymap("n", "<c-right>", ":vertical resize -2<cr>", opts)
 --keymap("n", "<c-left>", ":vertical resize +2<cr>", opts)
 
-
 -- navigate buffers
-keymap("n", "<tab>", ":bnext<cr>", opts) -- Next Tab 
+keymap("n", "<tab>", ":bnext<cr>", opts) -- Next Tab
 keymap("n", "<s-tab>", ":bprevious<cr>", opts) -- Previous tab
 keymap("n", "<leader>h", ":nohlsearch<cr>", opts) -- No highlight search
 
 -- move text up and down
-keymap("n", "<a-j>", "<esc>:m .+1<cr>==gi", opts) -- Alt-j 
+keymap("n", "<a-j>", "<esc>:m .+1<cr>==gi", opts) -- Alt-j
 keymap("n", "<a-k>", "<esc>:m .-2<cr>==gi", opts) -- Alt-k
 
 -- insert --
--- press jk fast to exit insert mode 
+-- press jk fast to exit insert mode
 keymap("i", "jk", "<esc>", opts) -- Insert mode -> jk -> Normal mode
 keymap("i", "kj", "<esc>", opts) -- Insert mode -> kj -> Normal mode
 
@@ -57,7 +56,7 @@ keymap("v", "<a-k>", ":m .-2<cr>==", opts)
 
 -- Visual Block --
 -- Move text up and down
-    --Terminal --
+--Terminal --
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
