@@ -5,7 +5,12 @@ opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.completeopt = "menu,menuone,noselect"
 opt.conceallevel = 3 -- Hide * markup for bold and italic
 opt.confirm = true -- Confirm to save changes before exiting modified buffer
-opt.cursorline = true -- Enable highlighting of the current line
+opt.cursorline = false -- Enable highlighting of the current line
+opt.guicursor = {
+	"n-v-c:block-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100",
+	"i-ci:ver25-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100",
+	"r:hor50-Cursor/lCursor-blinkwait100-blinkon100-blinkoff100",
+}
 opt.expandtab = true -- Use spaces instead of tabs
 opt.formatoptions = "jcroqlnt" -- tcqj
 opt.grepformat = "%f:%l:%c:%m"
@@ -22,7 +27,7 @@ opt.pumheight = 10 -- Maximum number of entries in a popup
 opt.scrolloff = 5 -- Lines of context
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 opt.shiftround = true -- Round indent
-opt.shortmess:append { W = true, I = true, c = true }
+opt.shortmess:append({ W = true, I = true, c = true })
 opt.showmode = false -- Dont show mode since we have a statusline
 opt.sidescrolloff = 8 -- Columns of context
 opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
@@ -43,11 +48,11 @@ opt.wrap = false -- Disable line wrap
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
 
-vim.cmd('filetype plugin indent on')
+vim.cmd("filetype plugin indent on")
 -- vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.o.hidden = true
-vim.o.whichwrap = 'b,s,<,>,[,],h,l'
-vim.o.fileencoding = 'utf-8'
+vim.o.whichwrap = "b,s,<,>,[,],h,l"
+vim.o.fileencoding = "utf-8"
 vim.o.cmdheight = 2
 vim.o.showtabline = 2
 vim.o.backup = false
