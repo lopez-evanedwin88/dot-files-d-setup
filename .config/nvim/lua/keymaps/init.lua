@@ -51,8 +51,8 @@ keymap("v", "<", "<gv", opts) -- Right Indentation
 keymap("v", ">", ">gv", opts) -- Left Indentation
 
 -- move text up and down
-keymap("v", "<a-j>", ":m .+1<cr>==", opts)
-keymap("v", "<a-k>", ":m .-2<cr>==", opts)
+keymap("v", "<a-j>", ":m .+1<cr>==", opts) -- Alt-j
+keymap("v", "<a-k>", ":m .-2<cr>==", opts) -- Alt-k
 
 -- Visual Block --
 -- Move text up and down
@@ -80,7 +80,7 @@ keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
 
 keymap("n", "<leader>d", [["_d]], opts)
 keymap("v", "<leader>d", [["_d]], opts)
-keymap("x", "<leader>P", [["_dP]], opts)
+-- keymap("x", "<leader>P", [["_dP]], opts) -- or "P"
 keymap("n", "<leader>y", [["+y]], opts)
 keymap("v", "<leader>y", [["+y]], opts)
 keymap("n", "<leader>Y", [["+Y]], opts)
