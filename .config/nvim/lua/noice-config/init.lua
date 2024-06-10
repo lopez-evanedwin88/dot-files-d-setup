@@ -1,7 +1,7 @@
 require("noice").setup({
 	messages = {
 		enabled = true, -- enables the Noice messages UIview
-		view = "notify",
+		view = "split",
 	},
 	-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 	override = {
@@ -66,13 +66,6 @@ require("noice").setup({
 				timeout = 5000,
 			},
 			view = "mini",
-		},
-	},
-	views = {
-		notify = {
-			backend = "split",
-			fallback = "mini",
-			format = "notify",
 		},
 	},
 })
