@@ -135,4 +135,5 @@ require("lazy").setup({
     },
   },
   { "tpope/vim-fugitive" },
+  { 'nvim-telescope/telescope-ui-select.nvim' }
 })

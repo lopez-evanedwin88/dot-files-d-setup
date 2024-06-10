@@ -31,6 +31,7 @@
   "packer.nvim": { "branch": "master", "commit": "ea0cc3c59f67c440c5ff0bbe4fb9420f4350b9a3" },
   "plenary.nvim": { "branch": "master", "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683" },
   "telescope-luasnip.nvim": { "branch": "master", "commit": "11668478677de360dea45cf2b090d34f21b8ae07" },
+  "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
   "telescope.nvim": { "branch": "master", "commit": "6312868392331c9c0f22725041f1ec2bef57c751" },
   "toggleterm.nvim": { "branch": "main", "commit": "066cccf48a43553a80a210eb3be89a15d789d6e6" },
   "undotree": { "branch": "main", "commit": "eab459ab87dd249617b5f7187bb69e614a083047" },
