@@ -4,7 +4,13 @@ local lsp_zero = require("lsp-zero")
 lsp_zero.on_attach(function(_, bufnr)
 	-- see :help lsp-zero-keybindings
 	-- to learn the available actions
-	lsp_zero.default_keymaps({ buffer = bufnr })
+	lsp_zero.default_keymaps({
+		buffer = bufnr,
+		preserve_mappings = false,
+	})
+
+  -- Added custom keybindings for LSP
+	vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr })
 end)
 
 -- (Optional) Configure lua language server for neovim
