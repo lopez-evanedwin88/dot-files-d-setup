@@ -57,13 +57,31 @@ keymap("v", "<a-k>", ":m .-2<cr>==", opts)
 -- Visual Block --
 -- Move text up and down
 --Terminal --
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "J", ":move '>+1<CR>gv=gv", opts) -- Change to gv=gv to auto indent
+keymap("x", "K", ":move '<-2<CR>gv=gv", opts) -- Change to gv=gv to auto indent
+keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts) -- Alt-j
+keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts) -- Alt-k
 
 --Better terminal navigation
 keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+
+--Remaps from ThePrimeagen
+keymap("n", "J", "mzJ`z", opts)
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
+
+keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], opts)
+-- keymap("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true }, opts) -- For creating bash scripts
+
+keymap("n", "<leader>d", [["_d]], opts)
+keymap("v", "<leader>d", [["_d]], opts)
+keymap("x", "<leader>P", [["_dP]], opts)
+keymap("n", "<leader>y", [["+y]], opts)
+keymap("v", "<leader>y", [["+y]], opts)
+keymap("n", "<leader>Y", [["+Y]], opts)
+
