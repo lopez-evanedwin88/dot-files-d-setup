@@ -1,7 +1,7 @@
 require("noice").setup({
 	messages = {
 		enabled = true, -- enables the Noice messages UIview
-		view = "mini",
+		view = "notify",
 	},
 	-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 	override = {
@@ -75,6 +75,15 @@ require("noice").setup({
 			view = "mini",
 		},
 	},
+  views = {
+    notify = {
+      backend = "split",
+      fallback = "mini",
+      format = "notify",
+      replace = false,
+      merge = true,
+    }
+  },
 })
 
 vim.keymap.set("c", "<S-Enter>", function()
