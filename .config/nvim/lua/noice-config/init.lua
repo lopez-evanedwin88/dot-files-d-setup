@@ -80,7 +80,7 @@ require("noice").setup({
       backend = "split",
       fallback = "mini",
       format = "notify",
-      replace = false,
+      replace = true,
       merge = true,
     }
   },
