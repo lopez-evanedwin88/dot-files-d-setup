@@ -16,6 +16,7 @@ require("noice").setup({
 				event = "msg_show",
 				min_height = 5,
 			},
+			opts = { replace = true, merge = true },
 		},
 		{
 			view = "notify",
@@ -75,15 +76,13 @@ require("noice").setup({
 			view = "mini",
 		},
 	},
-  views = {
-    notify = {
-      backend = "split",
-      fallback = "mini",
-      format = "notify",
-      replace = true,
-      merge = true,
-    }
-  },
+	views = {
+		notify = {
+			backend = "split",
+			fallback = "mini",
+			format = "notify",
+		},
+	},
 })
 
 vim.keymap.set("c", "<S-Enter>", function()
