@@ -11,14 +11,6 @@ require("noice").setup({
 	},
 	routes = {
 		{
-			view = "split",
-			filter = {
-				event = "msg_show",
-				min_height = 5,
-			},
-			opts = { replace = true, merge = true },
-		},
-		{
 			view = "notify",
 			filter = { event = "msg_showmode" },
 		},
