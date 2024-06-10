@@ -5,7 +5,7 @@ opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.completeopt = "menu,menuone,noselect"
 opt.conceallevel = 3 -- Hide * markup for bold and italic
 opt.confirm = true -- Confirm to save changes before exiting modified buffer
-opt.cursorline = false -- Enable highlighting of the current line
+opt.cursorline = true -- Enable highlighting of the current line
 opt.guicursor = {
 	"n-v-c:block-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100",
 	"i-ci:ver25-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100",
@@ -24,6 +24,7 @@ opt.mouse = "a" -- Enable mouse mode
 opt.number = true -- Print line number
 opt.pumblend = 10 -- Popup blend
 opt.pumheight = 10 -- Maximum number of entries in a popup
+opt.relativenumber = true -- Relative line numbers
 opt.scrolloff = 5 -- Lines of context
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 opt.shiftround = true -- Round indent
