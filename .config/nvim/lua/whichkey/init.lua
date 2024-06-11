@@ -85,8 +85,6 @@ local mappings = {
   ["q"] = { "<cmd>wqall!<CR>", "Quit" },        -- Quit Neovim after saving the file
   ["w"] = { "<cmd>w!<CR>", "Save" },            -- Save current file
 
-  -- Added this line from the initial file
-  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" }, -- File explorer
   -- LSP Config
   ["r"] = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Reformat Code" },
   ["m"] = { "<cmd>Mason<cr>", "Mason" },                               -- LSP Manager
