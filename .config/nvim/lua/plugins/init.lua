@@ -159,4 +159,9 @@ require("lazy").setup({
 		"numToStr/Comment.nvim",
 	},
 	{ "JoosepAlviste/nvim-ts-context-commentstring" },
+	{
+		"kylechui/nvim-surround",
+		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+	},
 })
