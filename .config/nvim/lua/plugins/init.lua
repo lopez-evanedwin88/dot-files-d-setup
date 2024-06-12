@@ -17,9 +17,9 @@ require("lazy").setup({
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", event = { "BufReadPre", "BufNewFile" } },
 	{
 		"nvim-lualine/lualine.nvim",
-		requires = { "nvim-tree/nvim-web-devicons", opt = true },
+		dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
 	},
-	{ "akinsho/bufferline.nvim", version = "*", requires = "nvim-tree/nvim-web-devicons" },
+	{ "akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
@@ -65,13 +65,13 @@ require("lazy").setup({
 	},
 	{
 		"jiaoshijie/undotree",
-		requires = {
+		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
 	},
 	{
 		"lewis6991/gitsigns.nvim",
-		requires = {
+		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
 	},
@@ -83,7 +83,7 @@ require("lazy").setup({
 	{
 		"kdheepak/lazygit.nvim",
 		-- optional for floating window border decoration
-		requires = {
+		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
 	},
@@ -106,8 +106,8 @@ require("lazy").setup({
 	},
 	{
 		"nvimtools/none-ls.nvim",
-		requires = { "nvim-lua/plenary.nvim" },
 		dependencies = {
+			"nvim-lua/plenary.nvim",
 			"nvimtools/none-ls-extras.nvim",
 		},
 	},
@@ -163,5 +163,10 @@ require("lazy").setup({
 		"kylechui/nvim-surround",
 		version = "*", -- Use for stability; omit to use `main` branch for the latest features
 		event = "VeryLazy",
+	},
+	{
+		"0x100101/lab.nvim",
+		-- cmd = "cd js && npm ci", -- or install if manually
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 })
