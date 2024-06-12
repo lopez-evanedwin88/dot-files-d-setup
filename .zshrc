@@ -14,7 +14,7 @@ eval "$(starship init zsh)"
 
 eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/atomic.omp.json)"
 
-eval "$(fzf --zsh)"
+# eval "$(fzf --zsh)"
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
