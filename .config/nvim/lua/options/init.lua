@@ -1,74 +1,53 @@
-local opt = vim.opt
-
-opt.autowrite = true -- Enable auto write
---opt.clipboard = "unnamedplus" -- Sync with system clipboard
-opt.completeopt = "menu,menuone,noselect"
-opt.conceallevel = 3 -- Hide * markup for bold and italic
-opt.confirm = true -- Confirm to save changes before exiting modified buffer
-opt.cursorline = true -- Enable highlighting of the current line
-opt.guicursor = {
-	"n-v-c:block-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100",
-	"i-ci:ver25-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100",
-	"r:hor50-Cursor/lCursor-blinkwait100-blinkon100-blinkoff100",
+vim.opt.backup = false -- creates a backup file
+vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
+vim.opt.cmdheight = 1 -- more space in the neovim command line for displaying messages
+vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
+vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
+-- vim.opt.fileencoding = "utf-8" -- the encoding written to a file
+vim.opt.hlsearch = true -- highlight all matches on previous search pattern
+vim.opt.ignorecase = true -- ignore case in search patterns
+vim.opt.mouse = "a" -- allow the mouse to be used in neovim
+vim.opt.pumheight = 10 -- pop up menu height
+vim.opt.pumblend = 10
+vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
+vim.opt.showtabline = 1 -- always show tabs
+vim.opt.smartcase = true -- smart case
+vim.opt.smartindent = true -- make indenting smarter again
+vim.opt.splitbelow = true -- force all horizontal splits to go below current window
+vim.opt.splitright = true -- force all vertical splits to go to the right of current window
+vim.opt.swapfile = false -- creates a swapfile
+vim.opt.termguicolors = true -- set term gui colors (most terminals support this)
+vim.opt.timeoutlen = 1000 -- time to wait for a mapped sequence to complete (in milliseconds)
+vim.opt.undofile = true -- enable persistent undo
+vim.opt.updatetime = 100 -- faster completion (4000ms default)
+vim.opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+vim.opt.expandtab = true -- convert tabs to spaces
+vim.opt.shiftwidth = 2 -- the number of spaces inserted for each indentation
+vim.opt.tabstop = 2 -- insert 2 spaces for a tab
+vim.opt.cursorline = true -- highlight the current line
+vim.opt.number = true -- set numbered lines
+vim.opt.laststatus = 3
+vim.opt.showcmd = false
+vim.opt.ruler = false
+vim.opt.relativenumber = true -- set relative numbered lines
+vim.opt.numberwidth = 4 -- set number column width to 2 {default 4}
+vim.opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
+vim.opt.wrap = false -- display lines as one long line
+vim.opt.scrolloff = 0
+vim.opt.sidescrolloff = 8
+vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
+vim.opt.title = false
+-- colorcolumn = "80",
+-- colorcolumn = "120",
+vim.opt.fillchars = vim.opt.fillchars + "eob: "
+vim.opt.fillchars:append {
+  stl = " ",
 }
-opt.expandtab = true -- Use spaces instead of tabs
-opt.formatoptions = "jcroqlnt" -- tcqj
-opt.grepformat = "%f:%l:%c:%m"
-opt.grepprg = "rg --vimgrep"
-opt.ignorecase = true -- Ignore case
-opt.inccommand = "nosplit" -- preview incremental substitute
-opt.incsearch = true
-opt.laststatus = 0
-opt.list = true -- Show some invisible characters (tabs...
-opt.mouse = "a" -- Enable mouse mode
-opt.number = true -- Print line number
-opt.pumblend = 10 -- Popup blend
-opt.pumheight = 10 -- Maximum number of entries in a popup
-opt.relativenumber = true -- Relative line numbers
-opt.scrolloff = 5 -- Lines of context
-opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
-opt.shiftround = true -- Round indent
-opt.shortmess:append({ W = true, I = true, c = true })
-opt.showmode = false -- Dont show mode since we have a statusline
-opt.sidescrolloff = 8 -- Columns of context
-opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
-opt.smartcase = true -- Don't ignore case with capitals
-opt.smartindent = true -- Insert indents automatically
-opt.spelllang = { "en" }
-opt.splitbelow = true -- Put new windows below current
-opt.splitright = true -- Put new windows right of current
-opt.termguicolors = true -- True color support
-opt.timeoutlen = 500 -- speed must be under 500ms inorder for keys to work, increase if you are not able to.
-opt.undofile = true
-opt.undolevels = 10000
---opt.updatetime = 200 -- Save swap file and trigger CursorHold
-opt.wildmode = "longest:full,full" -- Command-line completion mode
-opt.winminwidth = 5 -- Minimum window width
-opt.wrap = false -- Disable line wrap
 
--- Fix markdown indentation settings
-vim.g.markdown_recommended_style = 0
+vim.opt.shortmess:append "c"
 
-vim.cmd("filetype plugin indent on")
--- vim.o.shortmess = vim.o.shortmess .. 'c'
-vim.o.hidden = true
-vim.o.whichwrap = "b,s,<,>,[,],h,l"
-vim.o.fileencoding = "utf-8"
-vim.o.cmdheight = 2
-vim.o.showtabline = 2
-vim.o.backup = false
-vim.o.writebackup = false
-vim.o.updatetime = 300
-vim.o.hlsearch = false
-vim.wo.wrap = false
-vim.wo.number = true
-vim.wo.signcolumn = "yes"
-vim.o.tabstop = 2
-vim.bo.tabstop = 2
-vim.o.softtabstop = 2
-vim.o.shiftwidth = 2
-vim.bo.shiftwidth = 2
-vim.o.autoindent = true
-vim.bo.autoindent = true
-vim.o.expandtab = true
-vim.bo.expandtab = true
+vim.cmd "set whichwrap+=<,>,[,],h,l"
+vim.cmd [[set iskeyword+=-]]
+
+vim.g.netrw_banner = 0
+vim.g.netrw_mouse = 2
