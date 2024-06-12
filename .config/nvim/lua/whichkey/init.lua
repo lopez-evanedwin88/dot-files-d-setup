@@ -91,6 +91,8 @@ local mappings = {
   -- Undo tree
   ["u"] = { "<cmd>lua require('undotree').toggle()<CR>", "Undo-Tree" }, -- Undo History
 
+  -- Display all buffer
+  ["bb"] = { "<cmd>Telescope buffers previewer=false<cr>", "Find" },
   --Toggle Term
   t = {
     name = "Terminal",
