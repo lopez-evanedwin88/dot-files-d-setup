@@ -169,4 +169,8 @@ require("lazy").setup({
 		-- cmd = "cd js && npm ci", -- or install if manually
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
+	-- Highlights colors
+	{
+		"RRethy/vim-illuminate",
+	},
 })
