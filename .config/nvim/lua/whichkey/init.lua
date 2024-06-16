@@ -93,6 +93,10 @@ local mappings = {
 
   -- Display all buffer
   ["bb"] = { "<cmd>Telescope buffers previewer=false<cr>", "Find" },
+
+  --Dimiss noice
+  ["nd"] = { "<cmd>NoiceDismiss<cr>", "Dimiss Noice Message" },
+
   --Toggle Term
   t = {
     name = "Terminal",
