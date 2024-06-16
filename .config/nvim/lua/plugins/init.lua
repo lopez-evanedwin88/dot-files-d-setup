@@ -173,4 +173,8 @@ require("lazy").setup({
 	{
 		"RRethy/vim-illuminate",
 	},
+	{
+		"nvimdev/dashboard-nvim",
+		event = "VimEnter",
+	},
 })
