@@ -1,7 +1,5 @@
 # dot-files-d-d-terminal
 
-Dependencies: 
-  Iterm2:
-  tmux: 
-  Starship:
-  Stow: For managing system links in local
+Setup: 
+  Terminals: Iterm2 or Warp
+  Dependencies: tmux, Starship Stow (For managing system links in local)
