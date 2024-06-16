@@ -1,7 +1,7 @@
 require("noice").setup({
 	messages = {
 		enabled = true, -- enables the Noice messages UIview
-		view = "cmdline",
+		view = "cmdline_popup",
 	},
 	-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 	override = {
