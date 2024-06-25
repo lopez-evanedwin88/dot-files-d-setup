@@ -177,4 +177,10 @@ require("lazy").setup({
 		"nvimdev/dashboard-nvim",
 		event = "VimEnter",
 	},
+	{
+		"kevinhwang91/nvim-ufo",
+		dependencies = {
+			"kevinhwang91/promise-async",
+		},
+	},
 })
