@@ -183,4 +183,10 @@ require("lazy").setup({
 			"kevinhwang91/promise-async",
 		},
 	},
+	{
+		"stevearc/oil.nvim",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
 })
