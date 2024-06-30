@@ -189,4 +189,7 @@ require("lazy").setup({
 			"nvim-tree/nvim-web-devicons",
 		},
 	},
+  {
+    "folke/flash.nvim"
+  }
 })
