@@ -1,7 +1,3 @@
-[user]
-	name = Evan Edwin Lopez
-  email = lopez.evanedwin@gmail.com
-
 [alias]
   lg = lg1
   lg1 = lg1-specific --all
