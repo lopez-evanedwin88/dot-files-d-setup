@@ -83,6 +83,13 @@ require("lazy").setup({
 	{
 		"kdheepak/lazygit.nvim",
 		-- optional for floating window border decoration
+		cmd = {
+			"LazyGit",
+			"LazyGitConfig",
+			"LazyGitCurrentFile",
+			"LazyGitFilter",
+			"LazyGitFilterCurrentFile",
+		},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
@@ -188,7 +195,7 @@ require("lazy").setup({
 			"nvim-tree/nvim-web-devicons",
 		},
 	},
-  {
-    "folke/flash.nvim"
-  }
+	{
+		"folke/flash.nvim",
+	},
 })
