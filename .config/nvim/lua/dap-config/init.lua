@@ -102,10 +102,19 @@ require("nvim-dap-virtual-text").setup({
 	-- e.g. 80 to position at column 80, see `:h nvim_buf_set_extmark()`
 })
 
+require("mason-nvim-dap").setup({
+	automatic_installation = false,
+	ensure_installed = {
+		-- Due to a bug with the latest version of vscode-js-debug, need to lock to specific version
+		-- See: https://github.com/mxsdev/nvim-dap-vscode-js/issues/58#issuecomment-2213230558
+		"js@v1.76.1",
+		"chrome",
+	},
+})
+
 require("dap-vscode-js").setup({
-	-- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
-	debugger_path = vim.fn.resolve(vim.fn.stdpath("data") .. "/lazy/vscode-js-debug"),
-	-- debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
+	debugger_path = vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter",
+	debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
 	adapters = {
 		"chrome",
 		"pwa-node",
@@ -122,6 +131,31 @@ require("dap-vscode-js").setup({
 for _, language in ipairs({ "typescript", "javascript", "typescriptreact", "javascriptreact", "vue" }) do
 	dap.configurations[language] = {
 		{
+			type = "pwa-chrome",
+			request = "launch",
+			name = 'Launch Chrome with "localhost"',
+			url = function()
+				local co = coroutine.running()
+				return coroutine.create(function()
+					vim.ui.input({ prompt = "Enter URL: ", default = "http://localhost:3000" }, function(url)
+						if url == nil or url == "" then
+							return
+						else
+							coroutine.resume(co, url)
+						end
+					end)
+				end)
+			end,
+			webRoot = vim.fn.getcwd(),
+			protocol = "inspector",
+			sourceMaps = true,
+			userDataDir = false,
+			resolveSourceMapLocations = {
+				"${workspaceFolder}/**",
+				"!**/node_modules/**",
+			},
+		},
+		{
 			type = "pwa-node",
 			request = "launch",
 			name = "Launch Current File (pwa-node)",
@@ -129,6 +163,15 @@ for _, language in ipairs({ "typescript", "javascript", "typescriptreact", "java
 			args = { "${file}" },
 			sourceMaps = true,
 			protocol = "inspector",
+			runtimeExecutable = "npm",
+			runtimeArgs = {
+				"run-script",
+				"dev",
+			},
+			resolveSourceMapLocations = {
+				"${workspaceFolder}/**",
+				"!**/node_modules/**",
+			},
 		},
 		{
 			type = "pwa-node",
@@ -188,8 +231,6 @@ for _, language in ipairs({ "typescript", "javascript", "typescriptreact", "java
 			cwd = vim.fn.getcwd(),
 			runtimeArgs = { "test", "--inspect-brk", "--allow-all", "${file}" },
 			runtimeExecutable = "deno",
-			smartStep = true,
-			console = "integratedTerminal",
 			attachSimplePort = 9229,
 		},
 		{
@@ -199,26 +240,12 @@ for _, language in ipairs({ "typescript", "javascript", "typescriptreact", "java
 			program = "${file}",
 			cwd = vim.fn.getcwd(),
 			sourceMaps = true,
+			protocol = "inspector",
 			port = function()
 				return vim.fn.input("Select port: ", 9222)
 			end,
 			webRoot = "${workspaceFolder}",
 		},
-		-- {
-		--   type = "node2",
-		--   request = "attach",
-		--   name = "Attach Program (Node2)",
-		--   processId = dap_utils.pick_process,
-		-- },
-		-- {
-		--   type = "node2",
-		--   request = "attach",
-		--   name = "Attach Program (Node2 with ts-node)",
-		--   cwd = vim.fn.getcwd(),
-		--   sourceMaps = true,
-		--   skipFiles = { "<node_internals>/**" },
-		--   port = 9229,
-		-- },
 		{
 			type = "pwa-node",
 			request = "attach",
@@ -226,12 +253,6 @@ for _, language in ipairs({ "typescript", "javascript", "typescriptreact", "java
 			cwd = vim.fn.getcwd(),
 			processId = dap_utils.pick_process,
 			skipFiles = { "<node_internals>/**" },
-		},
-		-- Divider for the launch.json derived configs
-		{
-			name = "----- ↓ launch.json configs ↓ -----",
-			type = "",
-			request = "launch",
 		},
 	}
 end
