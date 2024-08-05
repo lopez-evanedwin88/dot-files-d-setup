@@ -54,6 +54,10 @@ vim.keymap.set({ "n", "v" }, "<Leader>de", function()
 	require("dapui").eval()
 end, { desc = "Eval" })
 
+
+vim.fn.sign_define("DapBreakpoint", { text = "⬤", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+vim.fn.sign_define('DapStopped', { text='⏭', texthl='DapStopped', linehl='DapStopped', numhl= 'DapStopped' })
+
 dap.listeners.before.attach.dapui_config = function()
 	dapui.open()
 end
