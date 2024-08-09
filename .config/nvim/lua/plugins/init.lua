@@ -259,4 +259,8 @@ require("lazy").setup({
       -- { "<leader>qd", function() require("persistence").stop() end, desc = "Don't Save Current Session" },
     },
 	},
+	{
+		"nanozuki/tabby.nvim",
+		event = "VeryLazy",
+	},
 })
