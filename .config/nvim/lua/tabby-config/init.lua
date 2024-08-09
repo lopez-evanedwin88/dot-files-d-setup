@@ -1,4 +1,4 @@
-vim.opt.showtabline = 2
+vim.opt.showtabline = 1
 
 local theme = {
   fill = "TabLineFill",
