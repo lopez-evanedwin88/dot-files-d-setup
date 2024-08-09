@@ -219,4 +219,18 @@ require("lazy").setup({
 		build = "npm install --legacy-peer-deps --no-save && npx gulp vsDebugServerBundle && rm -rf out && mv dist out",
 		version = "1.*",
 	},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+	},
+	{
+		"windwp/nvim-autopairs",
+	},
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		dependencies = {
+			"zbirenbaum/copilot-cmp",
+		},
+	},
 })
