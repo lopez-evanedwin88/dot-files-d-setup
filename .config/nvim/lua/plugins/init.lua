@@ -233,4 +233,30 @@ require("lazy").setup({
 			"zbirenbaum/copilot-cmp",
 		},
 	},
+	{
+		"jinh0/eyeliner.nvim",
+	},
+	{
+		"andymass/vim-matchup",
+		setup = function()
+			vim.g.matchup_matchparen_offscreen = { method = nil }
+			vim.g.matchup_matchpref = { html = { nolists = 1 } }
+		end,
+	},
+	{
+		"karb94/neoscroll.nvim",
+		commit = "e786577",
+	},
+	{ "nacro90/numb.nvim", event = "VeryLazy" },
+	{
+		"folke/persistence.nvim",
+		event = "BufReadPre",
+		opts = { options = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp" } },
+    -- stylua: ignore
+    keys = {
+      -- { "<leader>qs", function() require("persistence").load() end, desc = "Restore Session" },
+      -- { "<leader>ql", function() require("persistence").load({ last = true }) end, desc = "Restore Last Session" },
+      -- { "<leader>qd", function() require("persistence").stop() end, desc = "Don't Save Current Session" },
+    },
+	},
 })
