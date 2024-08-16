@@ -1,1 +1,5 @@
-require("fzf-lua").setup({})
+require("fzf-lua").setup({
+	fzf_opts = {
+		["--layout"] = "reverse-list",
+	},
+})
