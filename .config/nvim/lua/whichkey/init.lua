@@ -173,9 +173,10 @@ local mappings = {
 	-- Telescope
 	f = {
 		name = "File Search",
+		e = { "<cmd>FzfLua resume<cr>", "Colorscheme" },
 		c = { "<cmd>FzfLua colorschemes<cr>", "Colorscheme" },
-		f = { "<cmd>lua require('fzf-lua').files({ resume = true })<cr>", "Find files" },
-		t = { "<cmd>lua require('fzf-lua').live_grep({ resume = true })<cr>", "Find Text Pattern" },
+		f = { "<cmd>lua require('fzf-lua').files()<cr>", "Find files" },
+		t = { "<cmd>lua require('fzf-lua').live_grep()<cr>", "Find Text Pattern" },
 		r = { "<cmd>lua require('fzf-lua').oldfiles()<cr>", "Recent Files" },
 		g = { "<cmd>Telescope luasnip<cr>", "Snip commands" },
 	},
