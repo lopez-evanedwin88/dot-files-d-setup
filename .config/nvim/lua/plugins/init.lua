@@ -263,4 +263,8 @@ require("lazy").setup({
 		"nanozuki/tabby.nvim",
 		event = "VeryLazy",
 	},
+	{
+		"kawre/neotab.nvim",
+		event = "InsertEnter",
+	},
 })
