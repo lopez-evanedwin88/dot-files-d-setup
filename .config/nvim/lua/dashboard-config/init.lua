@@ -114,7 +114,7 @@ require("dashboard").setup({
 				desc_hl = "Text",
 				key = "f",
 				key_hl = "GitSignsAdd",
-				action = "Telescope find_files",
+				action = "lua require('fzf-lua').files()",
 			},
 			{
 				icon = " ",
@@ -123,7 +123,7 @@ require("dashboard").setup({
 				desc_hl = "Text",
 				key = "t",
 				key_hl = "GitSignsAdd",
-				action = "Telescope live_grep",
+				action = "lua require('fzf-lua').live_grep()",
 			},
 			{
 				icon = "󰗼 ",

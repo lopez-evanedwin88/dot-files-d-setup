@@ -92,7 +92,7 @@ local mappings = {
 	["u"] = { "<cmd>lua require('undotree').toggle()<CR>", "Undo-Tree" }, -- Undo History
 
 	-- Display all buffer
-	["bb"] = { "<cmd>Telescope buffers previewer=false<cr>", "Find" },
+	["bb"] = { "<cmd>lua require('fzf-lua').buffers()<cr>", "Find" },
 
 	--Dimiss noice
 	["nd"] = { "<cmd>NoiceDismiss<cr>", "Dimiss Noice Message" },
@@ -124,9 +124,9 @@ local mappings = {
 			"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
 			"Undo Stage Hunk",
 		},
-		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+		o = { "<cmd>FzfLua git_status<cr>", "Open changed file" },
+		b = { "<cmd>FzfLua git_branches<cr>", "Checkout branch" },
+		c = { "<cmd>FzfLua git_commits<cr>", "Checkout commit" },
 		d = {
 			"<cmd>Gitsigns diffthis HEAD<cr>",
 			"Diff",
@@ -144,9 +144,9 @@ local mappings = {
 			name = "LSP",
 			i = { "<cmd>LspInfo<cr>", "Info" },
 			r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-			s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+			s = { "<cmd>FzfLua lsp_document_symbols<cr>", "Document Symbols" },
 			S = {
-				"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+				"<cmd>FzfLua lsp_dynamic_workspace_symbols<cr>",
 				"Workspace Symbols",
 			},
 		},
@@ -173,10 +173,10 @@ local mappings = {
 	-- Telescope
 	f = {
 		name = "File Search",
-		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-		f = { "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>", "Find files" },
-		t = { "<cmd>Telescope live_grep <cr>", "Find Text Pattern" },
-		r = { "<cmd>Telescope oldfiles<cr>", "Recent Files" },
+		c = { "<cmd>FzfLua colorschemes<cr>", "Colorscheme" },
+		f = { "<cmd>lua require('fzf-lua').files({ resume = true })<cr>", "Find files" },
+		t = { "<cmd>lua require('fzf-lua').live_grep({ resume = true })<cr>", "Find Text Pattern" },
+		r = { "<cmd>lua require('fzf-lua').oldfiles()<cr>", "Recent Files" },
 		g = { "<cmd>Telescope luasnip<cr>", "Snip commands" },
 	},
 

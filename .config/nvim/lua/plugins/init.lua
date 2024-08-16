@@ -38,7 +38,6 @@ require("lazy").setup({
 		tag = "0.1.6",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
-	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v3.x",
@@ -267,5 +266,8 @@ require("lazy").setup({
 	{
 		"kawre/neotab.nvim",
 		event = "InsertEnter",
+	},
+	{
+		"ibhagwan/fzf-lua",
 	},
 })
