@@ -21,3 +21,14 @@ SAVEHIST=10000
 setopt appendhistory
 
 eval "$(zoxide init --cmd cd zsh)"
+
+#quick Commands kubernetes
+alias k=kubectl
+alias kns=kubens
+alias ktx=kubectx
+alias kgps='kubectl get pods'
+alias kgp='kubectl get pod'
+alias kdes='kubectl describe'
+alias kdel='kubectl delete'
+alias kaf='kubectl apply -f'
+alias klog='kubectl logs'
