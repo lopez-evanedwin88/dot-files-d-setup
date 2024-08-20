@@ -22,7 +22,7 @@ setopt appendhistory
 
 eval "$(zoxide init --cmd cd zsh)"
 
-#quick Commands kubernetes
+#quick commands kubernetes
 alias k=kubectl
 alias kns=kubens
 alias ktx=kubectx
@@ -32,3 +32,9 @@ alias kdes='kubectl describe'
 alias kdel='kubectl delete'
 alias kaf='kubectl apply -f'
 alias klog='kubectl logs'
+
+#quick commands git
+alias gl='git log'
+alias gc='git checkout'
+alias gb='git branch'
+alias gp='git pull'
