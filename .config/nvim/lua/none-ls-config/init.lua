@@ -9,7 +9,7 @@ null_ls.setup({
 		formatting.stylua,
 		formatting.prettier,
 		formatting.black,
-		formatting.blackd,
+		-- formatting.blackd,
 		formatting.djlint,
 		completion.spell,
 		require("none-ls.diagnostics.eslint_d"),
