@@ -19,13 +19,15 @@ require("copilot").setup({
     },
   },
   filetypes = {
+    javascript = true,
+    typescript = true,
     yaml = true,
     markdown = true,
     help = false,
     gitcommit = false,
     gitrebase = false,
     cvs = false,
-    ["."] = false,
+    ["*"] = true
   },
   copilot_node_command = "node",
 })

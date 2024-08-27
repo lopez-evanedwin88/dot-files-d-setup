@@ -270,4 +270,5 @@ require("lazy").setup({
 	{
 		"ibhagwan/fzf-lua",
 	},
+	{ "robitx/gp.nvim" },
 })
