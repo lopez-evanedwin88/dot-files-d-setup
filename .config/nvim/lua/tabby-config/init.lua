@@ -1,7 +1,7 @@
 vim.opt.showtabline = 3
 
 local theme = {
-	fill = "TabLineFill",
+	fill = {},
 	head = "TabLine",
 	current_tab = { fg = "#F8FBF6", bg = "#896a98", style = "italic" },
 	tab = "TabLine",
@@ -31,7 +31,7 @@ require("tabby").setup({
 					-- change_mark(tab),
 					-- line.sep(" ", hl, theme.fill),
 					-- line.sep(" ", hl, theme.fill),
-					line.sep("", {}, theme.fill),
+					line.sep("", theme.fill, theme.fill),
 					hl = hl,
 					margin = " ",
 				}
