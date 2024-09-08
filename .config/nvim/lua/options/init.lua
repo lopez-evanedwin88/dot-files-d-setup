@@ -56,7 +56,8 @@ opt.autowrite = true -- Enable auto write
 -- integration works automatically. Requires Neovim >= 0.10.0
 opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
 opt.completeopt = "menu,menuone,noselect"
-opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
+-- opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
+opt.conceallevel = 0 -- so that `` is visible in markdown files
 opt.confirm = true -- Confirm to save changes before exiting modified buffer
 -- opt.cursorline = true -- Enable highlighting of the current line
 opt.expandtab = true -- Use spaces instead of tabs
@@ -110,6 +111,11 @@ opt.virtualedit = "block" -- Allow cursor to move where there is no text in visu
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false -- Disable line wrap
+
+opt.hlsearch = false -- Set highlight on search
+opt.autoindent = true -- copy indent from current line when starting new one
+opt.backspace = 'indent,eol,start' -- allow backspace on
+opt.cmdheight = 1 -- more space in the neovim command line for displaying messages
 
 -- if vim.fn.has("nvim-0.10") == 1 then
 --   opt.smoothscroll = true

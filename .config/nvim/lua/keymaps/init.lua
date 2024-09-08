@@ -1,7 +1,5 @@
 local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
-
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
@@ -18,22 +16,27 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
--- Normal --
--- Better window navigation
---keymap("n", "<C-h>", "<C-w>h", opts) -- left window
---keymap("n", "<C-k>", "<C-w>k", opts) -- up window
---keymap("n", "<C-j>", "<C-w>j", opts) -- down window
---keymap("n", "<C-l>", "<C-w>l", opts) -- right window
+-- Allow moving the cursor through wrapped lines with j, k
+keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- Resize with arrows when using multiple windows
---keymap("n", "<C-Up>", ":resize -2<CR>", opts)
---keymap("n", "<c-down>", ":resize +2<cr>", opts)
---keymap("n", "<c-right>", ":vertical resize -2<cr>", opts)
---keymap("n", "<c-left>", ":vertical resize +2<cr>", opts)
+-- clear highlights
+keymap('n', '<Esc>', ':noh<CR>', opts)
 
+-- save file
+keymap('n', '<C-s>', '<cmd> w <CR>', opts)
+
+-- save file without auto-formatting
+keymap('n', '<leader>sn', '<cmd>noautocmd w <CR>', opts)
+
+-- quit file
+keymap('n', '<C-q>', '<cmd> q <CR>', opts)
+
+-- delete single character without copying into register
+keymap('n', 'x', '"_x', opts)
 -- navigate buffers
-keymap("n", "<tab>", ":bnext<cr>", opts) -- Next Tab
-keymap("n", "<s-tab>", ":bprevious<cr>", opts) -- Previous tab
+keymap("n", "<Tab>", ":bnext<cr>", opts) -- Next Tab
+keymap("n", "<S-Tab>", ":bprevious<cr>", opts) -- Previous tab
 keymap("n", "<leader>h", ":nohlsearch<cr>", opts) -- No highlight search
 
 -- move text up and down
@@ -63,10 +66,10 @@ keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts) -- Alt-j
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts) -- Alt-k
 
 --Better terminal navigation
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", opts)
+keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", opts)
+keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", opts)
+keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", opts)
 
 --Remaps from ThePrimeagen
 keymap("n", "J", "mzJ`z", opts)
@@ -85,3 +88,61 @@ keymap("n", "<leader>y", [["+y]], opts)
 keymap("v", "<leader>y", [["+y]], opts)
 keymap("n", "<leader>Y", [["+Y]], opts)
 
+-- Resize with arrows
+keymap('n', '<Up>', ':resize -2<CR>', opts)
+keymap('n', '<Down>', ':resize +2<CR>', opts)
+keymap('n', '<Left>', ':vertical resize -2<CR>', opts)
+keymap('n', '<Right>', ':vertical resize +2<CR>', opts)
+
+-- window management
+keymap('n', '<leader>v', '<C-w>v', opts) -- split window vertically
+keymap('n', '<leader>h', '<C-w>s', opts) -- split window horizontally
+keymap('n', '<leader>se', '<C-w>=', opts) -- make split windows equal width & height
+keymap('n', '<leader>xs', ':close<CR>', opts) -- close current split window
+
+-- -- tabs
+-- keymap('n', '<leader>to', ':tabnew<CR>', opts) -- open new tab
+-- keymap('n', '<leader>tx', ':tabclose<CR>', opts) -- close current tab
+-- keymap('n', '<leader>tn', ':tabn<CR>', opts) --  go to next tab
+-- keymap('n', '<leader>tp', ':tabp<CR>', opts) --  go to previous tab
+--
+-- keymap('n', '<leader>x', ':Bdelete!<CR>', opts) -- close buffer
+-- keymap('n', '<leader>b', '<cmd> enew <CR>', opts) -- new buffer
+--
+-- toggle line wrapping
+keymap('n', '<leader>lw', '<cmd>set wrap!<CR>', opts)
+
+-- Press jk fast to exit insert mode
+keymap('i', 'jk', '<ESC>', opts)
+keymap('i', 'kj', '<ESC>', opts)
+
+-- Stay in indent mode
+keymap('v', '<', '<gv', opts)
+keymap('v', '>', '>gv', opts)
+
+-- Keep last yanked when pasting
+keymap('v', 'p', '"_dP', opts)
+
+
+-- Toggle diagnostics
+local diagnostics_active = true
+
+vim.keymap.set('n', '<leader>do', function()
+  diagnostics_active = not diagnostics_active
+
+  if diagnostics_active then
+    vim.diagnostic.enable(0)
+  else
+    vim.diagnostic.disable(0)
+  end
+end)
+
+-- Diagnostic keymaps
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+-- Save and load session
+vim.keymap.set('n', '<leader>ss', ':mksession! .session.vim<CR>', { noremap = true, silent = false })
+vim.keymap.set('n', '<leader>sl', ':source .session.vim<CR>', { noremap = true, silent = false })
