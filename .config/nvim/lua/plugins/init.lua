@@ -305,4 +305,7 @@ require("lazy").setup({
 			end, { expr = true, silent = true })
 		end,
 	},
+	{
+		"brenoprata10/nvim-highlight-colors",
+	},
 })
