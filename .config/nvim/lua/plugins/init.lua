@@ -36,7 +36,23 @@ require("lazy").setup({
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.6",
-		dependencies = { "nvim-lua/plenary.nvim" },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			-- Fuzzy Finder Algorithm which requires local dependencies to be built.
+			-- Only load if `make` is available. Make sure you have the system
+			-- requirements installed.
+			{
+				"nvim-telescope/telescope-fzf-native.nvim",
+				build = "make",
+				cond = function()
+					return vim.fn.executable("make") == 1
+				end,
+			},
+			"nvim-telescope/telescope-ui-select.nvim",
+
+			-- Useful for getting pretty icons, but requires a Nerd Font.
+			"nvim-tree/nvim-web-devicons",
+		},
 	},
 	{
 		"VonHeikemen/lsp-zero.nvim",
@@ -63,12 +79,12 @@ require("lazy").setup({
 	{
 		"benfowler/telescope-luasnip.nvim",
 	},
-	{
-		"jiaoshijie/undotree",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-	},
+	-- {
+	-- 	"jiaoshijie/undotree",
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 	},
+	-- },
 	{
 		"lewis6991/gitsigns.nvim",
 		dependencies = {
@@ -136,31 +152,31 @@ require("lazy").setup({
 	},
 	{ "tpope/vim-fugitive" },
 	{ "nvim-telescope/telescope-ui-select.nvim" },
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		dependencies = {
-			{
-				"s1n7ax/nvim-window-picker",
-				version = "2.*",
-				config = function()
-					require("window-picker").setup({
-						filter_rules = {
-							include_current_win = false,
-							autoselect_one = true,
-							-- filter using buffer options
-							bo = {
-								-- if the file type is one of following, the window will be ignored
-								filetype = { "neo-tree", "neo-tree-popup", "notify" },
-								-- if the buffer type is one of following, the window will be ignored
-								buftype = { "terminal", "quickfix" },
-							},
-						},
-					})
-				end,
-			},
-		},
-	},
+	-- {
+	-- 	"nvim-neo-tree/neo-tree.nvim",
+	-- 	branch = "v3.x",
+	-- 	dependencies = {
+	-- 		{
+	-- 			"s1n7ax/nvim-window-picker",
+	-- 			version = "2.*",
+	-- 			config = function()
+	-- 				require("window-picker").setup({
+	-- 					filter_rules = {
+	-- 						include_current_win = false,
+	-- 						autoselect_one = true,
+	-- 						-- filter using buffer options
+	-- 						bo = {
+	-- 							-- if the file type is one of following, the window will be ignored
+	-- 							filetype = { "neo-tree", "neo-tree-popup", "notify" },
+	-- 							-- if the buffer type is one of following, the window will be ignored
+	-- 							buftype = { "terminal", "quickfix" },
+	-- 						},
+	-- 					},
+	-- 				})
+	-- 			end,
+	-- 		},
+	-- 	},
+	-- },
 	{
 		"numToStr/Comment.nvim",
 	},
@@ -225,17 +241,17 @@ require("lazy").setup({
 	{
 		"windwp/nvim-autopairs",
 	},
-	{
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter",
-		dependencies = {
-			"zbirenbaum/copilot-cmp",
-		},
-	},
-	{
-		"jinh0/eyeliner.nvim",
-	},
+	-- {
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	cmd = "Copilot",
+	-- 	event = "InsertEnter",
+	-- 	dependencies = {
+	-- 		"zbirenbaum/copilot-cmp",
+	-- 	},
+	-- },
+	-- {
+	-- 	"jinh0/eyeliner.nvim",
+	-- },
 	{
 		"andymass/vim-matchup",
 		setup = function()
@@ -259,17 +275,17 @@ require("lazy").setup({
       -- { "<leader>qd", function() require("persistence").stop() end, desc = "Don't Save Current Session" },
     },
 	},
-	{
-		"nanozuki/tabby.nvim",
-		event = "VeryLazy",
-	},
+	-- {
+	-- 	"nanozuki/tabby.nvim",
+	-- 	event = "VeryLazy",
+	-- },
 	{
 		"kawre/neotab.nvim",
 		event = "InsertEnter",
 	},
-	{
-		"ibhagwan/fzf-lua",
-	},
+	-- {
+	-- 	"ibhagwan/fzf-lua",
+	-- },
 	{
 		"Exafunction/codeium.vim",
 		event = "BufEnter",
