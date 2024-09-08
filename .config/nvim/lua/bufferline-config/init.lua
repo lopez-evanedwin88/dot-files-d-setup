@@ -18,8 +18,8 @@ require("bufferline").setup({
 		max_name_length = 30,
 		max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
 		tab_size = 21,
-		diagnostics = false,
-		diagnostics_update_in_insert = false,
+		diagnostics = true,
+		diagnostics_update_in_insert = true,
 		color_icons = true,
 		show_buffer_icons = true,
 		show_buffer_close_icons = true,
