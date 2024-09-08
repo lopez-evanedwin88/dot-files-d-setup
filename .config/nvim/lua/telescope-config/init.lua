@@ -1,5 +1,6 @@
 require("telescope").setup({
 	defaults = {
+		layout_strategy = "horizontal",
 		mappings = {
 			i = {
 				["<C-k>"] = require("telescope.actions").move_selection_previous, -- move to prev result
@@ -43,3 +44,13 @@ require("telescope").load_extension("noice")
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension("harpoon")
 require("telescope").load_extension("fzf")
+
+-- local TelescopeColor = {
+-- 	TelescopePromptBorder = { bg = "none", fg = "gray" },
+-- 	TelescopeResultsBorder = { bg = "none", fg = "gray" },
+-- 	TelescopePreviewBorder = { bg = "none", fg = "gray" },
+-- }
+--
+-- for hl, col in pairs(TelescopeColor) do
+-- 	vim.api.nvim_set_hl(0, hl, col)
+-- end
