@@ -2,7 +2,7 @@ require("plugins")
 require("lualine-config")
 require("options")
 require("treesitter-config")
-require('bufferline-config')
+require("bufferline-config")
 require("nvim-web-devicons")
 require("keymaps")
 require("telescope-config") -- https://github.com/nvim-telescope/telescope.nvim
