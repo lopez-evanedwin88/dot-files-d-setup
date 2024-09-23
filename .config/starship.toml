@@ -45,7 +45,7 @@ style = "bg:#9A348E"
 disabled = true # Disabled by default
 
 [directory]
-style = "bg:#DA627D"
+style = "fg:black bg:#DA627D"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -70,7 +70,7 @@ format = '[ $symbol ($version) ]($style)'
 
 [docker_context]
 symbol = " "
-style = "bg:#06969A"
+style = "fg:black bg:#06969A"
 format = '[ $symbol$context ]($style)'
 
 [elixir]
@@ -85,11 +85,11 @@ format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
 symbol = ""
-style = "bg:#FCA17D"
+style = "fg:black bg:#FCA17D"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:#FCA17D"
+style = "fg:black bg:#FCA17D"
 format = '[$all_status$ahead_behind ]($style)'
 
 [golang]
@@ -147,13 +147,13 @@ style = "bg:#33658A"
 format = '[$symbol]($style) '
 
 [kubernetes]
-style = "bg:#06969A"
+style = "fg:black bg:#06969A"
 disabled = false
 detect_files = ['docker-compose.yml']
 detect_env_vars = ['INVALID']
 format = '[$symbol$context( \($namespace\))]($style)'
 
 [python]
-style = "bg:#33658A"
+style = "fg:black bg:#33658A"
 symbol = '👾 '
 format = '[$symbol $virtualenv]($style)'
