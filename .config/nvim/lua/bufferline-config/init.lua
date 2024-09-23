@@ -1,3 +1,16 @@
+local black = "#45475a"
+local gray = "#585b70"
+local red = "#f38ba8"
+local green = "#a6e3a1"
+local yellow = "#f9e2af"
+local blue = "#89b4fa"
+local magenta = "#f5c2e7"
+local cyan = "#94e2d5"
+local white = "#bac2de"
+local fg = "#cdd6f4"
+local bg = "#1e1e2e"
+local links = "#89dceb"
+
 require("bufferline").setup({
 	options = {
 		mode = "buffers", -- set to "tabs" to only show tabpages instead
@@ -49,7 +62,10 @@ require("bufferline").setup({
 		},
 		-- separator_selected = {},
 		-- tab_selected = {},
-		-- background = {},
+		background = {
+			-- bg = "#1e1e2e",
+			-- fg = gray,
+		},
 		-- indicator_selected = {},
 		-- fill = {},
 	},

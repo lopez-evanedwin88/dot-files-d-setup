@@ -16,8 +16,9 @@ require("nvim-treesitter.configs").setup({
 		"vimdoc",
 		"vue",
 		"query",
-    "python",
-    "vim"
+		"python",
+		"vim",
+		"sql",
 	},
 	sync_install = false,
 	auto_install = true,
