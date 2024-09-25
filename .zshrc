@@ -19,6 +19,10 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_verify
+setopt share_history
 
 eval "$(zoxide init --cmd cd zsh)"
 
@@ -40,3 +44,5 @@ alias gb='git branch'
 alias gp='git pull'
 alias gs='git status'
 alias gps='git push'
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
