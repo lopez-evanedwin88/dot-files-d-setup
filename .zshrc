@@ -46,3 +46,4 @@ alias gs='git status'
 alias gps='git push'
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source <(fzf --zsh)
