@@ -54,3 +54,8 @@ require("telescope").load_extension("fzf")
 -- for hl, col in pairs(TelescopeColor) do
 -- 	vim.api.nvim_set_hl(0, hl, col)
 -- end
+local builtin = require("telescope.builtin")
+
+function _GREP_STRING_INPUT()
+	builtin.grep_string({ search = vim.fn.input("Grep > ") })
+end
