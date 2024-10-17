@@ -2,7 +2,6 @@ require("plugins")
 require("lualine-config")
 require("options")
 require("treesitter-config")
-require("bufferline-config")
 require("nvim-web-devicons")
 require("keymaps")
 require("telescope-config") -- https://github.com/nvim-telescope/telescope.nvim
@@ -41,3 +40,4 @@ require("neo-tab-config")
 -- require("fzf-config")
 require("highlight-config")
 require("colorbuddy-config")
+require("bufferline-config") -- Set to last for transparent effect

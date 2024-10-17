@@ -53,20 +53,28 @@ require("bufferline").setup({
 		sort_by = "insert_at_end",
 	},
 	highlights = {
-		separator = {
-			fg = "#434C5E",
-		},
-		buffer_selected = {
-			bold = true,
-			italic = false,
-		},
+		-- buffer_selected = {
+		-- 	bold = true,
+		-- 	italic = false,
+		-- },
 		-- separator_selected = {},
 		-- tab_selected = {},
-		background = {
-			-- bg = "#1e1e2e",
-			-- fg = gray,
+		-- background = {
+		-- bg = "#1e1e2e",
+		-- fg = gray,
+		-- },
+		separator = {
+			fg = "#434C5E",
+			bg = "NONE",
 		},
+		separator_selected = { bg = "NONE" },
+		separator_visible = { bg = "NONE" },
+		background = { bg = "NONE" }, -- Make background transparent
+		buffer_selected = { bg = "NONE" },
+		buffer_visible = { bg = "NONE" },
 		-- indicator_selected = {},
 		-- fill = {},
 	},
 })
+
+
