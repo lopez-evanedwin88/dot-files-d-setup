@@ -297,6 +297,7 @@ require("lazy").setup({
 	{
 		"brenoprata10/nvim-highlight-colors",
 	},
+	{ "tjdevries/colorbuddy.nvim" },
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
 		opts = {},
