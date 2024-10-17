@@ -190,6 +190,11 @@ local mappings = {
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		c = { "<cmd>Telescope commands<cr>", "Commands" },
 	},
+
+	o = {
+		name = "Command preferences",
+		p = { "<cmd>lua print(vim.fn.expand('%:p')) <cr>", "Absolute Path" },
+	},
 }
 
 which_key.setup(setup)
