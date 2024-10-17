@@ -21,6 +21,7 @@ local styles = colorbuddy.styles
 Color.new("black", "#000000")
 Color.new('highlight_bg', '#3f3f3f')  -- Background color
 
+Group.new("CursorLine", colors.none, colors.base03, styles.none, colors.base1)
 Group.new("CursorLineNr", colors.yellow, colors.black, styles.none, colors.base1)
 Group.new("Visual", colors.none, colors.base1, styles.reverse)
 Group.new("IlluminatedWordText", colors.none, colors.highlight_bg)
