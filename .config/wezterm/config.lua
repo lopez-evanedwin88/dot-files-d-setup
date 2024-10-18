@@ -89,7 +89,7 @@ config = {
       format = "mailto:$0",
     },
   },
-  window_background_opacity = 0.50,
+  window_background_opacity = 0.69,
   -- window_background_opacity = 0.90,
   -- colors = {
   -- 	-- foreground = "#CBE0F0",
