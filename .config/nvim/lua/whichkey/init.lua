@@ -89,7 +89,7 @@ local mappings = {
 	["r"] = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Reformat Code" },
 	["m"] = { "<cmd>Mason<cr>", "Mason" }, -- LSP Manager
 	-- Undo tree
-	["u"] = { "<cmd>lua require('undotree').toggle()<CR>", "Undo-Tree" }, -- Undo History
+	-- ["u"] = { "<cmd>lua require('undotree').toggle()<CR>", "Undo-Tree" }, -- Undo History
 
 	-- Display all buffer
 	["bb"] = { "<cmd>Telescope buffers<cr>", "Find" },

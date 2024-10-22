@@ -16,7 +16,7 @@ config = {
   use_fancy_tab_bar = false,
   tab_bar_at_bottom = false,
   font_size = 12.5,
-  font = wezterm.font("0xProto Nerd Font Mono", {weight="Regular", stretch="Normal", style="Normal"}),
+  font = wezterm.font("0xProto Nerd Font Mono", { weight = "Regular", stretch = "Normal", style = "Normal" }),
   enable_tab_bar = false,
   window_padding = {
     left = 3,
