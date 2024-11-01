@@ -1,4 +1,5 @@
-require("plugins") require("lualine-config")
+require("plugins")
+require("lualine-config")
 require("options")
 require("treesitter-config")
 require("nvim-web-devicons")
