@@ -329,4 +329,13 @@ require("lazy").setup({
 			vim.g.db_ui_win_width = 100 -- Set width in columns
 		end,
 	},
+	-- {
+	-- 	"ramilito/kubectl.nvim",
+	-- 	config = function()
+	-- 		require("kubectl").setup()
+	-- 	end,
+	-- },
+	{
+		"echasnovski/mini.indentscope",
+	},
 })

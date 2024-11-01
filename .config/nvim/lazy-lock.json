@@ -12,10 +12,8 @@
   "dashboard-nvim": { "branch": "master", "commit": "d2c5a4d1341f5ca1ed2ecb4ecfcff2bc8ea18b14" },
   "flash.nvim": { "branch": "main", "commit": "34c7be146a91fec3555c33fe89c7d643f6ef5cf1" },
   "friendly-snippets": { "branch": "main", "commit": "de8fce94985873666bd9712ea3e49ee17aadb1ed" },
-  "git-worktree.nvim": { "branch": "master", "commit": "f247308e68dab9f1133759b05d944569ad054546" },
   "gitsigns.nvim": { "branch": "main", "commit": "7c27a30450130cd59c4994a6755e3c5d74d83e76" },
   "harpoon": { "branch": "master", "commit": "1bc17e3e42ea3c46b33c0bbad6a880792692a1b3" },
-  "indent-blankline.nvim": { "branch": "master", "commit": "04e44b09ee3ff189c69ab082edac1ef7ae2e256c" },
   "kanagawa.nvim": { "branch": "master", "commit": "f491b0fe68fffbece7030181073dfe51f45cda81" },
   "lab.nvim": { "branch": "main", "commit": "0d02cecd5281da43b9c3ae1658a4eb16ca33ed8e" },
   "lazy.nvim": { "branch": "main", "commit": "cf8ecc2c5e4332760431a33534240b0cbc6680ab" },
@@ -26,6 +24,7 @@
   "mason-lspconfig.nvim": { "branch": "main", "commit": "4d0e5b49363cac187326998b96aa6a2884e0e89b" },
   "mason-nvim-dap.nvim": { "branch": "main", "commit": "8b9363d83b5d779813cdd2819b8308651cec2a09" },
   "mason.nvim": { "branch": "main", "commit": "e2f7f9044ec30067bc11800a9e266664b88cda22" },
+  "mini.indentscope": { "branch": "main", "commit": "da9af64649e114aa79480c238fd23f6524bc0903" },
   "mini.nvim": { "branch": "main", "commit": "0a8a1072137d916406507c941698a4bfa9dbbe7a" },
   "neoscroll.nvim": { "branch": "master", "commit": "e78657719485c5663b88e5d96ffcfb6a2fe3eec0" },
   "neotab.nvim": { "branch": "master", "commit": "6c6107dddaa051504e433608f59eca606138269b" },
@@ -70,6 +69,7 @@
   "vim-matchup": { "branch": "master", "commit": "5fb083de1e06fdd134c6ad8d007d4b5576b25ba7" },
   "vim-tmux-navigator": { "branch": "master", "commit": "a9b52e7d36114d40350099f254b5f299a35df978" },
   "vim-visual-multi": { "branch": "master", "commit": "a6975e7c1ee157615bbc80fc25e4392f71c344d4" },
+  "virt-column.nvim": { "branch": "master", "commit": "b62b4ef0774d19452d4ed18e473e824c7a756f2f" },
   "vscode-js-debug": { "branch": "main", "commit": "a5977a0a9fc76b6f1454744857504a29d56b884f" },
   "which-key.nvim": { "branch": "main", "commit": "8badb359f7ab8711e2575ef75dfe6fbbd87e4821" }
 }
