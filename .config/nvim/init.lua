@@ -41,3 +41,4 @@ require("neo-tab-config")
 require("highlight-config")
 require("colorbuddy-config")
 require("bufferline-config") -- Set to last for transparent effect
+require("render-markdown-config")
