@@ -14,6 +14,6 @@ null_ls.setup({
 		completion.spell,
 		-- require("none-ls.diagnostics.eslint_d"),
 		diagnostics.djlint,
-		diagnostics.stylelint,
+		-- diagnostics.stylelint,
 	},
 })

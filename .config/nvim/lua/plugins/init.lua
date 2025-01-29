@@ -334,4 +334,7 @@ require("lazy").setup({
 	{
 		"echasnovski/mini.indentscope",
 	},
+	{
+		"GitMarkedDan/you-are-an-idiot.nvim",
+	},
 })

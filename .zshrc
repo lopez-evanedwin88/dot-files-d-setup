@@ -48,6 +48,9 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source <(fzf --zsh)
 
+#lazydocker
+alias lzd='lazydocker'
+
 # This config is based on https://github.com/linkarzu/dotfiles-latest/blob/main/zshrc/zshrc-file.sh
 if command -v eza &>/dev/null; then
   alias ls='eza'
@@ -85,7 +88,8 @@ if [ -f "$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.z
   ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BEAM
   ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
   ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
-
   # Source .fzf.zsh so that the ctrl+r bindkey is given back fzf
   zvm_after_init_commands+=('[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh')
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

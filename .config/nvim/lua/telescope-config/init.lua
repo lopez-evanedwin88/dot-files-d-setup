@@ -55,6 +55,26 @@ require("telescope").load_extension("fzf")
 -- 	vim.api.nvim_set_hl(0, hl, col)
 -- end
 
+-- function _GREP_STRING_INPUT()
+-- 	-- Default values
+-- 	local default_case_sensitive = false
+-- 	local default_word_match = false
+--
+-- 	local case_sensitive_input =
+-- 		vim.fn.input(string.format("Case Sensitive? (y/n, default: %s): ", default_case_sensitive and "y" or "n"))
+-- 	local case_sensitive = case_sensitive_input == "y" or (case_sensitive_input == "" and default_case_sensitive)
+--
+-- 	local word_match_input =
+-- 		vim.fn.input(string.format("Match whole word? (y/n, default: %s): ", default_word_match and "y" or "n"))
+-- 	local word_match = word_match_input == "y" or (word_match_input == "" and default_word_match)
+--
+-- 	builtin.grep_string({
+-- 		search = vim.fn.input("Grep > "),
+-- 		case_sensitive = case_sensitive,
+-- 		word_match = word_match and -"w" or "",
+-- 	})
+-- end
+
 function _GREP_STRING_INPUT()
-	builtin.grep_string({ search = vim.fn.input("Grep > "), case_sensitive = true, word_match = "-w" })
+	builtin.grep_string({ search = vim.fn.input("Grep > "), case_sensitive = false, word_match = "-w" })
 end
