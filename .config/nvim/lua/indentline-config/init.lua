@@ -1,9 +1,18 @@
 local icons = require("icons")
 
+-- Set the highlight for focus and unfocus
+vim.cmd([[
+    augroup IndentBlankline
+      autocmd!
+      autocmd FocusGained,BufEnter * highlight IndentBlanklineChar guifg=NONE
+      autocmd FocusLost,BufLeave * highlight IndentBlanklineChar guifg=#888888
+    augroup END
+  ]])
+
 require("ibl").setup({
 	indent = {
 		char = icons.ui.LineLeft, -- Use a simple vertical line for indentation
-		highlight = "IndentBlanklineChar", -- Use a highlight group
+		-- highlight = "IndentBlanklineChar", -- Use a highlight group
 	},
 	whitespace = {
 		highlight = nil, -- Disable highlight for whitespace
@@ -28,12 +37,6 @@ require("ibl").setup({
 		buftypes = { "terminal", "nofile" }, -- Exclude terminal and nofile buffers
 	},
 })
-
--- Set the highlight for focus and unfocus
-vim.cmd([[
-autocmd FocusGained,BufEnter * highlight IndentBlanklineChar guifg=NONE
-autocmd FocusLost,BufLeave * highlight IndentBlanklineChar guifg=#888888
-]])
 
 require("mini.indentscope").setup({
 	draw = {

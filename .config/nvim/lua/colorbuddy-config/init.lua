@@ -12,14 +12,14 @@
 --   transparent = true
 -- })
 
-local colorbuddy = require("colorbuddy.init")
+local colorbuddy = require("colorbuddy")
 local Color = colorbuddy.Color
 local Group = colorbuddy.Group
 local colors = colorbuddy.colors
 local styles = colorbuddy.styles
 
 Color.new("black", "#000000")
-Color.new('highlight_bg', '#3f3f3f')  -- Background color
+Color.new("highlight_bg", "#3f3f3f") -- Background color
 
 Group.new("CursorLine", colors.none, colors.base03, styles.none, colors.base1)
 Group.new("CursorLineNr", colors.yellow, colors.black, styles.none, colors.base1)

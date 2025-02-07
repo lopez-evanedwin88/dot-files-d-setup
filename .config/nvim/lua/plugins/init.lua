@@ -109,6 +109,10 @@ require("lazy").setup({
 	{ "rebelot/kanagawa.nvim" },
 	{ "shaunsingh/nord.nvim" },
 	{
+		"vague2k/vague.nvim",
+	},
+
+	{
 		"folke/noice.nvim",
 		lazy = false,
 		dependencies = {
