@@ -111,6 +111,7 @@ require("lazy").setup({
 	{
 		"vague2k/vague.nvim",
 	},
+	{ "folke/tokyonight.nvim" },
 
 	{
 		"folke/noice.nvim",
@@ -340,5 +341,8 @@ require("lazy").setup({
 	},
 	{
 		"GitMarkedDan/you-are-an-idiot.nvim",
+	},
+	{
+		"sphamba/smear-cursor.nvim",
 	},
 })

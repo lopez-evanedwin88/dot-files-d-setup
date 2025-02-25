@@ -12,4 +12,14 @@
 -- 	},
 -- })
 
-require("vague").setup({})
+-- require("vague").setup({})
+
+require("tokyonight").setup({
+	style = "moon",
+	transparent = true,
+	terminal_colors = true,
+	styles = {
+		sidebars = "transparent",
+		floats = "transparent",
+	},
+})

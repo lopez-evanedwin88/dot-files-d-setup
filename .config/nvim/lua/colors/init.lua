@@ -1,5 +1,5 @@
 function ColorMyWorkspace(color)
-	-- Available colors: kanagawa, nord
+	-- Available colors: kanagawa, nord, vague, tokyonight
 	color = color or "kanagawa"
 	vim.cmd.colorscheme(color)
 	vim.cmd("highlight TelescopeBorder guibg=none")
@@ -9,4 +9,4 @@ function ColorMyWorkspace(color)
 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
-ColorMyWorkspace("vague")
+ColorMyWorkspace("tokyonight")

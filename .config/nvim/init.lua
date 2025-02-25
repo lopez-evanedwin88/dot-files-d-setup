@@ -43,3 +43,4 @@ require("colorbuddy-config")
 require("bufferline-config") -- Set to last for transparent effect
 require("render-markdown-config")
 require("you-are-an-idiot-config")
+require("smear-cursor-config")
