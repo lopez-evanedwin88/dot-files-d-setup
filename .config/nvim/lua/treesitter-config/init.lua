@@ -19,6 +19,7 @@ require("nvim-treesitter.configs").setup({
 		"python",
 		"vim",
 		"sql",
+		"swift",
 	},
 	sync_install = false,
 	auto_install = true,

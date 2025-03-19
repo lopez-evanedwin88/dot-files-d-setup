@@ -50,5 +50,13 @@ require("mason-lspconfig").setup({
     function(server_name)
       require("lspconfig")[server_name].setup({})
     end,
-  },
+  }
+})
+
+-- Manually set up SourceKit-LSP
+require("lspconfig").sourcekit.setup({
+  cmd = { "xcrun", "-f", "sourcekit-lsp" },
+  filetypes = { "swift" },
+  root_dir = require("lspconfig").util.root_pattern("Package.swift", ".git", "compile_commands.json"),
+  capabilities = require("cmp_nvim_lsp").default_capabilities(), -- If using nvim-cmp for autocomplete
 })

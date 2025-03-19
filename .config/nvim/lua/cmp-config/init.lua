@@ -38,7 +38,7 @@ luasnip.config.set_config({
 })
 local cmp = require("cmp")
 local types = require("cmp.types")
-local icons = require("icons")
+-- local icons = require("icons")
 
 cmp.setup({
 	snippet = {
@@ -260,7 +260,8 @@ cmp.setup({
 				buffer = "[Buffer]",
 				path = "[Path]",
 			})[entry.source.name]
-			return require("nvim-highlight-colors").format(entry, vim_item)
+			-- return require("nvim-highlight-colors").format(entry, vim_item)
+      return vim_item
 		end,
 	},
 	sources = {

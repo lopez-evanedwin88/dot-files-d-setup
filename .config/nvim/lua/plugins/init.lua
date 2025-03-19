@@ -299,8 +299,11 @@ require("lazy").setup({
 			end, { expr = true, silent = true })
 		end,
 	},
+	-- {
+	--   "brenoprata10/nvim-highlight-colors",
+	-- },
 	{
-		"brenoprata10/nvim-highlight-colors",
+		"norcalli/nvim-colorizer.lua",
 	},
 	{ "tjdevries/colorbuddy.nvim" },
 	{
@@ -344,5 +347,16 @@ require("lazy").setup({
 	},
 	{
 		"sphamba/smear-cursor.nvim",
+	},
+	{
+		"wojciech-kulik/xcodebuild.nvim",
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+			"MunifTanjim/nui.nvim",
+		},
+	},
+	{
+		"j-hui/fidget.nvim",
+		event = "VeryLazy",
 	},
 })

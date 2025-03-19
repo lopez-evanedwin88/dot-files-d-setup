@@ -38,9 +38,11 @@ require("numb-config")
 -- require("tabby-config")
 require("neo-tab-config")
 -- require("fzf-config")
-require("highlight-config")
+require("highlight-config") -- disable temporarily due to sourcekit-lsp crashes
 require("colorbuddy-config")
 require("bufferline-config") -- Set to last for transparent effect
 require("render-markdown-config")
 require("you-are-an-idiot-config")
 require("smear-cursor-config")
+require("xcodebuild-config")
+require("fidget-config")
