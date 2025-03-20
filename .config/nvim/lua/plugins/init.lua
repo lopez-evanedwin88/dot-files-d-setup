@@ -112,6 +112,7 @@ require("lazy").setup({
 		"vague2k/vague.nvim",
 	},
 	{ "folke/tokyonight.nvim" },
+	{ "catppuccin/nvim", name = "catppuccin" },
 
 	{
 		"folke/noice.nvim",
@@ -357,6 +358,9 @@ require("lazy").setup({
 	},
 	{
 		"j-hui/fidget.nvim",
+	},
+	{
+		"folke/snacks.nvim",
 		event = "VeryLazy",
 	},
 })

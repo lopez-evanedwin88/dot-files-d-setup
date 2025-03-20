@@ -12,7 +12,7 @@ vim.cmd([[
 require("ibl").setup({
 	indent = {
 		char = icons.ui.LineLeft, -- Use a simple vertical line for indentation
-		highlight = "IndentBlanklineChar", -- Use a highlight group
+		-- highlight = "IndentBlanklineChar", -- Use a highlight group
 	},
 	whitespace = {
 		highlight = nil, -- Disable highlight for whitespace
