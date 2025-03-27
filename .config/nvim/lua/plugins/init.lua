@@ -65,6 +65,7 @@ require("lazy").setup({
 			{ "hrsh7th/cmp-path" },
 			{ "hrsh7th/cmp-cmdline" },
 			{ "saadparwaiz1/cmp_luasnip" },
+			-- { "saghen/blink.cmp" }
 
 			-- Snippets
 			{ "L3MON4D3/LuaSnip" },
@@ -362,5 +363,14 @@ require("lazy").setup({
 	{
 		"folke/snacks.nvim",
 		event = "VeryLazy",
+	},
+	{
+		"echasnovski/mini.files",
+		version = false, -- Use latest commit (or pin with "1.*" for stability)
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		event = "BufReadPost", -- Load after opening a buffer
 	},
 })

@@ -175,11 +175,11 @@ local mappings = {
 		name = "File Search",
 		e = { "<cmd>>lua require('telescope.builtin').resume<cr>", "Resume last search" },
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-		f = { "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>", "Find files" },
+		-- f = { "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>", "Find files" },
 		-- t = { "<cmd>Telescope live_grep<cr>", "Find Text Pattern" },
-		t = { "<cmd>lua _GREP_STRING_INPUT()<cr>", "Grep string >" },
-		r = { "<cmd>Telescope oldfiles<cr>", "Recent Files" },
-		g = { "<cmd>Telescope luasnip<cr>", "Snip commands" },
+		-- t = { "<cmd>lua _GREP_STRING_INPUT()<cr>", "Grep string >" },
+		-- r = { "<cmd>Telescope oldfiles<cr>", "Recent Files" },
+		-- g = { "<cmd>Telescope luasnip<cr>", "Snip commands" },
 	},
 
 	s = {
