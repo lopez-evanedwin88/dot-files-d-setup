@@ -112,7 +112,7 @@ opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false -- Disable line wrap
 
-opt.hlsearch = false -- Set highlight on search
+opt.hlsearch = true -- Set highlight on search
 opt.autoindent = true -- copy indent from current line when starting new one
 opt.backspace = 'indent,eol,start' -- allow backspace on
 opt.cmdheight = 1 -- more space in the neovim command line for displaying messages

@@ -25,11 +25,11 @@ require("mini.files").setup({
 	},
 })
 
-vim.keymap.set("n", "-", function()
+vim.keymap.set("n", "<leader>-", function()
 	require("mini.files").open(vim.uv.cwd(), true)
 end, { desc = "Open Mini Files" })
 
-vim.keymap.set("n", "<leader>-", function()
+vim.keymap.set("n", "-", function()
 	local buf_path = vim.api.nvim_buf_get_name(0)
 	require("mini.files").open(buf_path ~= "" and vim.fn.fnamemodify(buf_path, ":p:h") or vim.uv.cwd(), true)
 end, { desc = "Open Mini Files at Current File" })
