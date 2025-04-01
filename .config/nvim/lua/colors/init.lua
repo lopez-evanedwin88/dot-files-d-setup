@@ -11,3 +11,4 @@ end
 
 -- ColorMyWorkspace("tokyonight")
 ColorMyWorkspace("catppuccin-mocha")
+-- ColorMyWorkspace("embark")

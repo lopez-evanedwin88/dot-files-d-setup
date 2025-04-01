@@ -114,6 +114,7 @@ require("lazy").setup({
 	},
 	{ "folke/tokyonight.nvim" },
 	{ "catppuccin/nvim", name = "catppuccin" },
+	{ "embark-theme/vim" },
 
 	{
 		"folke/noice.nvim",
