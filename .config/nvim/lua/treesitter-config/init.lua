@@ -36,6 +36,109 @@ require("nvim-treesitter.configs").setup({
 			node_decremental = "<bs>",
 		},
 	},
+	textobjects = {
+		-- Selection of text objects
+		select = {
+			enable = true,
+			lookahead = true, -- Automatically jump forward to textobj if cursor isn't on it
+			keymaps = {
+				-- -- Inner/outer function
+				-- ["af"] = "@function.outer",
+				-- ["if"] = "@function.inner",
+				-- -- Inner/outer class
+				-- ["ac"] = "@class.outer",
+				-- ["ic"] = "@class.inner",
+				-- -- Inner/outer block (e.g., if statements, loops)
+				-- ["ab"] = "@block.outer",
+				-- ["ib"] = "@block.inner",
+				-- -- Inner/outer parameter
+				-- ["aa"] = "@parameter.outer",
+				-- ["ia"] = "@parameter.inner",
+				-- -- Inner/outer call (function calls)
+				-- ["aF"] = "@call.outer",
+				-- ["iF"] = "@call.inner",
+				-- Strings ("", '')
+				["as"] = { query = "@string.outer", desc = "Around string" },
+				["is"] = { query = "@string.inner", desc = "Inside string" },
+				-- Parentheses ()
+				["ap"] = { query = "@parameter.outer", desc = "Around parameter" },
+				["ip"] = { query = "@parameter.inner", desc = "Inside parameter" },
+				-- Braces/Blocks {}
+				["ab"] = { query = "@block.outer", desc = "Around block" },
+				["ib"] = { query = "@block.inner", desc = "Inside block" },
+				-- Functions
+				["af"] = { query = "@function.outer", desc = "Around function" },
+				["if"] = { query = "@function.inner", desc = "Inside function" },
+				-- Loops
+				["al"] = { query = "@loop.outer", desc = "Around loop" },
+				["il"] = { query = "@loop.inner", desc = "Inside loop" },
+				-- Arrays []
+				["aa"] = { query = "@array.outer", desc = "Around array" },
+				["ia"] = { query = "@array.inner", desc = "Inside array" },
+			},
+			selection_modes = {
+				["@string.outer"] = "v",
+				["@string.inner"] = "v", -- Charwise for strings
+				["@parameter.outer"] = "v",
+				["@parameter.inner"] = "v", -- Charwise for params
+				["@block.outer"] = "V",
+				["@block.inner"] = "V", -- Linewise for blocks
+				["@function.outer"] = "V",
+				["@function.inner"] = "V", -- Linewise for functions
+				["@loop.outer"] = "V",
+				["@loop.inner"] = "V",
+				["@array.outer"] = "v",
+				["@array.inner"] = "v",
+			},
+		},
+		-- Move between text objects
+		move = {
+			enable = true,
+			set_jumps = true, -- Add to jumplist
+			goto_next_start = {
+				["]s"] = { query = "@string.outer", desc = "Next string start" },
+				["]p"] = { query = "@parameter.outer", desc = "Next parameter start" },
+				["]b"] = { query = "@block.outer", desc = "Next block start" },
+				["]f"] = { query = "@function.outer", desc = "Next function start" },
+				["]l"] = { query = "@loop.outer", desc = "Next loop start" },
+				["]a"] = { query = "@array.outer", desc = "Next array start" },
+			},
+			goto_previous_start = {
+				["[s"] = { query = "@string.outer", desc = "Previous string start" },
+				["[p"] = { query = "@parameter.outer", desc = "Previous parameter start" },
+				["[b"] = { query = "@block.outer", desc = "Previous block start" },
+				["[f"] = { query = "@function.outer", desc = "Previous function start" },
+				["[l"] = { query = "@loop.outer", desc = "Previous loop start" },
+				["[a"] = { query = "@array.outer", desc = "Previous array start" },
+			},
+			goto_next_end = {
+				["]S"] = { query = "@string.outer", desc = "Next string end" },
+				["]P"] = { query = "@parameter.outer", desc = "Next parameter end" },
+				["]B"] = { query = "@block.outer", desc = "Next block end" },
+				["]F"] = { query = "@function.outer", desc = "Next function end" },
+				["]L"] = { query = "@loop.outer", desc = "Next loop end" },
+				["]A"] = { query = "@array.outer", desc = "Next array end" },
+			},
+			goto_previous_end = {
+				["[S"] = { query = "@string.outer", desc = "Previous string end" },
+				["[P"] = { query = "@parameter.outer", desc = "Previous parameter end" },
+				["[B"] = { query = "@block.outer", desc = "Previous block end" },
+				["[F"] = { query = "@function.outer", desc = "Previous function end" },
+				["[L"] = { query = "@loop.outer", desc = "Previous loop end" },
+				["[A"] = { query = "@array.outer", desc = "Previous array end" },
+			},
+		},
+		-- Swap text objects (e.g., swap parameters)
+		swap = {
+			enable = true,
+			swap_next = {
+				["<leader>a"] = "@parameter.outer",
+			},
+			swap_previous = {
+				["<leader>A"] = "@parameter.outer",
+			},
+		},
+	},
 })
 
 -- Define go_to_context function

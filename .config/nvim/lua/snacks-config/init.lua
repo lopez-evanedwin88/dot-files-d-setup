@@ -31,6 +31,7 @@ require("snacks").setup({
 		},
 	},
 	snippets = { enabled = true },
+  notifier = { enabled = true },
 })
 
 local snacks = require("snacks")
