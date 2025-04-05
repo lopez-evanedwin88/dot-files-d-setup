@@ -58,84 +58,152 @@ require("nvim-treesitter.configs").setup({
 				-- ["aF"] = "@call.outer",
 				-- ["iF"] = "@call.inner",
 				-- Strings ("", '')
-				["as"] = { query = "@string.outer", desc = "Around string" },
-				["is"] = { query = "@string.inner", desc = "Inside string" },
-				-- Parentheses ()
-				["ap"] = { query = "@parameter.outer", desc = "Around parameter" },
-				["ip"] = { query = "@parameter.inner", desc = "Inside parameter" },
-				-- Braces/Blocks {}
-				["ab"] = { query = "@block.outer", desc = "Around block" },
-				["ib"] = { query = "@block.inner", desc = "Inside block" },
-				-- Functions
-				["af"] = { query = "@function.outer", desc = "Around function" },
-				["if"] = { query = "@function.inner", desc = "Inside function" },
+				-- ["as"] = { query = "@string.outer", desc = "Around string" },
+				-- ["is"] = { query = "@string.inner", desc = "Inside string" },
+				-- -- Parentheses ()
+				-- ["ap"] = { query = "@parameter.outer", desc = "Around parameter" },
+				-- ["ip"] = { query = "@parameter.inner", desc = "Inside parameter" },
+				-- -- Braces/Blocks {}
+				-- ["ab"] = { query = "@block.outer", desc = "Around block" },
+				-- ["ib"] = { query = "@block.inner", desc = "Inside block" },
+				-- -- Functions
+				-- ["af"] = { query = "@function.outer", desc = "Around function" },
+				-- ["if"] = { query = "@function.inner", desc = "Inside function" },
+				-- -- Loops
+				-- ["al"] = { query = "@loop.outer", desc = "Around loop" },
+				-- ["il"] = { query = "@loop.inner", desc = "Inside loop" },
+				-- -- Arrays []
+				-- ["aa"] = { query = "@array.outer", desc = "Around array" },
+				-- ["ia"] = { query = "@array.inner", desc = "Inside array" },
+				-- Assignments
+				["a="] = { query = "@assignment.outer", desc = "Select outer part of an assignment" },
+				["i="] = { query = "@assignment.inner", desc = "Select inner part of an assignment" },
+				["l="] = { query = "@assignment.lhs", desc = "Select left hand side of an assignment" },
+				["r="] = { query = "@assignment.rhs", desc = "Select right hand side of an assignment" },
+				-- Properties
+				["a:"] = { query = "@property.outer", desc = "Select outer part of an object property" },
+				["i:"] = { query = "@property.inner", desc = "Select inner part of an object property" },
+				["l:"] = { query = "@property.lhs", desc = "Select left part of an object property" },
+				["r:"] = { query = "@property.rhs", desc = "Select right part of an object property" },
+				-- Parameters
+				["ap"] = { query = "@parameter.outer", desc = "Select outer part of a parameter" }, -- Changed from aa
+				["ip"] = { query = "@parameter.inner", desc = "Select inner part of a parameter" }, -- Changed from ia
+				-- Conditionals
+				["ai"] = { query = "@conditional.outer", desc = "Select outer part of a conditional" },
+				["ii"] = { query = "@conditional.inner", desc = "Select inner part of a conditional" },
 				-- Loops
-				["al"] = { query = "@loop.outer", desc = "Around loop" },
-				["il"] = { query = "@loop.inner", desc = "Inside loop" },
-				-- Arrays []
-				["aa"] = { query = "@array.outer", desc = "Around array" },
-				["ia"] = { query = "@array.inner", desc = "Inside array" },
+				["al"] = { query = "@loop.outer", desc = "Select outer part of a loop" },
+				["il"] = { query = "@loop.inner", desc = "Select inner part of a loop" },
+				-- Function Calls
+				["af"] = { query = "@call.outer", desc = "Select outer part of a function call" },
+				["if"] = { query = "@call.inner", desc = "Select inner part of a function call" },
+				-- Functions
+				["am"] = { query = "@function.outer", desc = "Select outer part of a method/function" },
+				["im"] = { query = "@function.inner", desc = "Select inner part of a method/function" },
+				-- Classes
+				["ac"] = { query = "@class.outer", desc = "Select outer part of a class" },
+				["ic"] = { query = "@class.inner", desc = "Select inner part of a class" },
+				-- Strings
+				["as"] = { query = "@string.outer", desc = "Select outer part of a string" },
+				["is"] = { query = "@string.inner", desc = "Select inner part of a string" },
+				-- Blocks
+				["ab"] = { query = "@block.outer", desc = "Select outer part of a block" },
+				["ib"] = { query = "@block.inner", desc = "Select inner part of a block" },
+				-- Arrays
+				["aa"] = { query = "@array.outer", desc = "Select outer part of an array" }, -- Kept aa here, moved parameter to ap
+				["ia"] = { query = "@array.inner", desc = "Select inner part of an array" },
 			},
-			selection_modes = {
-				["@string.outer"] = "v",
-				["@string.inner"] = "v", -- Charwise for strings
-				["@parameter.outer"] = "v",
-				["@parameter.inner"] = "v", -- Charwise for params
-				["@block.outer"] = "V",
-				["@block.inner"] = "V", -- Linewise for blocks
-				["@function.outer"] = "V",
-				["@function.inner"] = "V", -- Linewise for functions
-				["@loop.outer"] = "V",
-				["@loop.inner"] = "V",
-				["@array.outer"] = "v",
-				["@array.inner"] = "v",
-			},
+			-- selection_modes = {
+			-- 	["@string.outer"] = "v",
+			-- 	["@string.inner"] = "v", -- Charwise for strings
+			-- 	["@parameter.outer"] = "v",
+			-- 	["@parameter.inner"] = "v", -- Charwise for params
+			-- 	["@block.outer"] = "V",
+			-- 	["@block.inner"] = "V", -- Linewise for blocks
+			-- 	["@function.outer"] = "V",
+			-- 	["@function.inner"] = "V", -- Linewise for functions
+			-- 	["@loop.outer"] = "V",
+			-- 	["@loop.inner"] = "V",
+			-- 	["@array.outer"] = "v",
+			-- 	["@array.inner"] = "v",
+			-- },
 		},
 		-- Move between text objects
 		move = {
 			enable = true,
 			set_jumps = true, -- Add to jumplist
+			-- goto_next_start = {
+			-- 	["]s"] = { query = "@string.outer", desc = "Next string start" },
+			-- 	["]p"] = { query = "@parameter.outer", desc = "Next parameter start" },
+			-- 	["]b"] = { query = "@block.outer", desc = "Next block start" },
+			-- 	["]f"] = { query = "@function.outer", desc = "Next function start" },
+			-- 	["]l"] = { query = "@loop.outer", desc = "Next loop start" },
+			-- 	["]a"] = { query = "@array.outer", desc = "Next array start" },
+			-- },
+			-- goto_previous_start = {
+			-- 	["[s"] = { query = "@string.outer", desc = "Previous string start" },
+			-- 	["[p"] = { query = "@parameter.outer", desc = "Previous parameter start" },
+			-- 	["[b"] = { query = "@block.outer", desc = "Previous block start" },
+			-- 	["[f"] = { query = "@function.outer", desc = "Previous function start" },
+			-- 	["[l"] = { query = "@loop.outer", desc = "Previous loop start" },
+			-- 	["[a"] = { query = "@array.outer", desc = "Previous array start" },
+			-- },
+			-- goto_next_end = {
+			-- 	["]S"] = { query = "@string.outer", desc = "Next string end" },
+			-- 	["]P"] = { query = "@parameter.outer", desc = "Next parameter end" },
+			-- 	["]B"] = { query = "@block.outer", desc = "Next block end" },
+			-- 	["]F"] = { query = "@function.outer", desc = "Next function end" },
+			-- 	["]L"] = { query = "@loop.outer", desc = "Next loop end" },
+			-- 	["]A"] = { query = "@array.outer", desc = "Next array end" },
+			-- },
+			-- goto_previous_end = {
+			-- 	["[S"] = { query = "@string.outer", desc = "Previous string end" },
+			-- 	["[P"] = { query = "@parameter.outer", desc = "Previous parameter end" },
+			-- 	["[B"] = { query = "@block.outer", desc = "Previous block end" },
+			-- 	["[F"] = { query = "@function.outer", desc = "Previous function end" },
+			-- 	["[L"] = { query = "@loop.outer", desc = "Previous loop end" },
+			-- 	["[A"] = { query = "@array.outer", desc = "Previous array end" },
+			-- },
+			set_jumps = true, -- whether to set jumps in the jumplist
 			goto_next_start = {
-				["]s"] = { query = "@string.outer", desc = "Next string start" },
-				["]p"] = { query = "@parameter.outer", desc = "Next parameter start" },
-				["]b"] = { query = "@block.outer", desc = "Next block start" },
-				["]f"] = { query = "@function.outer", desc = "Next function start" },
+				["]f"] = { query = "@call.outer", desc = "Next function call start" },
+				["]m"] = { query = "@function.outer", desc = "Next method/function def start" },
+				["]c"] = { query = "@class.outer", desc = "Next class start" },
+				["]i"] = { query = "@conditional.outer", desc = "Next conditional start" },
 				["]l"] = { query = "@loop.outer", desc = "Next loop start" },
+				["]s"] = { query = "@string.outer", desc = "Next string start" },
+				["]b"] = { query = "@block.outer", desc = "Next block start" },
 				["]a"] = { query = "@array.outer", desc = "Next array start" },
 			},
-			goto_previous_start = {
-				["[s"] = { query = "@string.outer", desc = "Previous string start" },
-				["[p"] = { query = "@parameter.outer", desc = "Previous parameter start" },
-				["[b"] = { query = "@block.outer", desc = "Previous block start" },
-				["[f"] = { query = "@function.outer", desc = "Previous function start" },
-				["[l"] = { query = "@loop.outer", desc = "Previous loop start" },
-				["[a"] = { query = "@array.outer", desc = "Previous array start" },
-			},
 			goto_next_end = {
-				["]S"] = { query = "@string.outer", desc = "Next string end" },
-				["]P"] = { query = "@parameter.outer", desc = "Next parameter end" },
-				["]B"] = { query = "@block.outer", desc = "Next block end" },
-				["]F"] = { query = "@function.outer", desc = "Next function end" },
+				["]F"] = { query = "@call.outer", desc = "Next function call end" },
+				["]M"] = { query = "@function.outer", desc = "Next method/function def end" },
+				["]C"] = { query = "@class.outer", desc = "Next class end" },
+				["]I"] = { query = "@conditional.outer", desc = "Next conditional end" },
 				["]L"] = { query = "@loop.outer", desc = "Next loop end" },
+				["]S"] = { query = "@string.outer", desc = "Next string end" },
+				["]B"] = { query = "@block.outer", desc = "Next block end" },
 				["]A"] = { query = "@array.outer", desc = "Next array end" },
 			},
+			goto_previous_start = {
+				["[f"] = { query = "@call.outer", desc = "Prev function call start" },
+				["[m"] = { query = "@function.outer", desc = "Prev method/function def start" },
+				["[c"] = { query = "@class.outer", desc = "Prev class start" },
+				["[i"] = { query = "@conditional.outer", desc = "Prev conditional start" },
+				["[l"] = { query = "@loop.outer", desc = "Prev loop start" },
+				["[s"] = { query = "@string.outer", desc = "Prev string start" },
+				["[b"] = { query = "@block.outer", desc = "Prev block start" },
+				["[a"] = { query = "@array.outer", desc = "Prev array start" },
+			},
 			goto_previous_end = {
-				["[S"] = { query = "@string.outer", desc = "Previous string end" },
-				["[P"] = { query = "@parameter.outer", desc = "Previous parameter end" },
-				["[B"] = { query = "@block.outer", desc = "Previous block end" },
-				["[F"] = { query = "@function.outer", desc = "Previous function end" },
-				["[L"] = { query = "@loop.outer", desc = "Previous loop end" },
-				["[A"] = { query = "@array.outer", desc = "Previous array end" },
-			},
-		},
-		-- Swap text objects (e.g., swap parameters)
-		swap = {
-			enable = true,
-			swap_next = {
-				["<leader>a"] = "@parameter.outer",
-			},
-			swap_previous = {
-				["<leader>A"] = "@parameter.outer",
+				["[F"] = { query = "@call.outer", desc = "Prev function call end" },
+				["[M"] = { query = "@function.outer", desc = "Prev method/function def end" },
+				["[C"] = { query = "@class.outer", desc = "Prev class end" },
+				["[I"] = { query = "@conditional.outer", desc = "Prev conditional end" },
+				["[L"] = { query = "@loop.outer", desc = "Prev loop end" },
+				["[S"] = { query = "@string.outer", desc = "Prev string end" },
+				["[B"] = { query = "@block.outer", desc = "Prev block end" },
+				["[A"] = { query = "@array.outer", desc = "Prev array end" },
 			},
 		},
 	},
@@ -214,3 +282,15 @@ end, { desc = "Jump to Treesitter Context" })
 vim.keymap.set("n", "<leader>tc", function()
 	require("treesitter-context").toggle()
 end, { desc = "Toggle Treesitter Context" })
+
+local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
+
+-- vim way: ; goes to the direction you were moving.
+vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
+vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
+
+-- Optionally, make builtin f, F, t, T also repeatable with ; and ,
+vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f)
+vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F)
+vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
+vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
