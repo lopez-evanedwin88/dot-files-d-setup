@@ -1,20 +1,18 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+# Enable Powerlevel10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Force login shell to ensure .zshrc is sourced
+[[ -o login ]] || exec zsh -l
+
+# Editor and aliases
+export EDITOR='nvim'
+alias v='nvim'
 alias android-pixel7-api34="cd $ANDROID_HOME/emulator && ./emulator -avd Pixel_7_API_34"
-alias v="nvim"
-EDITOR='nvim'
 alias lesgd="cd ~/Development"
 
-eval "$(starship init zsh)"
-
-# eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/atomic.omp.json)"
-
-# eval "$(fzf --zsh)"
+# History settings
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
@@ -24,12 +22,13 @@ setopt hist_ignore_dups
 setopt hist_verify
 setopt share_history
 
+# Initialize zoxide (replaces cd)
 eval "$(zoxide init --cmd cd zsh)"
 
-#quick commands kubernetes
-alias k=kubectl
-alias kns=kubens
-alias ktx=kubectx
+# Kubernetes aliases
+alias k='kubectl'
+alias kns='kubens'
+alias ktx='kubectx'
 alias kgps='kubectl get pods'
 alias kgp='kubectl get pod'
 alias kdes='kubectl describe'
@@ -37,21 +36,18 @@ alias kdel='kubectl delete'
 alias kaf='kubectl apply -f'
 alias klog='kubectl logs'
 
-#quick commands git
+# Git aliases
 alias gl='git log'
 alias gc='git checkout'
 alias gb='git branch'
 alias gp='git pull'
 alias gs='git status'
 alias gps='git push'
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source <(fzf --zsh)
 
-#lazydocker
+# Lazydocker
 alias lzd='lazydocker'
 
-# This config is based on https://github.com/linkarzu/dotfiles-latest/blob/main/zshrc/zshrc-file.sh
+# eza (modern ls replacement)
 if command -v eza &>/dev/null; then
   alias ls='eza'
   alias ll='eza -lhg'
@@ -59,37 +55,66 @@ if command -v eza &>/dev/null; then
   alias tree='eza --tree'
 fi
 
+# bat (modern cat replacement)
 if command -v bat &>/dev/null; then
-  # --style=plain - removes line numbers and git modifications
-  # --paging=never - doesnt pipe it through less
   alias cat='bat --paging=never --style=plain'
   alias catt='bat'
   alias cata='bat --show-all --paging=never'
 fi
 
+# Source zsh plugins
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Initialize zsh-vi-mode
 if [ -f "$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh" ]; then
   source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-  # Following 4 lines modify the escape key to `kj`
   ZVM_VI_ESCAPE_BINDKEY=kj
   ZVM_VI_INSERT_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
   ZVM_VI_VISUAL_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
   ZVM_VI_OPPEND_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
-
-  # Disable the cursor style feature
-  # I my cursor above in the cursor section
-  # https://github.com/jeffreytse/zsh-vi-mode?tab=readme-ov-file#custom-cursor-style
-  #
-  # NOTE: My cursor was not blinking when using wezterm with the "wezterm"
-  # terminfo, setting it to a blinking cursor below fixed that
-  # I also set my term to "xterm-kitty" for this to work
-  #
-  # This also specifies the blinking cursor
-  # ZVM_CURSOR_STYLE_ENABLED=false
   ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BEAM
   ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BLOCK
   ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
-  # Source .fzf.zsh so that the ctrl+r bindkey is given back fzf
-  zvm_after_init_commands+=('[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh')
+  # Start in insert mode to mimic default zsh behavior
+  ZVM_MODE_INSERT_START=true
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Initialize fzf and restore keybindings
+if [ -f ~/.fzf.zsh ]; then
+  source ~/.fzf.zsh
+elif command -v fzf &>/dev/null; then
+  source <(fzf --zsh)
+fi
+
+# Explicitly bind fzf keybindings to ensure Ctrl+R works
+# if command -v fzf &>/dev/null; then
+#   # Bind Ctrl+R for history search in both modes
+#   bindkey '^R' fzf-history-widget
+#   # Ensure other fzf bindings are available
+#   bindkey '^T' fzf-file-widget
+#   bindkey '^I' fzf-cd-widget
+# fi
+
+# Force fzf keybindings
+if command -v fzf &>/dev/null; then
+  # Unbind default Ctrl+R and Ctrl+S
+  bindkey -r '^R'
+  bindkey -r '^S'
+  # Bind fzf widgets
+  bindkey -M emacs '^R' fzf-history-widget
+  bindkey -M viins '^R' fzf-history-widget
+  bindkey -M vicmd '^R' fzf-history-widget
+  bindkey -M emacs '^T' fzf-file-widget
+  bindkey -M viins '^T' fzf-file-widget
+  bindkey -M vicmd '^T' fzf-file-widget
+  bindkey -M emacs '^I' fzf-cd-widget
+  bindkey -M viins '^I' fzf-cd-widget
+  # Optional: Bind Ctrl+S to fzf-history-widget (forward search)
+  bindkey -M emacs '^S' fzf-history-widget
+  bindkey -M viins '^S' fzf-history-widget
+  bindkey -M vicmd '^S' fzf-history-widget
+fi
+
+# Initialize starship prompt
+eval "$(starship init zsh)"
