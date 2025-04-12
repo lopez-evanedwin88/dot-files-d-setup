@@ -10,5 +10,5 @@ function ColorMyWorkspace(color)
 end
 
 -- ColorMyWorkspace("tokyonight")
--- ColorMyWorkspace("catppuccin-mocha")
-ColorMyWorkspace("embark")
+ColorMyWorkspace("catppuccin-mocha")
+-- ColorMyWorkspace("embark")
