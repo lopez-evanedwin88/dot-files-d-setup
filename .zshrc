@@ -97,23 +97,39 @@ fi
 # fi
 
 # Force fzf keybindings
+# if command -v fzf &>/dev/null; then
+#   # Unbind default Ctrl+R and Ctrl+S
+#   bindkey -r '^R'
+#   bindkey -r '^S'
+#   # Bind fzf widgets
+#   bindkey -M emacs '^R' fzf-history-widget
+#   bindkey -M viins '^R' fzf-history-widget
+#   bindkey -M vicmd '^R' fzf-history-widget
+#   bindkey -M emacs '^T' fzf-file-widget
+#   bindkey -M viins '^T' fzf-file-widget
+#   bindkey -M vicmd '^T' fzf-file-widget
+#   bindkey -M emacs '^I' fzf-cd-widget
+#   bindkey -M viins '^I' fzf-cd-widget
+#   # Optional: Bind Ctrl+S to fzf-history-widget (forward search)
+#   bindkey -M emacs '^S' fzf-history-widget
+#   bindkey -M viins '^S' fzf-history-widget
+#   bindkey -M vicmd '^S' fzf-history-widget
+# fi
+
+# Customize fzf keybindings
 if command -v fzf &>/dev/null; then
-  # Unbind default Ctrl+R and Ctrl+S
-  bindkey -r '^R'
-  bindkey -r '^S'
-  # Bind fzf widgets
+  # Unbind Tab to preserve Zsh completion
+  bindkey -r '^I'
+  # Bind fzf explicitly
   bindkey -M emacs '^R' fzf-history-widget
   bindkey -M viins '^R' fzf-history-widget
-  bindkey -M vicmd '^R' fzf-history-widget
   bindkey -M emacs '^T' fzf-file-widget
   bindkey -M viins '^T' fzf-file-widget
-  bindkey -M vicmd '^T' fzf-file-widget
-  bindkey -M emacs '^I' fzf-cd-widget
-  bindkey -M viins '^I' fzf-cd-widget
-  # Optional: Bind Ctrl+S to fzf-history-widget (forward search)
-  bindkey -M emacs '^S' fzf-history-widget
-  bindkey -M viins '^S' fzf-history-widget
-  bindkey -M vicmd '^S' fzf-history-widget
+  bindkey -M emacs '^[c' fzf-cd-widget
+  bindkey -M viins '^[c' fzf-cd-widget
+  # Bind Tab to Zsh completion
+  bindkey -M emacs '^I' complete-word
+  bindkey -M viins '^I' complete-word
 fi
 
 # Initialize starship prompt

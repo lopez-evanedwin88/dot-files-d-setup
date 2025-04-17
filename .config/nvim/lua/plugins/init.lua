@@ -378,4 +378,12 @@ require("lazy").setup({
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		event = "BufReadPost", -- Load after opening a buffer
 	},
+	{
+		"mistweaverco/kulala.nvim",
+		ft = { "http", "rest" },
+		opts = {
+			-- your configuration comes here
+			global_keymaps = true,
+		},
+	},
 })
