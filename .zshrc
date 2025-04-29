@@ -14,8 +14,8 @@ alias lesgd="cd ~/Development"
 
 # History settings
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=99999
+SAVEHIST=99999
 setopt appendhistory
 setopt hist_expire_dups_first
 setopt hist_ignore_dups

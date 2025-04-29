@@ -141,3 +141,11 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 -- Save and load session
 vim.keymap.set("n", "<leader>ss", ":mksession! .session.vim<CR>", { noremap = true, silent = false })
 vim.keymap.set("n", "<leader>sl", ":source .session.vim<CR>", { noremap = true, silent = false })
+
+--Move to specific buffer tab
+vim.keymap.set("n", "<leader>1", "<cmd>lua require'bufferline'.go_to(1, true)<cr>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>2", "<cmd>lua require'bufferline'.go_to(2, true)<cr>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>3", "<cmd>lua require'bufferline'.go_to(3, true)<cr>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>4", "<cmd>lua require'bufferline'.go_to(4, true)<cr>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>5", "<cmd>lua require'bufferline'.go_to(5, true)<cr>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>6", "<cmd>lua require'bufferline'.go_to(6, true)<cr>", { noremap = true, silent = false })
