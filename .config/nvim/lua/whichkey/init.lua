@@ -127,6 +127,7 @@ local mappings = {
 		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+		f = { "<cmd>Telescope git_bcommits<cr>", "Checkout current files commit's" },
 		d = {
 			"<cmd>Gitsigns diffthis HEAD<cr>",
 			"Diff",
@@ -173,13 +174,14 @@ local mappings = {
 	-- Telescope
 	f = {
 		name = "File Search",
-		e = { "<cmd>>lua require('telescope.builtin').resume<cr>", "Resume last search" },
+		e = { "<cmd>Telescope resume<cr>", "Resume last search" },
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-		-- f = { "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>", "Find files" },
-		-- t = { "<cmd>Telescope live_grep<cr>", "Find Text Pattern" },
+		f = { "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>", "Find files" },
+		t = { "<cmd>Telescope live_grep<cr>", "Find Text Pattern" },
 		-- t = { "<cmd>lua _GREP_STRING_INPUT()<cr>", "Grep string >" },
-		-- r = { "<cmd>Telescope oldfiles<cr>", "Recent Files" },
-		-- g = { "<cmd>Telescope luasnip<cr>", "Snip commands" },
+		v = { "<cmd>lua LOVE_MULTIGREP()<cr>", "Multi grep.." },
+		r = { "<cmd>Telescope oldfiles<cr>", "Recent Files" },
+		g = { "<cmd>Telescope luasnip<cr>", "Snip commands" },
 	},
 
 	s = {

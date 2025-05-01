@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	{ "wbthomason/packer.nvim" },
+	-- { "wbthomason/packer.nvim" },
 	{ "nvim-tree/nvim-web-devicons" },
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", event = { "BufReadPre", "BufNewFile" } },
 	{
@@ -212,12 +212,12 @@ require("lazy").setup({
 			"kevinhwang91/promise-async",
 		},
 	},
-	{
-		"stevearc/oil.nvim",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
-	},
+	-- {
+	-- 	"stevearc/oil.nvim",
+	-- 	dependencies = {
+	-- 		"nvim-tree/nvim-web-devicons",
+	-- 	},
+	-- },
 	{
 		"folke/flash.nvim",
 	},

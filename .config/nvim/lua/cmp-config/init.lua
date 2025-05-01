@@ -35,6 +35,8 @@ local luasnip = require("luasnip")
 luasnip.config.set_config({
 	region_check_events = "InsertEnter",
 	delete_check_events = "InsertLeave",
+	history = true, -- needed to allow jumping back
+	updateevents = "TextChanged,TextChangedI",
 })
 local cmp = require("cmp")
 local types = require("cmp.types")
@@ -88,7 +90,7 @@ cmp.setup({
 		}),
 		-- Accept currently selected item. If none selected, `select` first item.
 		-- Set `select` to `false` to only confirm explicitly selected items.
-		["<CR>"] = cmp.mapping.confirm({ select = true }),
+		["<CR>"] = cmp.mapping.confirm({ select = false }),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
@@ -97,11 +99,11 @@ cmp.setup({
 			elseif luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
 			elseif check_backspace() then
-				-- fallback()
-				require("neotab").tabout()
+				fallback()
+			-- require("neotab").tabout()
 			else
-				require("neotab").tabout()
-				-- fallback()
+				-- require("neotab").tabout()
+				fallback()
 			end
 		end, {
 			"i",
@@ -261,7 +263,7 @@ cmp.setup({
 				path = "[Path]",
 			})[entry.source.name]
 			-- return require("nvim-highlight-colors").format(entry, vim_item)
-      return vim_item
+			return vim_item
 		end,
 	},
 	sources = {
@@ -284,7 +286,7 @@ cmp.setup({
 				return true
 			end,
 		},
-    { name = "nvim_lsp" },
+		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "cmp_tabnine" },
 		{ name = "nvim_lua" },
