@@ -6,7 +6,7 @@ local mappings = {
   -- ['w'] = { '<cmd>w!<CR>', 'Save' }, -- Save current file
 
   -- LSP Config
-  ['<leader>r'] = { '<cmd>lua vim.lsp.buf.format{async=true}<cr>', 'Reformat Code' },
+  ['<leader>r'] = { "<cmd>lua require 'conform'.format({async = true}, _AFTER_FORMATTING)<cr>", 'Reformat Code' },
   ['<leader>m'] = { '<cmd>Mason<cr>', 'Mason' }, -- LSP Manager
   -- Undo tree
   -- ["u"] = { "<cmd>lua require('undotree').toggle()<CR>", "Undo-Tree" }, -- Undo History

@@ -162,6 +162,12 @@ return {
 
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
+      -- Add foldingRange capability manually for UFO
+      capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true,
+      }
+
       local servers = {
         -- clangd = {},
         -- gopls = {},
@@ -208,6 +214,14 @@ return {
             require('lspconfig')[server_name].setup(server)
           end,
         },
+      }
+
+      -- Manual LSP setup for sourcekit-lsp (not available via Mason)
+      require('lspconfig').sourcekit.setup {
+        cmd = { 'xcrun', 'sourcekit-lsp' },
+        filetypes = { 'swift' },
+        root_dir = require('lspconfig').util.root_pattern('Package.swift', '.git', 'compile_commands.json'),
+        capabilities = capabilities,
       }
     end,
   },
