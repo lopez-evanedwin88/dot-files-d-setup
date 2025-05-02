@@ -3,6 +3,11 @@
 --
 -- See the kickstart.nvim README for more information
 return {
+  { 'tpope/vim-fugitive' },
+  -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
+  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically  -- See `:help gitsigns` to understand what the configuration keys do
+  -- Highlight todo, notes, etc in comments
+  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
   {
     'andymass/vim-matchup',
     setup = function()
@@ -45,9 +50,10 @@ return {
     },
   },
   {
-    'jiaoshijie/undotree',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
+    'mbbill/undotree',
+    cmd = { 'UndotreeToggle', 'UndotreeShow', 'UndotreeHide' },
+    keys = {
+      { '<leader>u', '<cmd>UndotreeToggle<CR>', desc = 'Toggle Undotree' },
     },
   },
 }
