@@ -25,19 +25,6 @@ vim.diagnostic.config({
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
-local lsp_zero = require("lsp-zero")
-lsp_zero.on_attach(function(_, bufnr)
-	-- see :help lsp-zero-keybindings
-	-- to learn the available actions
-	lsp_zero.default_keymaps({
-		buffer = bufnr,
-		preserve_mappings = false,
-	})
-
-	-- Added custom keybindings for LSP
-	vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr })
-end)
-
 local buffer_autoformat = function(bufnr)
 	local group = "lsp_autoformat"
 	vim.api.nvim_create_augroup(group, { clear = false })
@@ -57,6 +44,17 @@ end
 -- https://lsp-zero.netlify.app/docs/language-server-configuration.html#disable-semantic-highlights
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
+		local id = vim.tbl_get(event, "data", "client_id")
+		local client = id and vim.lsp.get_client_by_id(id)
+		if client == nil then
+			return
+		end
+
+		-- make sure there is at least one client with formatting capabilities
+		if client.supports_method("textDocument/formatting") then
+			buffer_autoformat(event.buf)
+		end
+
 		local opts = { buffer = event.buf }
 
 		vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
@@ -69,16 +67,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "grn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 		-- vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
 		vim.keymap.set("n", "gra", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-		local id = vim.tbl_get(event, "data", "client_id")
-		local client = id and vim.lsp.get_client_by_id(id)
-		if client == nil then
-			return
-		end
-
-		-- make sure there is at least one client with formatting capabilities
-		if client.supports_method("textDocument/formatting") then
-			buffer_autoformat(event.buf)
-		end
 
 		-- Disable semantic highlights
 		client.server_capabilities.semanticTokensProvider = nil

@@ -8,31 +8,58 @@ local colors = {
 	grey = "#303030",
 }
 
-local bubbles_theme = {
+-- local themes = {
+-- 	normal = {
+-- 		a = { fg = colors.black, bg = colors.violet },
+-- 		b = { fg = colors.white, bg = colors.grey },
+-- 		c = { fg = colors.white },
+-- 	},
+--
+-- 	insert = { a = { fg = colors.black, bg = colors.blue } },
+-- 	visual = { a = { fg = colors.black, bg = colors.cyan } },
+-- 	replace = { a = { fg = colors.black, bg = colors.red } },
+--
+-- 	inactive = {
+-- 		a = { fg = colors.white, bg = colors.black },
+-- 		b = { fg = colors.white, bg = colors.black },
+-- 		c = { fg = colors.white },
+-- 	},
+-- }
+
+local themes = {
 	normal = {
-		a = { fg = colors.black, bg = colors.violet },
-		b = { fg = colors.white, bg = colors.grey },
-		c = { fg = colors.white },
+		a = { fg = colors.white, bg = nil },
+		b = { fg = colors.white, bg = nil },
+		c = { fg = colors.white, bg = nil },
 	},
 
-	insert = { a = { fg = colors.black, bg = colors.blue } },
-	visual = { a = { fg = colors.black, bg = colors.cyan } },
-	replace = { a = { fg = colors.black, bg = colors.red } },
+	insert = {
+		a = { fg = colors.violet, bg = nil },
+	},
+
+	visual = {
+		a = { fg = colors.cyan, bg = nil },
+	},
+
+	replace = {
+		a = { fg = colors.blue, bg = nil },
+	},
 
 	inactive = {
-		a = { fg = colors.white, bg = colors.black },
-		b = { fg = colors.white, bg = colors.black },
-		c = { fg = colors.white },
+		a = { fg = colors.white, bg = nil },
+		b = { fg = colors.white, bg = nil },
+		c = { fg = colors.white, bg = nil },
 	},
 }
+
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
-		theme = bubbles_theme,
+		theme = themes,
 		component_separators = "",
-		section_separators = { left = "", right = "" },
+		-- section_separators = { left = "", right = "" },
 		disabled_filetypes = {
-      'neo-tree',
+			"neo-tree",
 			statusline = {},
 			winbar = {},
 		},

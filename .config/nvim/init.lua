@@ -1,5 +1,5 @@
 -- Neovim needs to know which Python to use. If your virtualenv is at ~/myproject/venv/bin/python.
-vim.g.python3_host_prog = '~/Development/suggestify-v2/issue-manager/venv/bin/python'
+vim.g.python3_host_prog = "~/Development/suggestify-v2/issue-manager/venv/bin/python"
 -- Run Python via Docker
 -- Tell Neovim to use the container’s Python by invoking it through docker exec:
 -- Find Your Container: Run docker ps to get the container name or ID (e.g., my_django_container).
@@ -30,7 +30,7 @@ require("comment-config")
 require("nvim-surround-config")
 require("lab-config")
 require("illuminate-config")
-require("dashboard-config")
+-- require("dashboard-config")
 require("ufo-config")
 -- require("oil-config")
 require("flash-config")
@@ -41,7 +41,7 @@ require("autopair-config")
 require("cmp-config")
 -- require("copilot-config")
 -- require("eyeliner-config")
-require("neoscroll-config")
+-- require("neoscroll-config")
 require("numb-config")
 -- require("tabby-config")
 require("neo-tab-config")
