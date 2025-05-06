@@ -25,21 +25,22 @@ vim.diagnostic.config({
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
-local buffer_autoformat = function(bufnr)
-	local group = "lsp_autoformat"
-	vim.api.nvim_create_augroup(group, { clear = false })
-	vim.api.nvim_clear_autocmds({ group = group, buffer = bufnr })
-
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		buffer = bufnr,
-		group = group,
-		desc = "LSP format on save",
-		callback = function()
-			-- note: do not enable async formatting
-			vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
-		end,
-	})
-end
+-- AutoFormat on save
+-- local buffer_autoformat = function(bufnr)
+-- 	local group = "lsp_autoformat"
+-- 	vim.api.nvim_create_augroup(group, { clear = false })
+-- 	vim.api.nvim_clear_autocmds({ group = group, buffer = bufnr })
+--
+-- 	vim.api.nvim_create_autocmd("BufWritePre", {
+-- 		buffer = bufnr,
+-- 		group = group,
+-- 		desc = "LSP format on save",
+-- 		callback = function()
+-- 			-- note: do not enable async formatting
+-- 			vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
+-- 		end,
+-- 	})
+-- end
 
 -- https://lsp-zero.netlify.app/docs/language-server-configuration.html#disable-semantic-highlights
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -51,9 +52,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 
 		-- make sure there is at least one client with formatting capabilities
-		if client.supports_method("textDocument/formatting") then
-			buffer_autoformat(event.buf)
-		end
+		-- if client.supports_method("textDocument/formatting") then
+		-- 	buffer_autoformat(event.buf)
+		-- end
 
 		local opts = { buffer = event.buf }
 
