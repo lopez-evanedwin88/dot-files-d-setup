@@ -10,7 +10,6 @@ end
 
 return { -- Autoformat
   'stevearc/conform.nvim',
-  event = { 'BufWritePre' },
   cmd = { 'ConformInfo' },
   config = function()
     require('conform').setup {
