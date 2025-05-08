@@ -4,6 +4,7 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       local lint = require 'lint'
+      -- eslint_d version in mason should be 13.1.2
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
         typescript = { 'eslint_d' },
