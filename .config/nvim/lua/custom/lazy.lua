@@ -14,6 +14,7 @@ require('lazy').setup {
     'nvim-treesitter/nvim-treesitter-textobjects',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
   },
+  { 'JoosepAlviste/nvim-ts-context-commentstring' },
   {
     'kdheepak/lazygit.nvim',
     -- optional for floating window border decoration
@@ -40,7 +41,6 @@ require('lazy').setup {
     'ThePrimeagen/harpoon',
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
-  { 'JoosepAlviste/nvim-ts-context-commentstring' },
   {
     '0x100101/lab.nvim',
     -- cmd = "cd js && npm ci", -- or install if manually

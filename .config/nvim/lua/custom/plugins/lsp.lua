@@ -27,41 +27,10 @@ vim.diagnostic.config {
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
 vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
 
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(event)
-    local client = vim.lsp.get_client_by_id(event.data.client_id)
-    if not client then
-      return
-    end
-
-    local opts = { buffer = event.buf }
-
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', 'grd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'grD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gri', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', 'gro', vim.lsp.buf.type_definition, opts)
-    vim.keymap.set('n', 'grr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', 'grs', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set('n', 'grn', vim.lsp.buf.rename, opts)
-    vim.keymap.set('n', 'gra', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', '<leader>df', vim.diagnostic.open_float, opts)
-    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-
-    -- if client.supports_method("textDocument/formatting") then
-    -- 	buffer_autoformat(event.buf)
-    -- end
-
-    -- Disable semantic tokens
-    client.server_capabilities.semanticTokensProvider = nil
-  end,
-})
-
 return {
   {
     'neovim/nvim-lspconfig',
-    event = { "BufReadPre", "BufNewFile" },
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
       { 'williamboman/mason.nvim', opts = {} },
       'williamboman/mason-lspconfig.nvim',
@@ -84,6 +53,37 @@ return {
       -- 		end,
       -- 	})
       -- end
+      vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(event)
+          local client = vim.lsp.get_client_by_id(event.data.client_id)
+          if not client then
+            return
+          end
+
+          local opts = { buffer = event.buf }
+
+          vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+          vim.keymap.set('n', 'grd', vim.lsp.buf.definition, opts)
+          vim.keymap.set('n', 'grD', vim.lsp.buf.declaration, opts)
+          vim.keymap.set('n', 'gri', vim.lsp.buf.implementation, opts)
+          vim.keymap.set('n', 'gro', vim.lsp.buf.type_definition, opts)
+          vim.keymap.set('n', 'grr', vim.lsp.buf.references, opts)
+          vim.keymap.set('n', 'grs', vim.lsp.buf.signature_help, opts)
+          vim.keymap.set('n', 'grn', vim.lsp.buf.rename, opts)
+          vim.keymap.set('n', 'gra', vim.lsp.buf.code_action, opts)
+          vim.keymap.set('n', '<leader>df', vim.diagnostic.open_float, opts)
+          vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+          vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+
+          -- if client.supports_method("textDocument/formatting") then
+          -- 	buffer_autoformat(event.buf)
+          -- end
+
+          -- Disable semantic tokens
+          client.server_capabilities.semanticTokensProvider = nil
+        end,
+      })
+
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       capabilities.textDocument.foldingRange = {
         dynamicRegistration = false,
