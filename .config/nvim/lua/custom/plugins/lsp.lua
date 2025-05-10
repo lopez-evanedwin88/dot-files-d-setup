@@ -61,7 +61,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 return {
   {
     'neovim/nvim-lspconfig',
-    -- event = { "BufReadPre", "BufNewFile" },
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       { 'williamboman/mason.nvim', opts = {} },
       'williamboman/mason-lspconfig.nvim',

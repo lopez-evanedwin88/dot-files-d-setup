@@ -33,6 +33,7 @@ end
 
 return {
   'hrsh7th/nvim-cmp',
+  event = 'InsertEnter',
   dependencies = {
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/cmp-buffer' },
@@ -47,9 +48,12 @@ return {
     {
       'benfowler/telescope-luasnip.nvim',
     },
+    'onsails/lspkind.nvim', -- vs-code like pictograms
   },
   config = function()
     local luasnip = require 'luasnip'
+    local lspkind = require 'lspkind'
+
     luasnip.config.set_config {
       region_check_events = 'InsertEnter',
       delete_check_events = 'InsertLeave',
@@ -257,21 +261,27 @@ return {
       -- 	end,
       -- },
       formatting = {
-        fields = { 'kind', 'abbr', 'menu' },
-        format = function(entry, vim_item)
-          -- Kind icons
-          vim_item.kind = string.format('%s', kind_icons[vim_item.kind])
-          -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-          vim_item.menu = ({
-            nvim_lsp = '[LSP]',
-            luasnip = '[Snippet]',
-            buffer = '[Buffer]',
-            path = '[Path]',
-          })[entry.source.name]
-          -- return require("nvim-highlight-colors").format(entry, vim_item)
-          return vim_item
-        end,
+        format = lspkind.cmp_format {
+          maxwidth = 50,
+          ellipsis_char = '...',
+        },
       },
+      -- formatting = {
+      --   fields = { 'kind', 'abbr', 'menu' },
+      --   format = function(entry, vim_item)
+      --     -- Kind icons
+      --     vim_item.kind = string.format('%s', kind_icons[vim_item.kind])
+      --     -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+      --     vim_item.menu = ({
+      --       nvim_lsp = '[LSP]',
+      --       luasnip = '[Snippet]',
+      --       buffer = '[Buffer]',
+      --       path = '[Path]',
+      --     })[entry.source.name]
+      --     -- return require("nvim-highlight-colors").format(entry, vim_item)
+      --     return vim_item
+      --   end,
+      -- },
       sources = cmp.config.sources {
         { name = 'nvim_lsp' },
         { name = 'luasnip' }, -- snippets
