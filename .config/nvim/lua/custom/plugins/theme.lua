@@ -7,8 +7,21 @@ return {
   -- 	end,
   -- },
   -- { "shaunsingh/nord.nvim" },
+  {
+    'folke/tokyonight.nvim',
+    priority = 1000,
+    config = function()
+      require('tokyonight').setup {
+        transparent = true,
+        -- styles = {
+        --   sidebars = 'transparent',
+        --   floats = 'transparent',
+        -- },
+      }
+      require('core.ui').ColorMyWorkspace 'tokyonight-moon'
+    end,
+  },
   -- { "vague2k/vague.nvim" },
-  -- { "folke/tokyonight.nvim" },
   -- {
   -- 	"catppuccin/nvim",
   -- 	name = "catppuccin",
@@ -22,17 +35,29 @@ return {
   -- 	end,
   -- },
   -- { "embark-theme/vim" },
-  {
-    'scottmckendry/cyberdream.nvim',
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require('cyberdream').setup {
-        transparent = true,
-      }
-      require('core.ui').ColorMyWorkspace 'cyberdream'
-    end,
-  },
+  -- { 'AbdelrahmanDwedar/awesome-nvim-colorschemes' },
+  -- {
+  --   'scottmckendry/cyberdream.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require('cyberdream').setup {
+  --       transparent = true,
+  --     }
+  --     require('core.ui').ColorMyWorkspace 'cyberdream'
+  --   end,
+  -- },
+  -- {
+  --   'ellisonleao/gruvbox.nvim',
+  --   priority = 1000,
+  --   config = function()
+  --     require('gruvbox').setup {
+  --       transparent_mode = true,
+  --       terminal_colors = false,
+  --     }
+  --     require('core.ui').ColorMyWorkspace 'gruvbox'
+  --   end,
+  -- },
   {
     'tjdevries/colorbuddy.nvim',
     config = function()
