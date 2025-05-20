@@ -9,6 +9,7 @@ fi
 # Editor and aliases
 export EDITOR='nvim'
 alias v='nvim'
+alias ff='dir=$(find . | fzf-tmux -p --reverse); nvim "$dir"'
 alias android-pixel7-api34="cd $ANDROID_HOME/emulator && ./emulator -avd Pixel_7_API_34"
 alias lesgd="cd ~/Development"
 
@@ -125,11 +126,11 @@ if command -v fzf &>/dev/null; then
   bindkey -M viins '^R' fzf-history-widget
   bindkey -M emacs '^T' fzf-file-widget
   bindkey -M viins '^T' fzf-file-widget
-  bindkey -M emacs '^[c' fzf-cd-widget
-  bindkey -M viins '^[c' fzf-cd-widget
+  bindkey -M emacs '^I' fzf-cd-widget
+  bindkey -M viins '^I' fzf-cd-widget
   # Bind Tab to Zsh completion
-  bindkey -M emacs '^I' complete-word
-  bindkey -M viins '^I' complete-word
+  # bindkey -M emacs '^I' complete-word
+  # bindkey -M viins '^I' complete-word
 fi
 
 # Initialize starship prompt
