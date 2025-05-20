@@ -310,8 +310,10 @@ local mappings = {
     name = 'Flash',
     s = { "<cmd>lua require('flash').jump() <cr>", 'Flash Jump' },
     t = { "<cmd>lua require('flash').treesitter() <cr>", 'Flash Treesitter' },
-    r = { "<cmd>lua require('flash').treesitter_search() <cr>", 'Flash Treesitter Search' },
+    -- r = { "<cmd>lua require('flash').treesitter_search() <cr>", 'Flash Treesitter Search' },
   },
+
+  ['-'] = { '<cmd>:Ex<cr>', 'NetRw Explorer' },
 
   -- Telescope
   -- f = {
