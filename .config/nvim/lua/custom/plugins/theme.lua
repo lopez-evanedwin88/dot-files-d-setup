@@ -7,20 +7,20 @@ return {
   -- 	end,
   -- },
   -- { "shaunsingh/nord.nvim" },
-  {
-    'folke/tokyonight.nvim',
-    priority = 1000,
-    config = function()
-      require('tokyonight').setup {
-        transparent = true,
-        -- styles = {
-        --   sidebars = 'transparent',
-        --   floats = 'transparent',
-        -- },
-      }
-      require('core.ui').ColorMyWorkspace 'tokyonight-moon'
-    end,
-  },
+  -- {
+  --   'folke/tokyonight.nvim',
+  --   priority = 1000,
+  --   config = function()
+  --     require('tokyonight').setup {
+  --       transparent = true,
+  --       styles = {
+  --         sidebars = 'transparent',
+  --         floats = 'transparent',
+  --       },
+  --     }
+  --     require('core.ui').ColorMyWorkspace 'tokyonight'
+  --   end,
+  -- },
   -- { "vague2k/vague.nvim" },
   -- {
   -- 	"catppuccin/nvim",
@@ -36,17 +36,17 @@ return {
   -- },
   -- { "embark-theme/vim" },
   -- { 'AbdelrahmanDwedar/awesome-nvim-colorschemes' },
-  -- {
-  --   'scottmckendry/cyberdream.nvim',
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     require('cyberdream').setup {
-  --       transparent = true,
-  --     }
-  --     require('core.ui').ColorMyWorkspace 'cyberdream'
-  --   end,
-  -- },
+  {
+    'scottmckendry/cyberdream.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('cyberdream').setup {
+        transparent = true,
+      }
+      require('core.ui').ColorMyWorkspace 'cyberdream'
+    end,
+  },
   -- {
   --   'ellisonleao/gruvbox.nvim',
   --   priority = 1000,
