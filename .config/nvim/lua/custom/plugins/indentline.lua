@@ -62,21 +62,21 @@ return {
       }
     end,
   },
-  {
-    'echasnovski/mini.indentscope',
-    opts = {
-      draw = {
-        delay = 100, -- Delay in milliseconds
-        animation = function()
-          return 13
-        end,
-      },
-      options = {
-        try_as_border = true, -- Try drawing as border
-        indent_at_cursor = false, -- Draw lines at cursor position only
-        show_when_not_focused = true, -- Show lines when not focused
-      },
-      symbol = '│',
-    },
-  },
+  -- {
+  --   'echasnovski/mini.indentscope',
+  --   opts = {
+  --     draw = {
+  --       delay = 100, -- Delay in milliseconds
+  --       animation = function()
+  --         return 13
+  --       end,
+  --     },
+  --     options = {
+  --       try_as_border = true, -- Try drawing as border
+  --       indent_at_cursor = false, -- Draw lines at cursor position only
+  --       show_when_not_focused = true, -- Show lines when not focused
+  --     },
+  --     symbol = '│',
+  --   },
+  -- },
 }

@@ -84,44 +84,46 @@ return {
         end,
       })
 
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
       capabilities.textDocument.foldingRange = {
         dynamicRegistration = false,
         lineFoldingOnly = true,
       }
 
-      local servers = {
-        lua_ls = {
-          settings = {
-            Lua = {
-              completion = {
-                callSnippet = 'Replace',
-              },
-              diagnostics = {
-                globals = { 'vim' },
+      require('mason-lspconfig').setup {
+        ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
+        automatic_installation = false,
+      }
+
+      local lspconfig = require 'lspconfig'
+
+      lspconfig.lua_ls.setup {
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            runtime = { version = 'LuaJIT' },
+            diagnostics = { globals = { 'vim' } },
+            workspace = {
+              checkThirdParty = false,
+              library = {
+                vim.env.VIMRUNTIME,
+                '${3rd}/luv/library',
               },
             },
+            telemetry = { enable = false },
           },
         },
       }
 
-      local ensure_installed = vim.tbl_keys(servers or {})
-      vim.list_extend(ensure_installed, {
-        'stylua', -- Used to format Lua code
-      })
-
-      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-
-      require('mason-lspconfig').setup {
-        ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-        automatic_installation = false,
-        handlers = {
-          function(server_name)
-            local server = servers[server_name] or {}
-            server.capabilities = capabilities
-            require('lspconfig')[server_name].setup(server)
-          end,
-        },
+      -- tsserver setup
+      lspconfig.tsserver.setup {
+        capabilities = capabilities,
+        on_init = function(client)
+          client.server_capabilities.documentFormattingProvider = false
+        end,
+        root_dir = require('lspconfig.util').root_pattern('tsconfig.json', 'package.json', '.git'),
+        init_options = { hostInfo = 'neovim' },
       }
 
       -- Manually configure sourcekit-lsp (not managed by mason)
@@ -129,7 +131,6 @@ return {
         cmd = { vim.trim(vim.fn.system 'xcrun -f sourcekit-lsp') },
         filetypes = { 'swift' },
         root_dir = require('lspconfig').util.root_pattern('Package.swift', '.git', 'compile_commands.json'),
-        capabilities = capabilities,
         on_init = function(client)
           -- HACK: to fix some issues with LSP
           -- more details: https://github.com/neovim/neovim/issues/19237#issuecomment-2237037154
