@@ -315,6 +315,15 @@ local mappings = {
 
   ['-'] = { '<cmd>:Ex<cr>', 'NetRw Explorer' },
 
+  ['<leader>z'] = {
+    name = 'True Zen',
+    ['n'] = { '<cmd>:TZNarrow<cr>', 'TZ Narrow', mode = 'n' },
+    ['v'] = { "<cmd>'<,'>TZNarrow<cr>", 'TZ Narrow Selected', mode = 'v' },
+    ['f'] = { '<cmd>:TZFocus<cr>', 'TZ Focus', mode = 'n' },
+    ['m'] = { '<cmd>:TZMinimalist<cr>', 'TZ Minimalist', mode = 'n' },
+    ['a'] = { '<cmd>:TZAtaraxis<cr>', 'TZ Ataraxis', mode = 'n' },
+  },
+
   -- Telescope
   -- f = {
   --   name = 'File Search',
