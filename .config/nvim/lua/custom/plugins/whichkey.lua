@@ -317,11 +317,25 @@ local mappings = {
 
   ['<leader>z'] = {
     name = 'True Zen',
-    ['n'] = { '<cmd>:TZNarrow<cr>', 'TZ Narrow', mode = 'n' },
-    ['v'] = { "<cmd>'<,'>TZNarrow<cr>", 'TZ Narrow Selected', mode = 'v' },
-    ['f'] = { '<cmd>:TZFocus<cr>', 'TZ Focus', mode = 'n' },
-    ['m'] = { '<cmd>:TZMinimalist<cr>', 'TZ Minimalist', mode = 'n' },
-    ['a'] = { '<cmd>:TZAtaraxis<cr>', 'TZ Ataraxis', mode = 'n' },
+    -- ['n'] = { '<cmd>:TZNarrow<cr>', 'TZ Narrow', mode = 'n' },
+    -- ['v'] = { "<cmd>'<,'>TZNarrow<cr>", 'TZ Narrow Selected', mode = 'v' },
+    ['f'] = {
+      function()
+        local tzfocus = require 'true-zen.focus'
+        local status = pcall(function()
+          tzfocus.toggle()
+          error 'Something went wrong'
+        end)
+
+        if not status and tzfocus.running then
+          tzfocus.on()
+        end
+      end,
+      'TZ Focus',
+      mode = 'n',
+    },
+    -- ['m'] = { '<cmd>:TZMinimalist<cr>', 'TZ Minimalist', mode = 'n' },
+    -- ['a'] = { '<cmd>:TZAtaraxis<cr>', 'TZ Ataraxis', mode = 'n' },
   },
 
   -- Telescope
