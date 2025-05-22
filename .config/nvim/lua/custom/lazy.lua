@@ -29,21 +29,16 @@ require('lazy').setup {
       'nvim-lua/plenary.nvim',
     },
   },
-  {
-    'folke/noice.nvim',
-    lazy = false,
-    dependencies = {
-      'MunifTanjim/nui.nvim',
-      'rcarriga/nvim-notify',
-    },
-  },
+  -- {
+  --   'folke/noice.nvim',
+  --   lazy = false,
+  --   dependencies = {
+  --     'MunifTanjim/nui.nvim',
+  --     'rcarriga/nvim-notify',
+  --   },
+  -- },
   {
     'ThePrimeagen/harpoon',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-  },
-  {
-    '0x100101/lab.nvim',
-    -- cmd = "cd js && npm ci", -- or install if manually
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
   {
@@ -110,9 +105,6 @@ require('lazy').setup {
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
   },
   {
-    'mg979/vim-visual-multi',
-  },
-  {
     'kristijanhusak/vim-dadbod-ui',
     dependencies = {
       { 'tpope/vim-dadbod', lazy = true },
@@ -134,19 +126,6 @@ require('lazy').setup {
   },
   {
     'GitMarkedDan/you-are-an-idiot.nvim',
-  },
-  {
-    'nvim-treesitter/nvim-treesitter-context',
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    event = 'BufReadPost', -- Load after opening a buffer
-  },
-  {
-    'mistweaverco/kulala.nvim',
-    ft = { 'http', 'rest' },
-    opts = {
-      -- your configuration comes here
-      global_keymaps = true,
-    },
   },
   {
     'iamcco/markdown-preview.nvim',

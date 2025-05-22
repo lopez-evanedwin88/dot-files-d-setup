@@ -29,39 +29,39 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 return {
-  {
-    'lukas-reineke/indent-blankline.nvim',
-    config = function()
-      require('ibl').setup {
-        indent = {
-          char = icons.ui.LineLeft, -- Use a simple vertical line for indentation
-          -- highlight = "IndentBlanklineChar", -- Use a highlight group
-        },
-        whitespace = {
-          highlight = nil, -- Disable highlight for whitespace
-          remove_blankline_trail = false,
-        },
-        scope = {
-          enabled = false, -- Enable scope highlighting
-        },
-        exclude = {
-          filetypes = {
-            'help',
-            'lazy',
-            'neo-tree',
-            'notify',
-            'text',
-            'startify',
-            'dashboard',
-            'neogitstatus',
-            'NvimTree',
-            'Trouble',
-          },
-          buftypes = { 'terminal', 'nofile' }, -- Exclude terminal and nofile buffers
-        },
-      }
-    end,
-  },
+  -- {
+  --   'lukas-reineke/indent-blankline.nvim',
+  --   config = function()
+  --     require('ibl').setup {
+  --       indent = {
+  --         char = icons.ui.LineLeft, -- Use a simple vertical line for indentation
+  --         -- highlight = "IndentBlanklineChar", -- Use a highlight group
+  --       },
+  --       whitespace = {
+  --         highlight = nil, -- Disable highlight for whitespace
+  --         remove_blankline_trail = false,
+  --       },
+  --       scope = {
+  --         enabled = false, -- Enable scope highlighting
+  --       },
+  --       exclude = {
+  --         filetypes = {
+  --           'help',
+  --           'lazy',
+  --           'neo-tree',
+  --           'notify',
+  --           'text',
+  --           'startify',
+  --           'dashboard',
+  --           'neogitstatus',
+  --           'NvimTree',
+  --           'Trouble',
+  --         },
+  --         buftypes = { 'terminal', 'nofile' }, -- Exclude terminal and nofile buffers
+  --       },
+  --     }
+  --   end,
+  -- },
   -- {
   --   'echasnovski/mini.indentscope',
   --   opts = {

@@ -83,7 +83,7 @@ return {
     end, { desc = '[/] Fuzzily search in current buffer' })
 
     require('telescope').load_extension 'luasnip'
-    require('telescope').load_extension 'noice'
+    -- require('telescope').load_extension 'noice'
     require('telescope').load_extension 'ui-select'
     require('telescope').load_extension 'harpoon'
     require('telescope').load_extension 'fzf'

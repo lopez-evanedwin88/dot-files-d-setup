@@ -1,8 +1,8 @@
 # Ignore all files...
-/*
+# /*
 # ...except the ones we want
 !.gitignore
-!.config/nvim/*
+# !.config/nvim/*
 !.tmux.conf
 !README.md
 !.gitconfig
