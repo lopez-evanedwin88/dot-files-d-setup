@@ -21,7 +21,15 @@ return {
   --     require('core.ui').ColorMyWorkspace 'tokyonight'
   --   end,
   -- },
-  -- { "vague2k/vague.nvim" },
+  -- {
+  --   'vague2k/vague.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require('vague').setup()
+  --     require('core.ui').ColorMyWorkspace 'vague'
+  --   end,
+  -- },
   -- {
   -- 	"catppuccin/nvim",
   -- 	name = "catppuccin",
@@ -72,10 +80,7 @@ return {
 
       Group.new('CursorLine', colors.none, colors.base03, styles.none, colors.base1)
       Group.new('CursorLineNr', colors.yellow, colors.black, styles.none, colors.base1)
-      Group.new('Visual', colors.none, colors.base1, styles.reverse)
-      Group.new('IlluminatedWordText', colors.none, colors.highlight_bg)
-      Group.new('IlluminatedWordRead', colors.none, colors.highlight_bg)
-      Group.new('IlluminatedWordWrite', colors.none, colors.highlight_bg)
+      -- Group.new('Visual', colors.none, colors.base1, styles.reverse)
     end,
   },
 }

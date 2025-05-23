@@ -111,13 +111,13 @@ opt.backup = false
 opt.timeoutlen = vim.g.vscode and 1000 or 300 -- Lower than default (1000) to quickly trigger which-key
 opt.undofile = true
 opt.undolevels = 10000
-opt.updatetime = 200 -- Save swap file and trigger CursorHold
+opt.updatetime = 0 -- Save swap file and trigger CursorHold
 opt.virtualedit = 'block' -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = 'longest:full,full' -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false -- Disable line wrap
 
-opt.hlsearch = false -- Set highlight on search
+opt.hlsearch = true -- Set highlight on search
 opt.incsearch = true
 opt.autoindent = true -- copy indent from current line when starting new one
 opt.backspace = 'indent,eol,start' -- allow backspace on
