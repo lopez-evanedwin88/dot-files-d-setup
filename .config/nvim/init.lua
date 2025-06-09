@@ -9,7 +9,6 @@ vim.g.python3_host_prog = "~/Development/suggestify-v2/issue-manager/venv/bin/py
 require("core")
 require("custom.lazy")
 require("assets.illuminate")
--- require("lspsaga-config")
 -- require("harpoon-config")
 -- require("none-ls-config")
 -- require("noice-config")
@@ -20,3 +19,4 @@ require("assets.illuminate")
 -- require("colorbuddy-config")
 -- require("render-markdown-config")
 -- require("you-are-an-idiot-config")
+
