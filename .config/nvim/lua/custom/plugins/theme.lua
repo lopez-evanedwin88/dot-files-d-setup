@@ -30,31 +30,34 @@ return {
   --     require('core.ui').ColorMyWorkspace 'vague'
   --   end,
   -- },
-  -- {
-  -- 	"catppuccin/nvim",
-  -- 	name = "catppuccin",
-  -- 	priority = 1000,
-  -- 	config = function()
-  -- 		require("catppuccin").setup({
-  -- 			transparent_background = true, -- Key for transparency
-  -- 			term_colors = true,
-  -- 		})
-  -- 		require("core.ui").ColorMyWorkspace("catppuccin-mocha")
-  -- 	end,
-  -- },
-  -- { "embark-theme/vim" },
-  -- { 'AbdelrahmanDwedar/awesome-nvim-colorschemes' },
   {
-    'scottmckendry/cyberdream.nvim',
-    lazy = false,
+    'catppuccin/nvim',
     priority = 1000,
     config = function()
-      require('cyberdream').setup {
-        transparent = true,
+      require('catppuccin').setup {
+        flavour = 'auto', -- latte, frappe, macchiato, mocha
+        background = { -- :h background
+          light = 'latte',
+          dark = 'mocha',
+        },
+        transparent_background = true, -- Key for transparency
       }
-      require('core.ui').ColorMyWorkspace 'cyberdream'
+      require('core.ui').ColorMyWorkspace 'catppuccin-mocha'
     end,
   },
+  -- { "embark-theme/vim" },
+  -- { 'AbdelrahmanDwedar/awesome-nvim-colorschemes' },
+  -- {
+  --   'scottmckendry/cyberdream.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require('cyberdream').setup {
+  --       transparent = true,
+  --     }
+  --     require('core.ui').ColorMyWorkspace 'cyberdream'
+  --   end,
+  -- },
   -- {
   --   'ellisonleao/gruvbox.nvim',
   --   priority = 1000,
@@ -64,6 +67,22 @@ return {
   --       terminal_colors = false,
   --     }
   --     require('core.ui').ColorMyWorkspace 'gruvbox'
+  --   end,
+  -- },
+  -- {
+  --   'navarasu/onedark.nvim',
+  --   priority = 1000, -- Ensure it loads first
+  --   config = function()
+  --     require('onedark').setup {
+  --       style = 'darker',
+  --       term_colors = true,
+  --       transparency = true,
+  --       lualine = {
+  --         transparent = true, -- lualine center bar transparency
+  --       },
+  --     }
+  --
+  --     require('core.ui').ColorMyWorkspace 'onedark'
   --   end,
   -- },
   {

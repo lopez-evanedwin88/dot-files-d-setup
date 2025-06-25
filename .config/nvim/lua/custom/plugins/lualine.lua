@@ -52,14 +52,45 @@ local themes = {
   },
 }
 
+-- -- Function to get the current mode indicator as a single character
+local function mode()
+  -- Map of modes to their respective shorthand indicators
+  local mode_map = {
+    n = 'N', -- Normal mode
+    i = 'I', -- Insert mode
+    v = 'V', -- Visual mode
+    [''] = 'V', -- Visual block mode
+    V = 'V', -- Visual line mode
+    c = 'C', -- Command-line mode
+    no = 'N', -- NInsert mode
+    s = 'S', -- Select mode
+    S = 'S', -- Select line mode
+    ic = 'I', -- Insert mode (completion)
+    R = 'R', -- Replace mode
+    Rv = 'R', -- Virtual Replace mode
+    cv = 'C', -- Command-line mode
+    ce = 'C', -- Ex mode
+    r = 'R', -- Prompt mode
+    rm = 'M', -- More mode
+    ['r?'] = '?', -- Confirm mode
+    ['!'] = '!', -- Shell mode
+    t = 'T', -- Terminal mode
+  }
+  -- Return the mode shorthand or [UNKNOWN] if no match
+  return mode_map[vim.fn.mode()] or '[UNKNOWN]'
+end
+
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
-  opts = {
-    options = {
-      theme = 'auto',
-    },
-  },
+  config = function()
+    require('lualine').setup {
+      options = {
+        theme = 'auto',
+      },
+      sections = { lualine_a = { mode } },
+    }
+  end,
   -- opts = {
   --   options = {
   --     icons_enabled = true,
