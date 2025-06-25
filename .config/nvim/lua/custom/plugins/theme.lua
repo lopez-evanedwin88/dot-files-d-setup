@@ -30,21 +30,21 @@ return {
   --     require('core.ui').ColorMyWorkspace 'vague'
   --   end,
   -- },
-  {
-    'catppuccin/nvim',
-    priority = 1000,
-    config = function()
-      require('catppuccin').setup {
-        flavour = 'auto', -- latte, frappe, macchiato, mocha
-        background = { -- :h background
-          light = 'latte',
-          dark = 'mocha',
-        },
-        transparent_background = true, -- Key for transparency
-      }
-      require('core.ui').ColorMyWorkspace 'catppuccin-mocha'
-    end,
-  },
+  -- {
+  --   'catppuccin/nvim',
+  --   priority = 1000,
+  --   config = function()
+  --     require('catppuccin').setup {
+  --       flavour = 'auto', -- latte, frappe, macchiato, mocha
+  --       background = { -- :h background
+  --         light = 'latte',
+  --         dark = 'mocha',
+  --       },
+  --       transparent_background = true, -- Key for transparency
+  --     }
+  --     require('core.ui').ColorMyWorkspace 'catppuccin-mocha'
+  --   end,
+  -- },
   -- { "embark-theme/vim" },
   -- { 'AbdelrahmanDwedar/awesome-nvim-colorschemes' },
   -- {
@@ -69,22 +69,19 @@ return {
   --     require('core.ui').ColorMyWorkspace 'gruvbox'
   --   end,
   -- },
-  -- {
-  --   'navarasu/onedark.nvim',
-  --   priority = 1000, -- Ensure it loads first
-  --   config = function()
-  --     require('onedark').setup {
-  --       style = 'darker',
-  --       term_colors = true,
-  --       transparency = true,
-  --       lualine = {
-  --         transparent = true, -- lualine center bar transparency
-  --       },
-  --     }
-  --
-  --     require('core.ui').ColorMyWorkspace 'onedark'
-  --   end,
-  -- },
+  {
+    'navarasu/onedark.nvim',
+    priority = 1000, -- Ensure it loads first
+    config = function()
+      require('onedark').setup {
+        style = 'darker',
+        term_colors = true,
+        transparency = true,
+      }
+
+      require('core.ui').ColorMyWorkspace 'onedark'
+    end,
+  },
   {
     'tjdevries/colorbuddy.nvim',
     config = function()

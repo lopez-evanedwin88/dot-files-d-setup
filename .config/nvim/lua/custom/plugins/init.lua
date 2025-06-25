@@ -59,4 +59,8 @@ return {
   {
     'RRethy/vim-illuminate',
   },
+  {
+    'szymonwilczek/vim-be-better',
+    config = function() end,
+  },
 }
