@@ -63,4 +63,11 @@ return {
     'szymonwilczek/vim-be-better',
     config = function() end,
   },
+  {
+    'sotte/presenting.nvim',
+    opts = {
+      -- fill in your options here. See :help Presenting.config
+    },
+    cmd = { 'Presenting' },
+  },
 }

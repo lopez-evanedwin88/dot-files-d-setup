@@ -1,11 +1,15 @@
 return {
   -- Themes
-  -- {
-  -- 	"rebelot/kanagawa.nvim",
-  -- 	config = function()
-  -- 		require("core.ui").ColorMyWorkspace("kanagawa")
-  -- 	end,
-  -- },
+  {
+    'rebelot/kanagawa.nvim',
+    priority = 1000,
+    config = function()
+      require('kanagawa').setup {
+        transparent = true,
+      }
+      require('core.ui').ColorMyWorkspace 'kanagawa'
+    end,
+  },
   -- { "shaunsingh/nord.nvim" },
   -- {
   --   'folke/tokyonight.nvim',
@@ -69,19 +73,19 @@ return {
   --     require('core.ui').ColorMyWorkspace 'gruvbox'
   --   end,
   -- },
-  {
-    'navarasu/onedark.nvim',
-    priority = 1000, -- Ensure it loads first
-    config = function()
-      require('onedark').setup {
-        style = 'darker',
-        term_colors = true,
-        transparency = true,
-      }
-
-      require('core.ui').ColorMyWorkspace 'onedark'
-    end,
-  },
+  -- {
+  --   'navarasu/onedark.nvim',
+  --   priority = 1000, -- Ensure it loads first
+  --   config = function()
+  --     require('onedark').setup {
+  --       style = 'darker',
+  --       term_colors = true,
+  --       transparency = true,
+  --     }
+  --
+  --     require('core.ui').ColorMyWorkspace 'onedark'
+  --   end,
+  -- },
   {
     'tjdevries/colorbuddy.nvim',
     config = function()
