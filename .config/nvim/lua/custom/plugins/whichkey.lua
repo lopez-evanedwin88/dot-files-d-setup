@@ -219,7 +219,7 @@ local mappings = {
   -- ["u"] = { "<cmd>lua require('undotree').toggle()<CR>", "Undo-Tree" }, -- Undo History
 
   -- Display all buffer
-  -- ['bb'] = { '<cmd>Telescope buffers<cr>', 'Find' },
+  ['<leader>bb'] = { '<cmd>Telescope buffers<cr>', 'Find' },
 
   --Dimiss noice
   -- ['nd'] = { '<cmd>NoiceDismiss<cr>', 'Dimiss Noice Message' },
