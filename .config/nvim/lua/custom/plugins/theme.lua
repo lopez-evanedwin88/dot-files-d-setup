@@ -6,6 +6,25 @@ return {
     config = function()
       require('kanagawa').setup {
         transparent = true,
+        colors = {
+          theme = {
+            wave = {
+              ui = {
+                bg_gutter = 'none',
+                bg_m3 = 'none',
+                bg_p1 = 'none',
+                float = {
+                  bg = 'none',
+                },
+              },
+            },
+            all = {
+              ui = {
+                bg_gutter = 'none',
+              },
+            },
+          },
+        },
       }
       require('core.ui').ColorMyWorkspace 'kanagawa'
     end,

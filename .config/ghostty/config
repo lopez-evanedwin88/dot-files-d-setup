@@ -44,14 +44,14 @@
 title = 👻
 macos-titlebar-style = transparent
 macos-titlebar-proxy-icon = hidden
-#background-opacity = 0.6
+background-opacity = 0.6
 macos-window-shadow = false
 #theme = Builtin Pastel Dark
 # theme = catppuccin-mocha
 #theme = catppuccin-frappe
 #theme = 0x96f
 theme = xcodedarkhc
-#background-blur-radius = 20
+background-blur-radius = 20
 mouse-hide-while-typing = true
 window-decoration = true
 #font-family = "JetBrains Mono"

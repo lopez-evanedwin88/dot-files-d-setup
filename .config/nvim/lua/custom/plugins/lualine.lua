@@ -84,11 +84,54 @@ return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
   config = function()
+    local kanagawa_colors = require('kanagawa.colors').setup({ theme = 'wave' }).palette
     require('lualine').setup {
       options = {
-        theme = 'auto',
+        theme = {
+          normal = {
+            a = { fg = kanagawa_colors.crystalBlue, gui = 'bold' },
+            b = { fg = kanagawa_colors.crystalBlue },
+            c = { fg = kanagawa_colors.fujiWhite, bg = 'none' },
+          },
+          insert = {
+            a = { fg = kanagawa_colors.springGreen, gui = 'bold' },
+          },
+          visual = {
+            a = { fg = kanagawa_colors.oniViolet, gui = 'bold' },
+          },
+          replace = {
+            a = { fg = kanagawa_colors.samuraiRed, gui = 'bold' },
+          },
+          command = {
+            a = { fg = kanagawa_colors.boatYellow2, gui = 'bold' },
+          },
+          inactive = {
+            a = { fg = kanagawa_colors.fujiGray, bg = 'none' },
+            b = { fg = kanagawa_colors.fujiGray, bg = 'none' },
+            c = { fg = kanagawa_colors.fujiGray, bg = 'none' },
+          },
+        },
       },
-      sections = { lualine_a = { mode } },
+      sections = {
+        lualine_a = { { mode, color = { bg = 'nil' } } },
+        lualine_b = {
+          { 'branch', color = { bg = 'nil' } },
+          { 'diff', color = { bg = 'nil' } },
+          { 'diagnostics', color = { bg = 'nil' } },
+        },
+        lualine_c = { { 'filename', color = { bg = 'nil' } } },
+        lualine_x = {
+          { 'encoding', color = { bg = 'nil' } },
+          { 'fileformat', color = { bg = 'nil' } },
+          { 'filetype', color = { bg = 'nil' } },
+        },
+        lualine_y = {
+          { 'progress', color = { bg = 'nil' } },
+        },
+        lualine_z = {
+          { 'location', color = { bg = 'nil' } },
+        },
+      },
     }
   end,
   -- opts = {
