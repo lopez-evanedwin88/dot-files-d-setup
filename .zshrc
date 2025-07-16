@@ -120,17 +120,18 @@ fi
 # Customize fzf keybindings
 if command -v fzf &>/dev/null; then
   # Unbind Tab to preserve Zsh completion
-  bindkey -r '^I'
   # Bind fzf explicitly
   bindkey -M emacs '^R' fzf-history-widget
   bindkey -M viins '^R' fzf-history-widget
-  bindkey -M emacs '^T' fzf-file-widget
-  bindkey -M viins '^T' fzf-file-widget
-  bindkey -M emacs '^I' fzf-cd-widget
-  bindkey -M viins '^I' fzf-cd-widget
+  bindkey -M emacs '^F' fzf-file-widget
+  bindkey -M viins '^F' fzf-file-widget
   # Bind Tab to Zsh completion
-  # bindkey -M emacs '^I' complete-word
-  # bindkey -M viins '^I' complete-word
+  bindkey -M emacs '\t' autosuggest-accept
+  bindkey -M viins '\t' autosuggest-accept
+  bindkey -M emacs '^T' fzf-cd-widget
+  bindkey -M viins '^T' fzf-cd-widget
+  bindkey -M emacs '^ ' expand-or-complete
+  bindkey -M viins '^ ' expand-or-complete
 fi
 
 # Initialize starship prompt
