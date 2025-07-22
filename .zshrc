@@ -121,6 +121,7 @@ fi
 if command -v fzf &>/dev/null; then
   # Unbind Tab to preserve Zsh completion
   # Bind fzf explicitly
+  bindkey -r '^R'
   bindkey -M emacs '^R' fzf-history-widget
   bindkey -M viins '^R' fzf-history-widget
   bindkey -M emacs '^F' fzf-file-widget

@@ -70,4 +70,7 @@ return {
     },
     cmd = { 'Presenting' },
   },
+  {
+    'numToStr/Comment.nvim',
+  },
 }

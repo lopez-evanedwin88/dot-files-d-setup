@@ -14,7 +14,6 @@ require('lazy').setup {
     'nvim-treesitter/nvim-treesitter-textobjects',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
   },
-  { 'JoosepAlviste/nvim-ts-context-commentstring' },
   {
     'kdheepak/lazygit.nvim',
     -- optional for floating window border decoration
