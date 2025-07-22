@@ -1,5 +1,4 @@
 local mappings = {
-
   ['<leader>k'] = { '<cmd>bdelete<CR>', 'Kill Buffer' }, -- Close current file
   ['<leader>p'] = { '<cmd>Lazy<CR>', 'Plugin Manager' }, -- Invoking plugin manager
   -- ['q'] = { '<cmd>wqall!<CR>', 'Quit' }, -- Quit Neovim after saving the file
@@ -83,13 +82,16 @@ local mappings = {
       w = { '<cmd>Lspsaga show_workspace_diagnostics<cr>', 'Show Workspace Diagnostics' },
       K = { '<cmd>Lspsaga hover_doc<cr>', 'Go to / Display definition' },
     },
-    s = {
-      name = 'Flash',
-      s = { "<cmd>lua require('flash').jump() <cr>", 'Flash Jump' },
-      t = { "<cmd>lua require('flash').treesitter() <cr>", 'Flash Treesitter' },
-      r = { "<cmd>lua require('flash').treesitter_search() <cr>", 'Flash Treesitter Search' },
-    },
   },
+
+  ['s'] = {
+    name = 'Flash',
+    s = { "<cmd>lua require('flash').jump() <cr>", 'Flash Jump' },
+    t = { "<cmd>lua require('flash').treesitter() <cr>", 'Flash Treesitter' },
+    -- r = { "<cmd>lua require('flash').treesitter_search() <cr>", "Flash Treesitter Search" },
+  },
+
+  ['-'] = { '<cmd>:Ex<cr>', 'NetRw Explorer' },
   -- Telescope
   -- f = {
   --   name = 'File Search',

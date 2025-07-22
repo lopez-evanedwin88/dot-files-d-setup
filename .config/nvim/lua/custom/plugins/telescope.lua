@@ -61,6 +61,9 @@ return {
         git_bcommits = {
           theme = 'ivy',
         },
+        buffers = {
+          theme = 'ivy',
+        },
       },
       extensions = {
         ['ui-select'] = {

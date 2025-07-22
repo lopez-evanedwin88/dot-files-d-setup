@@ -7,7 +7,12 @@ return {
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically  -- See `:help gitsigns` to understand what the configuration keys do
   -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = { signs = false },
+  },
   {
     'andymass/vim-matchup',
     setup = function()
@@ -55,5 +60,16 @@ return {
     keys = {
       { '<leader>u', '<cmd>UndotreeToggle<CR>', desc = 'Toggle Undotree' },
     },
+  },
+  {
+    'szymonwilczek/vim-be-better',
+    config = function() end,
+  },
+  {
+    'sotte/presenting.nvim',
+    opts = {
+      -- fill in your options here. See :help Presenting.config
+    },
+    cmd = { 'Presenting' },
   },
 }
