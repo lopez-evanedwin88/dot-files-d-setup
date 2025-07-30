@@ -128,8 +128,14 @@ if command -v fzf &>/dev/null; then
   bindkey -M emacs '^[c' fzf-cd-widget
   bindkey -M viins '^[c' fzf-cd-widget
   # Bind Tab to Zsh completion
-  bindkey -M emacs '^I' complete-word
-  bindkey -M viins '^I' complete-word
+  # bindkey -M emacs '^I' complete-word
+  # bindkey -M viins '^I' complete-word
+  bindkey -M emacs '\t' autosuggest-accept
+  bindkey -M viins '\t' autosuggest-accept
+  # bindkey -M emacs '^T' fzf-cd-widget
+  # bindkey -M viins '^T' fzf-cd-widget
+  bindkey -M emacs '^ ' expand-or-complete
+  bindkey -M viins '^ ' expand-or-complete
 fi
 
 # Initialize starship prompt
