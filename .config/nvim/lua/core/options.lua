@@ -232,6 +232,7 @@ opt.hlsearch = true -- Set highlight on search
 opt.autoindent = true -- copy indent from current line when starting new one
 opt.backspace = 'indent,eol,start' -- allow backspace on
 opt.cmdheight = 1 -- more space in the neovim command line for displaying messages
+opt.winborder = "rounded"
 
 -- if vim.fn.has 'nvim-0.10' == 1 then
 --   opt.smoothscroll = true
