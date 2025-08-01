@@ -24,45 +24,13 @@ return {
   },
   config = function()
     require('telescope').setup {
-      defaults = {
-        layout_strategy = 'horizontal',
+      defaults = require('telescope.themes').get_ivy {
         mappings = {
           i = {
             ['<C-k>'] = require('telescope.actions').move_selection_previous, -- move to prev result
             ['<C-j>'] = require('telescope.actions').move_selection_next, -- move to next result
             ['<C-l>'] = require('telescope.actions').select_default, -- open file
           },
-        },
-      },
-      pickers = {
-        find_files = {
-          theme = 'ivy',
-          file_ignore_patterns = { 'node_modules', '.git', '.venv' },
-          hidden = true,
-        },
-        oldfiles = {
-          theme = 'ivy',
-        },
-        live_grep = {
-          theme = 'ivy',
-        },
-        git_files = {
-          theme = 'ivy',
-        },
-        git_commits = {
-          theme = 'ivy',
-        },
-        git_branches = {
-          theme = 'ivy',
-        },
-        git_status = {
-          theme = 'ivy',
-        },
-        git_bcommits = {
-          theme = 'ivy',
-        },
-        buffers = {
-          theme = 'ivy',
         },
       },
       extensions = {

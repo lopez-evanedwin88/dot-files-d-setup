@@ -209,7 +209,7 @@ opt.scrolloff = 4 -- Lines of context
 opt.sessionoptions = { 'buffers', 'curdir', 'tabpages', 'winsize', 'help', 'globals', 'skiprtp', 'folds' }
 opt.shiftround = true -- Round indent
 opt.shiftwidth = 2 -- Size of an indent
-opt.shortmess:append { W = true, I = true, c = true, C = true }
+-- opt.shortmess:append { W = true, I = true, c = true, C = true }
 opt.showmode = true -- Dont show mode since we have a statusline
 opt.sidescrolloff = 8 -- Columns of context
 opt.signcolumn = 'yes' -- Always show the signcolumn, otherwise it would shift the text each time
@@ -236,6 +236,7 @@ opt.hlsearch = true -- Set highlight on search
 opt.autoindent = true -- copy indent from current line when starting new one
 opt.backspace = 'indent,eol,start' -- allow backspace on
 opt.cmdheight = 1 -- more space in the neovim command line for displaying messages
+opt.statusline = ' %f %m%r%h  %=  %{&ft}  %{&fenc}  %l:%c '
 -- opt.winborder = "rounded"
 
 -- if vim.fn.has 'nvim-0.10' == 1 then
@@ -252,4 +253,3 @@ opt.cmdheight = 1 -- more space in the neovim command line for displaying messag
 vim.g.markdown_recommended_style = 0
 
 return {}
-
