@@ -118,15 +118,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
--- LazyVim auto format
-vim.g.autoformat = true
-
--- LazyVim picker to use.
--- Can be one of: telescope, fzf
--- Leave it to "auto" to automatically use the picker
--- enabled with `:LazyExtras`
-vim.g.lazyvim_picker = 'auto'
-
 -- LazyVim root dir detection
 -- Each entry can be:
 -- * the name of a detector function like `lsp` or `cwd`
@@ -139,13 +130,13 @@ vim.g.root_spec = { 'lsp', { '.git', 'lua' }, 'cwd' }
 --  * editorPreset to nvim-remote
 --  * enables nerd font icons
 -- Set to false to disable.
-vim.g.lazygit_config = true
+vim.g.lazygit_config = false
 
 -- Options for the LazyVim statuscolumn
-vim.g.lazyvim_statuscolumn = {
-  folds_open = false, -- show fold sign when fold is open
-  folds_githl = false, -- highlight fold sign with git sign color
-}
+-- vim.g.lazyvim_statuscolumn = {
+--   folds_open = false, -- show fold sign when fold is open
+--   folds_githl = false, -- highlight fold sign with git sign color
+-- }
 
 -- Optionally setup the terminal to use
 -- This sets `vim.o.shell` and does some additional configuration for:
@@ -177,14 +168,14 @@ opt.conceallevel = 0 -- so that `` is visible in markdown files
 opt.confirm = true -- Confirm to save changes before exiting modified buffer
 opt.cursorline = true -- Enable highlighting of the current line
 opt.expandtab = true -- Use spaces instead of tabs
-opt.fillchars = {
-  foldopen = '',
-  foldclose = '',
-  fold = ' ',
-  foldsep = ' ',
-  diff = '╱',
-  eob = ' ',
-}
+-- opt.fillchars = {
+--   foldopen = '',
+--   foldclose = '',
+--   fold = ' ',
+--   foldsep = ' ',
+--   diff = '╱',
+--   eob = ' ',
+-- }
 opt.foldcolumn = '1' -- '0' is not bad
 opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 opt.foldlevelstart = 99
@@ -239,15 +230,15 @@ opt.cmdheight = 1 -- more space in the neovim command line for displaying messag
 opt.statusline = ' %f %m%r%h  %=  %{&ft}  %{&fenc}  %l:%c '
 -- opt.winborder = "rounded"
 
--- if vim.fn.has 'nvim-0.10' == 1 then
---   opt.smoothscroll = true
---   opt.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
---   opt.foldmethod = 'expr'
---   opt.foldtext = ''
--- else
---   opt.foldmethod = 'indent'
---   opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
--- end
+if vim.fn.has 'nvim-0.10' == 1 then
+  opt.smoothscroll = true
+  opt.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
+  opt.foldmethod = 'expr'
+  opt.foldtext = ''
+else
+  opt.foldmethod = 'indent'
+  opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
+end
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
