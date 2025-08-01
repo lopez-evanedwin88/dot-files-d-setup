@@ -34,6 +34,6 @@ return {
       },
     },
     snippets = { enabled = true },
-    notifier = { enabled = true },
+    notifier = { enabled = false },
   },
 }

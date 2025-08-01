@@ -185,7 +185,11 @@ opt.fillchars = {
   diff = '╱',
   eob = ' ',
 }
-opt.foldlevel = 99
+opt.foldcolumn = '1' -- '0' is not bad
+opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+opt.foldlevelstart = 99
+opt.foldenable = true
+
 -- opt.formatexpr = "v:lua.require'lazyvim.util'.format.formatexpr()"
 opt.formatoptions = 'jcroqlnt' -- tcqj
 opt.grepformat = '%f:%l:%c:%m'
@@ -205,8 +209,8 @@ opt.scrolloff = 4 -- Lines of context
 opt.sessionoptions = { 'buffers', 'curdir', 'tabpages', 'winsize', 'help', 'globals', 'skiprtp', 'folds' }
 opt.shiftround = true -- Round indent
 opt.shiftwidth = 2 -- Size of an indent
--- opt.shortmess:append { W = true, I = true, c = true, C = true }
-opt.showmode = false -- Dont show mode since we have a statusline
+opt.shortmess:append { W = true, I = true, c = true, C = true }
+opt.showmode = true -- Dont show mode since we have a statusline
 opt.sidescrolloff = 8 -- Columns of context
 opt.signcolumn = 'yes' -- Always show the signcolumn, otherwise it would shift the text each time
 opt.smartcase = true -- Don't ignore case with capitals
@@ -232,7 +236,7 @@ opt.hlsearch = true -- Set highlight on search
 opt.autoindent = true -- copy indent from current line when starting new one
 opt.backspace = 'indent,eol,start' -- allow backspace on
 opt.cmdheight = 1 -- more space in the neovim command line for displaying messages
-opt.winborder = "rounded"
+-- opt.winborder = "rounded"
 
 -- if vim.fn.has 'nvim-0.10' == 1 then
 --   opt.smoothscroll = true
@@ -248,3 +252,4 @@ opt.winborder = "rounded"
 vim.g.markdown_recommended_style = 0
 
 return {}
+

@@ -18,7 +18,7 @@ return { -- Autoformat
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { c = true, cpp = true, ruby = true }
+        local disable_filetypes = { c = true, cpp = true, ruby = true, python = true }
         if disable_filetypes[vim.bo[bufnr].filetype] then
           return nil
         else
@@ -41,6 +41,8 @@ return { -- Autoformat
         javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
 
         ruby = { 'rubyfmt' },
+        http = { 'kulala-fmt' },
+        json = { 'fixjson' },
       },
       formatters = {
         swiftlint = {
