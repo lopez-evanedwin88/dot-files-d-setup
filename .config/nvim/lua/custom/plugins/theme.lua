@@ -1,34 +1,34 @@
 return {
   -- Themes
-  {
-    'rebelot/kanagawa.nvim',
-    priority = 1000,
-    config = function()
-      require('kanagawa').setup {
-        transparent = true,
-        colors = {
-          theme = {
-            wave = {
-              ui = {
-                bg_gutter = 'none',
-                bg_m3 = 'none',
-                bg_p1 = 'none',
-                float = {
-                  bg = 'none',
-                },
-              },
-            },
-            all = {
-              ui = {
-                bg_gutter = 'none',
-              },
-            },
-          },
-        },
-      }
-      require('assets.ui').ColorMyWorkspace 'kanagawa'
-    end,
-  },
+  -- {
+  --   'rebelot/kanagawa.nvim',
+  --   priority = 1000,
+  --   config = function()
+  --     require('kanagawa').setup {
+  --       transparent = true,
+  --       colors = {
+  --         theme = {
+  --           wave = {
+  --             ui = {
+  --               bg_gutter = 'none',
+  --               bg_m3 = 'none',
+  --               bg_p1 = 'none',
+  --               float = {
+  --                 bg = 'none',
+  --               },
+  --             },
+  --           },
+  --           all = {
+  --             ui = {
+  --               bg_gutter = 'none',
+  --             },
+  --           },
+  --         },
+  --       },
+  --     }
+  --     require('assets.ui').ColorMyWorkspace 'kanagawa'
+  --   end,
+  -- },
   -- { "shaunsingh/nord.nvim" },
   -- {
   --   'folke/tokyonight.nvim',
@@ -44,15 +44,19 @@ return {
   --     require('core.ui').ColorMyWorkspace 'tokyonight'
   --   end,
   -- },
-  -- {
-  --   'vague2k/vague.nvim',
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     require('vague').setup()
-  --     require('core.ui').ColorMyWorkspace 'vague'
-  --   end,
-  -- },
+  {
+    'vague2k/vague.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('vague').setup {
+        transparent = true,
+      }
+      require('assets.ui').ColorMyWorkspace 'vague'
+      vim.cmd ':hi statusline guibg=NONE'
+      vim.cmd ':hi WinBar guibg=NONE'
+    end,
+  },
   -- {
   --   'catppuccin/nvim',
   --   priority = 1000,
@@ -102,7 +106,11 @@ return {
   --       transparency = true,
   --     }
   --
-  --     require('core.ui').ColorMyWorkspace 'onedark'
+  --     require('assets.ui').ColorMyWorkspace 'onedark'
+  --
+  --     vim.cmd(":hi statusline guibg=NONE")
+  --     vim.cmd(":hi WinBar guibg=NONE")
+  --
   --   end,
   -- },
   -- {
