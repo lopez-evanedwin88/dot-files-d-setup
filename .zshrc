@@ -8,6 +8,8 @@ fi
 
 # Editor and aliases
 export EDITOR='nvim'
+# Needed when initiating podman in local environment from a docker based project
+export DOCKER_HOST=unix://$HOME/.local/share/containers/podman/machine/podman.sock
 alias v='nvim'
 alias android-pixel7-api34="cd $ANDROID_HOME/emulator && ./emulator -avd Pixel_7_API_34"
 alias lesgd="cd ~/Development"
@@ -115,6 +117,17 @@ fi
 #   bindkey -M viins '^S' fzf-history-widget
 #   bindkey -M vicmd '^S' fzf-history-widget
 # fi
+
+# Fzf cd widget searching ability params
+# export FZF_ALT_C_COMMAND='find . -type d -not -path "*/\.git/*"'
+# export FZF_ALT_C_COMMAND='find . -type d --max-depth 3'
+export FZF_ALT_C_COMMAND='find . -type d \
+  -not -path "*/.git*" \
+  -not -path "*/node_modules*" \
+  -not -path "*/venv*" \
+  2>/dev/null'
+# less noise
+# export FZF_ALT_C_COMMAND='find . -maxdepth 3 -type d 2>/dev/null' 
 
 # Customize fzf keybindings
 if command -v fzf &>/dev/null; then

@@ -118,6 +118,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
+vim.g.netrw_banner = 0 -- Disables the Netrw banner. Press 'I' to toggle.
+
 -- LazyVim root dir detection
 -- Each entry can be:
 -- * the name of a detector function like `lsp` or `cwd`

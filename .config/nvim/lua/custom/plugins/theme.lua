@@ -44,19 +44,29 @@ return {
   --     require('core.ui').ColorMyWorkspace 'tokyonight'
   --   end,
   -- },
+  -- {
+  --   'vague2k/vague.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require('vague').setup {
+  --       transparent = true,
+  --     }
+  --     require('assets.ui').ColorMyWorkspace 'vague'
+  --     vim.cmd ':hi statusline guibg=NONE'
+  --     vim.cmd ':hi WinBar guibg=NONE'
+  --   end,
+  -- },
   {
-    'vague2k/vague.nvim',
-    lazy = false,
+    'panjakub/cobaltnext.nvim',
     priority = 1000,
     config = function()
-      require('vague').setup {
-        transparent = true,
-      }
-      require('assets.ui').ColorMyWorkspace 'vague'
+      require('assets.ui').ColorMyWorkspace 'cobaltnext_dark'
       vim.cmd ':hi statusline guibg=NONE'
       vim.cmd ':hi WinBar guibg=NONE'
     end,
   },
+
   -- {
   --   'catppuccin/nvim',
   --   priority = 1000,

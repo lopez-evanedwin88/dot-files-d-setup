@@ -84,11 +84,34 @@ local mappings = {
     },
   },
 
-  ['s'] = {
-    name = 'Flash',
-    s = { "<cmd>lua require('flash').jump() <cr>", 'Flash Jump' },
-    t = { "<cmd>lua require('flash').treesitter() <cr>", 'Flash Treesitter' },
-    -- r = { "<cmd>lua require('flash').treesitter_search() <cr>", "Flash Treesitter Search" },
+  -- ['s'] = {
+  --   name = 'Flash',
+  --   s = { "<cmd>lua require('flash').jump() <cr>", 'Flash Jump' },
+  --   t = { "<cmd>lua require('flash').treesitter() <cr>", 'Flash Treesitter' },
+  --   -- r = { "<cmd>lua require('flash').treesitter_search() <cr>", "Flash Treesitter Search" },
+  -- },
+
+  ['<leader>z'] = {
+    name = 'True Zen',
+    -- ['n'] = { '<cmd>:TZNarrow<cr>', 'TZ Narrow', mode = 'n' },
+    -- ['v'] = { "<cmd>'<,'>TZNarrow<cr>", 'TZ Narrow Selected', mode = 'v' },
+    ['f'] = {
+      function()
+        local tzfocus = require 'true-zen.focus'
+        local status = pcall(function()
+          tzfocus.toggle()
+          error 'Something went wrong'
+        end)
+
+        if not status and tzfocus.running then
+          tzfocus.on()
+        end
+      end,
+      'TZ Focus',
+      mode = 'n',
+    },
+    -- ['m'] = { '<cmd>:TZMinimalist<cr>', 'TZ Minimalist', mode = 'n' },
+    -- ['a'] = { '<cmd>:TZAtaraxis<cr>', 'TZ Ataraxis', mode = 'n' },
   },
 
   ['-'] = { '<cmd>:Ex<cr>', 'NetRw Explorer' },
