@@ -26,6 +26,9 @@ return {
     require('telescope').setup {
       defaults = require('telescope.themes').get_ivy {
         mappings = {
+          n = {
+            ['<c-d>'] = require('telescope.actions').delete_buffer,
+          },
           i = {
             ['<C-k>'] = require('telescope.actions').move_selection_previous, -- move to prev result
             ['<C-j>'] = require('telescope.actions').move_selection_next, -- move to next result
@@ -57,6 +60,13 @@ return {
     vim.keymap.set('n', '<leader>fe', builtin.resume, { desc = '[S]earch [R]esume' })
     vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+    -- vim.keymap.set('n', '<leader><leader>', function()
+    --   builtin.buffers {
+    --     sort_mru = true,
+    --     sort_lastused = true,
+    --     ignore_current_buffer = true, -- Optional: to exclude the current buffer from the list
+    --   }
+    -- end, { desc = '[ ] Find existing buffers' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()

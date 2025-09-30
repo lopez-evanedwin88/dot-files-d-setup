@@ -150,4 +150,5 @@ vim.keymap.set('n', '<leader>4', "<cmd>lua require'bufferline'.go_to(4, true)<cr
 vim.keymap.set('n', '<leader>5', "<cmd>lua require'bufferline'.go_to(5, true)<cr>", { noremap = true, silent = false })
 vim.keymap.set('n', '<leader>6', "<cmd>lua require'bufferline'.go_to(6, true)<cr>", { noremap = true, silent = false })
 
+vim.keymap.set('n', 'gb', ':buffers<CR>:buffer<Space>', { desc = 'List and switch buffers' })
 return {}
