@@ -45,9 +45,13 @@ alias gb='git branch'
 alias gp='git pull'
 alias gs='git status'
 alias gps='git push'
+alias gcb='git checkout $(git branch -a | fzf)'
 
 # Lazydocker
 alias lzd='lazydocker'
+
+# Podman
+alias pms='podman ps'
 
 # eza (modern ls replacement)
 if command -v eza &>/dev/null; then
