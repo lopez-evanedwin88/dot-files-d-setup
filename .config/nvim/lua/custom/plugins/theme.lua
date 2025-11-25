@@ -53,19 +53,15 @@ return {
   --       transparent = true,
   --     }
   --     require('assets.ui').ColorMyWorkspace 'vague'
-  --     vim.cmd ':hi statusline guibg=NONE'
-  --     vim.cmd ':hi WinBar guibg=NONE'
   --   end,
   -- },
-  {
-    'panjakub/cobaltnext.nvim',
-    priority = 1000,
-    config = function()
-      require('assets.ui').ColorMyWorkspace 'cobaltnext_dark'
-      vim.cmd ':hi statusline guibg=NONE'
-      vim.cmd ':hi WinBar guibg=NONE'
-    end,
-  },
+  -- {
+  --   'panjakub/cobaltnext.nvim',
+  --   priority = 1000,
+  --   config = function()
+  --     require('assets.ui').ColorMyWorkspace 'cobaltnext_dark'
+  --   end,
+  -- },
 
   -- {
   --   'catppuccin/nvim',
@@ -140,4 +136,17 @@ return {
   --     Group.new('Visual', colors.none, colors.base1, styles.reverse)
   --   end,
   -- },
+  {
+    'projekt0n/github-nvim-theme',
+    name = 'github-theme',
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      require('github-theme').setup { options = {
+        transparent = true,
+      } }
+
+      require('assets.ui').ColorMyWorkspace 'github_dark_dimmed'
+    end,
+  },
 }

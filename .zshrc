@@ -52,6 +52,9 @@ alias lzd='lazydocker'
 
 # Podman
 alias pms='podman ps'
+alias pidb='podman exec -it issue-manager-db bash'
+alias pibe='podman exec -it issue-manager-backend bash'
+alias pife='podman exec -it issue-manager-frontend /bin/sh'
 
 # eza (modern ls replacement)
 if command -v eza &>/dev/null; then

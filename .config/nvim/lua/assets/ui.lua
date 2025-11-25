@@ -5,6 +5,8 @@ function M.ColorMyWorkspace(color)
   vim.cmd('colorscheme ' .. color)
   vim.cmd 'highlight TelescopeBorder guibg=none'
   vim.cmd 'highlight TelescopeTitle guibg=none'
+  vim.cmd ':hi statusline guibg=NONE guifg=#adbac7'
+  vim.cmd ':hi WinBar guibg=NONE'
   vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
   vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
   vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = 'none' })
