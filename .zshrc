@@ -10,9 +10,15 @@ fi
 export EDITOR='nvim'
 # Needed when initiating podman in local environment from a docker based project
 export DOCKER_HOST=unix://$HOME/.local/share/containers/podman/machine/podman.sock
+export XDG_CONFIG_HOME=$HOME/dotfiles
 alias v='nvim'
 alias android-pixel7-api34="cd $ANDROID_HOME/emulator && ./emulator -avd Pixel_7_API_34"
 alias lesgd="cd ~/Development"
+
+# Open buffer line in editor
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^e' edit-command-line 
 
 # History settings
 HISTFILE=~/.zsh_history
@@ -47,8 +53,10 @@ alias gs='git status'
 alias gps='git push'
 alias gcb='git checkout $(git branch -a | fzf)'
 
-# Lazydocker
+# LazyTUI's
 alias lzd='lazydocker'
+alias lzg='lazygit'
+alias lzq='lazysql'
 
 # Podman
 alias pms='podman ps'

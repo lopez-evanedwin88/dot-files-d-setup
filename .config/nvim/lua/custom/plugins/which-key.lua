@@ -53,7 +53,7 @@ local mappings = {
     g = {
       name = 'Git dependencies',
       g = { '<cmd>lua _LAZYGIT_TOGGLE()<cr>', 'LazyGit' }, -- LazyGit UI
-      s = { '<cmd>Git<cr>', 'Fugitive' }, -- Fugitive
+      s = { '<cmd>Git<cr><c-w>12-', 'Fugitive' }, -- Fugitive
     },
   },
   ['<leader>l'] = {
