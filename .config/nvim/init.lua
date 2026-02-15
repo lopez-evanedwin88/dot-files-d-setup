@@ -1,4 +1,4 @@
-vim.g.python3_host_prog = '~/Development/suggestify-v2/issue-manager/venv/bin/python'
+vim.g.python3_host_prog = '/Users/evanlopez/Development/suggestify-v2/issue-manager/backend/.venv/bin/python'
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then

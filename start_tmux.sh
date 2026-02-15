@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the session name to '~'
-SESSION_NAME="|"
+SESSION_NAME=" "
 
 # Create a new tmux session named '~' and start with Zsh
 tmux new-session -d -s "$SESSION_NAME" 'zsh'  # First window with Zsh

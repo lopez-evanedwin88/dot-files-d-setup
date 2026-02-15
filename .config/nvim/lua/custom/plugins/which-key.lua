@@ -94,7 +94,7 @@ local mappings = {
     name = 'True Zen',
     -- ['n'] = { '<cmd>:TZNarrow<cr>', 'TZ Narrow', mode = 'n' },
     -- ['v'] = { "<cmd>'<,'>TZNarrow<cr>", 'TZ Narrow Selected', mode = 'v' },
-    ['f'] = {
+    ['m'] = {
       function()
         local tzfocus = require 'true-zen.focus'
         local status = pcall(function()

@@ -52,6 +52,9 @@ alias gp='git pull'
 alias gs='git status'
 alias gps='git push'
 alias gcb='git checkout $(git branch -a | fzf)'
+alias gsl='git stash list'
+alias gsa0='git stash apply stash@{0}'
+alias gss='git stash save'
 
 # LazyTUI's
 alias lzd='lazydocker'
