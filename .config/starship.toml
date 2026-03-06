@@ -98,7 +98,7 @@ format = 'via [$symbol]($style)'
 format = 'via [$symbol]($style)'
 
 [raku]
-format = 'via [$symbol]($style)'
+format = 'via [$symbol]($sty;qae)'
 
 [red]
 format = 'via [$symbol]($style)'
@@ -129,3 +129,21 @@ format = 'via [$symbol]($style)'
 
 [zig]
 format = 'via [$symbol]($style)'
+
+[package]
+format = 'via [🎁 $version](208 bold)'
+
+[aws]
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+style = 'bold blue'
+symbol = '🅰 '
+
+[docker_context]
+format = 'via [🐋 $context](blue bold)'
+
+# [kubernetes]
+# format = 'on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
+# disabled = false
+# contexts = [
+#   { context_pattern = "dev.local.cluster.k8s", style = "green", symbol = "💔 " },
+# ]

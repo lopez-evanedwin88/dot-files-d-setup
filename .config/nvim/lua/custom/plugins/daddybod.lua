@@ -1,20 +1,48 @@
 return {
-  'kristijanhusak/vim-dadbod-ui',
-  dependencies = {
-    { 'tpope/vim-dadbod', lazy = true },
-    { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true }, -- Optional
-  },
-  cmd = {
-    'DBUI',
-    'DBUIToggle',
-    'DBUIAddConnection',
-    'DBUIFindBuffer',
-  },
-  init = function()
-    -- Your DBUI configuration
-    vim.g.db_ui_use_nerd_fonts = 1
-    vim.g.db_ui_save_location = '~/.config/nvim/db_connections.json' -- Save location
-    -- vim.g.db_ui_win_position = "right"
-    -- vim.g.db_ui_win_width = 100 -- Set width in columns
-  end,
+  -- {
+  --   'kristijanhusak/vim-dadbod-ui',
+  --   dependencies = {
+  --     { 'tpope/vim-dadbod', lazy = true },
+  --     { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true }, -- Optional
+  --   },
+  --   cmd = {
+  --     'DBUI',
+  --     'DBUIToggle',
+  --     'DBUIAddConnection',
+  --     'DBUIFindBuffer',
+  --   },
+  --   init = function()
+  --     -- Your DBUI configuration
+  --     vim.g.db_ui_use_nerd_fonts = 1
+  --     vim.g.db_ui_save_location = '~/.config/nvim/db_connections.json' -- Save location
+  --     -- vim.g.db_ui_win_position = "right"
+  --     -- vim.g.db_ui_win_width = 100 -- Set width in columns
+  --   end,
+  -- },
+  -- {
+  --   'kndndrj/nvim-dbee',
+  --   build = function()
+  --     -- Install tries to automatically detect the install method.
+  --     -- if it fails, try calling it with one of these parameters:
+  --     --    "curl", "wget", "bitsadmin", "go"
+  --     require('dbee').install()
+  --   end,
+  --   dependencies = {
+  --     'MunifTanjim/nui.nvim',
+  --   },
+  --   config = function()
+  --     -- require('dbee').setup {
+  --     --   sources = {
+  --     --     require('dbee.sources').MemorySource:new {
+  --     --       {
+  --     --         id = 'IM_STG',
+  --     --         url = 'postgres://issuemanager:JpndLdcn3V,g!8kbo+Jk1ac!ac@sgtfy-issue-manager-stg-2wecytr93k54day5rab7.postgres.db.aci.apple.com:5302/issuemanager',
+  --     --         type = 'postgres',
+  --     --         name = 'IM-STG',
+  --     --       },
+  --     --     },
+  --     --   },
+  --     -- }
+  --   end,
+  -- },
 }

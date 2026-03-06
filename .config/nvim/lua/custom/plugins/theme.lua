@@ -154,9 +154,10 @@ return {
     priority = 1000,
     config = function()
       require('vscode').setup {
-        transparent = true,
+        transparent = false,
       }
-      require('assets.ui').ColorMyWorkspace 'vscode'
+      -- require('assets.ui').ColorMyWorkspace 'vscode'
+      require('assets.ui').ColorMyWorkspace 'torte'
     end,
   },
 }

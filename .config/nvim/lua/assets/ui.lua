@@ -15,6 +15,7 @@ function M.ColorMyWorkspace(color)
   vim.api.nvim_set_hl(0, 'TelescopePromptBorder', { bg = 'none' })
   vim.api.nvim_set_hl(0, 'TelescopePreviewTitle', { bg = 'none' })
   vim.api.nvim_set_hl(0, 'TelescopeResultsTitle', { bg = 'none' })
+  vim.api.nvim_set_hl(0, 'WinSeparator', { fg = '#5d4d7a', bg = 'none' })
 end
 
 return M
