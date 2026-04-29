@@ -1,34 +1,34 @@
 return {
   -- Themes
-  {
-    'rebelot/kanagawa.nvim',
-    priority = 1000,
-    config = function()
-      require('kanagawa').setup {
-        transparent = true,
-        colors = {
-          theme = {
-            wave = {
-              ui = {
-                bg_gutter = 'none',
-                bg_m3 = 'none',
-                bg_p1 = 'none',
-                float = {
-                  bg = 'none',
-                },
-              },
-            },
-            all = {
-              ui = {
-                bg_gutter = 'none',
-              },
-            },
-          },
-        },
-      }
-      require('core.ui').ColorMyWorkspace 'kanagawa'
-    end,
-  },
+  -- {
+  --   'rebelot/kanagawa.nvim',
+  --   priority = 1000,
+  --   config = function()
+  --     require('kanagawa').setup {
+  --       transparent = true,
+  --       colors = {
+  --         theme = {
+  --           wave = {
+  --             ui = {
+  --               bg_gutter = 'none',
+  --               bg_m3 = 'none',
+  --               bg_p1 = 'none',
+  --               float = {
+  --                 bg = 'none',
+  --               },
+  --             },
+  --           },
+  --           all = {
+  --             ui = {
+  --               bg_gutter = 'none',
+  --             },
+  --           },
+  --         },
+  --       },
+  --     }
+  --     require('assets.ui').ColorMyWorkspace 'kanagawa'
+  --   end,
+  -- },
   -- { "shaunsingh/nord.nvim" },
   -- {
   --   'folke/tokyonight.nvim',
@@ -49,10 +49,20 @@ return {
   --   lazy = false,
   --   priority = 1000,
   --   config = function()
-  --     require('vague').setup()
-  --     require('core.ui').ColorMyWorkspace 'vague'
+  --     require('vague').setup {
+  --       transparent = true,
+  --     }
+  --     require('assets.ui').ColorMyWorkspace 'vague'
   --   end,
   -- },
+  -- {
+  --   'panjakub/cobaltnext.nvim',
+  --   priority = 1000,
+  --   config = function()
+  --     require('assets.ui').ColorMyWorkspace 'cobaltnext_dark'
+  --   end,
+  -- },
+
   -- {
   --   'catppuccin/nvim',
   --   priority = 1000,
@@ -102,7 +112,11 @@ return {
   --       transparency = true,
   --     }
   --
-  --     require('core.ui').ColorMyWorkspace 'onedark'
+  --     require('assets.ui').ColorMyWorkspace 'onedark'
+  --
+  --     vim.cmd(":hi statusline guibg=NONE")
+  --     vim.cmd(":hi WinBar guibg=NONE")
+  --
   --   end,
   -- },
   -- {
@@ -119,7 +133,31 @@ return {
   --
   --     Group.new('CursorLine', colors.none, colors.base03, styles.none, colors.base1)
   --     Group.new('CursorLineNr', colors.yellow, colors.black, styles.none, colors.base1)
-  --     -- Group.new('Visual', colors.none, colors.base1, styles.reverse)
+  --     Group.new('Visual', colors.none, colors.base1, styles.reverse)
   --   end,
   -- },
+  -- {
+  --   'projekt0n/github-nvim-theme',
+  --   name = 'github-theme',
+  --   lazy = false, -- make sure we load this during startup if it is your main colorscheme
+  --   priority = 1000, -- make sure to load this before all the other start plugins
+  --   config = function()
+  --     require('github-theme').setup { options = {
+  --       transparent = true,
+  --     } }
+  --
+  --     require('assets.ui').ColorMyWorkspace 'github_dark_dimmed'
+  --   end,
+  -- },
+  {
+    'Mofiqul/vscode.nvim',
+    priority = 1000,
+    config = function()
+      require('vscode').setup {
+        transparent = false,
+      }
+      -- require('assets.ui').ColorMyWorkspace 'vscode'
+      require('core.ui').ColorMyWorkspace 'torte'
+    end,
+  },
 }

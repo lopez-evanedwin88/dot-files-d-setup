@@ -23,6 +23,26 @@ return {
     'onsails/lspkind.nvim', -- vs-code like pictograms
   },
   config = function()
+    -- Neovim 0.11 compat: nvim-cmp passes 'NONE' as fg/bg which is no longer valid
+    local hl = require 'cmp.utils.highlight'
+    hl.inherit = function(name, source, settings)
+      for _, key in ipairs(hl.keys) do
+        if not settings[key] then
+          local v = vim.fn.synIDattr(vim.fn.hlID(source), key)
+          if key == 'fg' or key == 'bg' then
+            local n = tonumber(v, 10)
+            v = type(n) == 'number' and n or v
+          else
+            v = v == 1
+          end
+          if v ~= '' then
+            settings[key] = v
+          end
+        end
+      end
+      vim.api.nvim_set_hl(0, name, settings)
+    end
+
     local luasnip = require 'luasnip'
     local lspkind = require 'lspkind'
 
