@@ -8,10 +8,17 @@ fi
 
 # Editor and aliases
 export EDITOR='nvim'
+# Needed when initiating podman in local environment from a docker based project
+export DOCKER_HOST=unix://$HOME/.local/share/containers/podman/machine/podman.sock
+export XDG_CONFIG_HOME=$HOME/dotfiles
 alias v='nvim'
-alias ff='dir=$(find . | fzf-tmux -p --reverse); nvim "$dir"'
 alias android-pixel7-api34="cd $ANDROID_HOME/emulator && ./emulator -avd Pixel_7_API_34"
 alias lesgd="cd ~/Development"
+
+# Open buffer line in editor
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^e' edit-command-line 
 
 # History settings
 HISTFILE=~/.zsh_history
@@ -44,9 +51,21 @@ alias gb='git branch'
 alias gp='git pull'
 alias gs='git status'
 alias gps='git push'
+alias gcb='git checkout $(git branch -a | fzf)'
+alias gsl='git stash list'
+alias gsa0='git stash apply stash@{0}'
+alias gss='git stash save'
 
-# Lazydocker
+# LazyTUI's
 alias lzd='lazydocker'
+alias lzg='lazygit'
+alias lzq='lazysql'
+
+# Podman
+alias pms='podman ps'
+alias pidb='podman exec -it issue-manager-db bash'
+alias pibe='podman exec -it issue-manager-backend bash'
+alias pife='podman exec -it issue-manager-frontend /bin/sh'
 
 # eza (modern ls replacement)
 if command -v eza &>/dev/null; then
@@ -117,20 +136,35 @@ fi
 #   bindkey -M vicmd '^S' fzf-history-widget
 # fi
 
+# Fzf cd widget searching ability params
+# export FZF_ALT_C_COMMAND='find . -type d -not -path "*/\.git/*"'
+# export FZF_ALT_C_COMMAND='find . -type d --max-depth 3'
+export FZF_ALT_C_COMMAND='find . -type d \
+  -not -path "*/.git*" \
+  -not -path "*/node_modules*" \
+  -not -path "*/venv*" \
+  2>/dev/null'
+# less noise
+# export FZF_ALT_C_COMMAND='find . -maxdepth 3 -type d 2>/dev/null' 
+
 # Customize fzf keybindings
 if command -v fzf &>/dev/null; then
   # Unbind Tab to preserve Zsh completion
+  bindkey -r '^I'
   # Bind fzf explicitly
-  bindkey -r '^R'
   bindkey -M emacs '^R' fzf-history-widget
   bindkey -M viins '^R' fzf-history-widget
-  bindkey -M emacs '^F' fzf-file-widget
-  bindkey -M viins '^F' fzf-file-widget
+  bindkey -M emacs '^T' fzf-file-widget
+  bindkey -M viins '^T' fzf-file-widget
+  bindkey -M emacs '^[c' fzf-cd-widget
+  bindkey -M viins '^[c' fzf-cd-widget
   # Bind Tab to Zsh completion
+  # bindkey -M emacs '^I' complete-word
+  # bindkey -M viins '^I' complete-word
   bindkey -M emacs '\t' autosuggest-accept
   bindkey -M viins '\t' autosuggest-accept
-  bindkey -M emacs '^T' fzf-cd-widget
-  bindkey -M viins '^T' fzf-cd-widget
+  # bindkey -M emacs '^T' fzf-cd-widget
+  # bindkey -M viins '^T' fzf-cd-widget
   bindkey -M emacs '^ ' expand-or-complete
   bindkey -M viins '^ ' expand-or-complete
 fi
