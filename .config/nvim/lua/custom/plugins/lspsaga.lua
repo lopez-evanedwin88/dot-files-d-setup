@@ -10,6 +10,7 @@ return {
         enable = false,
       },
       finder = {
+        layout = 'normal',
         max_height = 0.6,
         keys = {
           vsplit = 'v',
