@@ -21,6 +21,10 @@ return {
       'benfowler/telescope-luasnip.nvim',
     },
     'onsails/lspkind.nvim', -- vs-code like pictograms
+    {
+      url = 'git@github.pie.apple.com:AI-for-Devs-Community/nexus.nvim.git',
+      branch = 'dev',
+    },
   },
   config = function()
     -- Neovim 0.11 compat: nvim-cmp passes 'NONE' as fg/bg which is no longer valid
@@ -275,12 +279,12 @@ return {
       --   end,
       -- },
       sources = cmp.config.sources {
+        { name = 'cmp_nexus'},
         { name = 'nvim_lsp' },
         { name = 'luasnip' }, -- snippets
         { name = 'buffer' }, -- text within current buffer
         { name = 'path' }, -- file system paths
       },
-
       -- sources = {
       -- 	{
       -- 		name = "nvim_lsp",

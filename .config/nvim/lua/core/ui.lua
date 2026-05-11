@@ -20,6 +20,10 @@ function M.ColorMyWorkspace(color)
   vim.api.nvim_set_hl(0, 'TelescopePreviewTitle', { bg = 'none' })
   vim.api.nvim_set_hl(0, 'TelescopeResultsTitle', { bg = 'none' })
   vim.api.nvim_set_hl(0, 'WinSeparator', { fg = '#5d4d7a', bg = 'none' })
+
+  vim.api.nvim_set_hl(0, "TabLine", { bg = "none" })
+  -- vim.api.nvim_set_hl(0, "TabLineSel", { bg = "none" })
+  vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
 end
 
 return M
