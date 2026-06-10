@@ -14,6 +14,18 @@ export XDG_CONFIG_HOME=$HOME/dotfiles
 alias v='nvim'
 alias android-pixel7-api34="cd $ANDROID_HOME/emulator && ./emulator -avd Pixel_7_API_34"
 alias lesgd="cd ~/Development"
+# alias rsc="~/Development/suggestify-v2/"
+# Dynamic make function
+rsm() {
+    # 1. Define your target project path
+    local TARGET_DIR="~/Development/suggestify-v2/"
+
+    # 2. Save current directory, jump to target, and run make
+    # (cd "$TARGET_DIR" && make "$@")
+
+    # 2. Execute make directly at that path
+    make -C "$TARGET_DIR" "$@"
+}
 
 # Open buffer line in editor
 autoload -Uz edit-command-line

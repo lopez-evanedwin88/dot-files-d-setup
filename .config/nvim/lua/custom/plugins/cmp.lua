@@ -279,7 +279,7 @@ return {
       --   end,
       -- },
       sources = cmp.config.sources {
-        { name = 'cmp_nexus'},
+        { name = 'cmp_nexus' },
         { name = 'nvim_lsp' },
         { name = 'luasnip' }, -- snippets
         { name = 'buffer' }, -- text within current buffer

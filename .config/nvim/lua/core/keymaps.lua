@@ -101,7 +101,7 @@ keymap('n', '<leader>se', '<C-w>=', opts) -- make split windows equal width & he
 keymap('n', '<leader>xs', ':close<CR>', opts) -- close current split window
 
 -- -- tabs
--- keymap('n', '<leader>to', ':tabnew<CR>', opts) -- open new tab
+keymap('n', '<leader>to', ':tabnew<CR>', opts) -- open new tab
 -- keymap('n', '<leader>tx', ':tabclose<CR>', opts) -- close current tab
 -- keymap('n', '<leader>tn', ':tabn<CR>', opts) --  go to next tab
 -- keymap('n', '<leader>tp', ':tabp<CR>', opts) --  go to previous tab
